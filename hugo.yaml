@@ -1,0 +1,59 @@
+baseURL: https://dorayaki.co
+languageCode: en-us
+title: dorayaki
+theme: ["PaperMod"]
+
+enableEmoji: true
+mainsections: ["posts"]
+minify:
+  disableXML: true
+languages:
+  en:
+    languageName: "English"
+    weight: 1
+    menu:
+      main:
+        - name: Posts
+          url: posts
+          weight: 1
+        - name: Reading
+          url: reading
+          weight: 2
+        - name: About me
+          url: about
+          weight: 3
+params:
+  defaultTheme: "dark"
+  author: "Flavio Miyamoto"
+  comments: true
+  displayFullLangName: true
+  disableThemeToggle: true
+  ShowShareButtons: false
+  ShowReadingTime: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowRssButtonInSectionTermList: false
+  ShowAllPagesInArchive: true
+  ShowPageNums: true
+  ShowToc: true
+  profileMode:
+    enabled: true
+    title: >
+      Flavio Miyamoto 
+
+        ミヤモト・フラヴィオ
+    subtitle: "Writing bad code at Amazon"
+    imageUrl: "static/avatar.jpg"
+    imageTitle: Avatar
+  socialIcons:
+      - name: github
+        title: My GitHub profile
+        url: "https://github.com/fsmiamoto"
+      - name: LinkedIn
+        title: My LinkedIn profile
+        url: "https://www.linkedin.com/in/fsmiamoto/"
+  assets:
+    favicon: "static/favicon_16.png"
+    favicon16x16: "static/favicon_16.png"
+    favicon32x32: "static/favicon_32.png"

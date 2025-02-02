@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Embedded Systems on dorayaki</title>
+    <link>https://dorayaki.co/tags/embedded-systems/</link>
+    <description>Recent content in Embedded Systems on dorayaki</description>
+    <generator>Hugo -- 0.143.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dorayaki.co/tags/embedded-systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Embedded Systems are awesome!</title>
+      <link>https://dorayaki.co/posts/embedded-systems-are-awesome/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://dorayaki.co/posts/embedded-systems-are-awesome/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just finished my class of Embedded Systems in my university and
+I have to say, it was an awesome experience.&lt;/p&gt;
+&lt;p&gt;As a guy that really likes low level stuff, understanding how a micro controller
+works internally to get to the point of running an actual Real Time Operating System (RTOS)
+was really enjoyable.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s go through some of things you can learn while studying Embedded Systems :D&lt;/p&gt;
+&lt;h2 id=&#34;bare-metal&#34;&gt;Bare Metal?&lt;/h2&gt;
+&lt;p&gt;We all have to start somewhere and that&amp;rsquo;s bare metal, running code without
+an actual operating system behind it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

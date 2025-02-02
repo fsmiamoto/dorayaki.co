@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>dorayaki</title>
+    <link>https://dorayaki.co/</link>
+    <description>Recent content on dorayaki</description>
+    <generator>Hugo -- 0.143.0</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 29 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dorayaki.co/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Learn how to type!</title>
+      <link>https://dorayaki.co/posts/learn-how-to-type/</link>
+      <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://dorayaki.co/posts/learn-how-to-type/</guid>
+      <description>&lt;p&gt;With the end of 2021 just around the corner, I took the time to reflect about some of the
+things I&amp;rsquo;ve deliberately practiced in the last couple of years and one of them definitely
+stands out: Learning how to touch type properly.&lt;/p&gt;
+&lt;p&gt;Although I&amp;rsquo;ve played around with computers pretty much my entire life, my typing skills
+were not really great (about 40 WPM at best) back in 2019.&lt;/p&gt;
+&lt;p&gt;It was during a Computer Architecture class where I observed a colleague
+with really great typing skills and asked him about it. He mentioned that he practiced
+using a website called &lt;a href=&#34;https://www.typingclub.com/&#34;&gt;TypingClub&lt;/a&gt;
+and by looking at him typing the results really showed.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Embedded Systems are awesome!</title>
+      <link>https://dorayaki.co/posts/embedded-systems-are-awesome/</link>
+      <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
+      <guid>https://dorayaki.co/posts/embedded-systems-are-awesome/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve just finished my class of Embedded Systems in my university and
+I have to say, it was an awesome experience.&lt;/p&gt;
+&lt;p&gt;As a guy that really likes low level stuff, understanding how a micro controller
+works internally to get to the point of running an actual Real Time Operating System (RTOS)
+was really enjoyable.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s go through some of things you can learn while studying Embedded Systems :D&lt;/p&gt;
+&lt;h2 id=&#34;bare-metal&#34;&gt;Bare Metal?&lt;/h2&gt;
+&lt;p&gt;We all have to start somewhere and that&amp;rsquo;s bare metal, running code without
+an actual operating system behind it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About me</title>
+      <link>https://dorayaki.co/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dorayaki.co/about/</guid>
+      <description>&lt;p&gt;Howdy!&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m currently working as a Software Development Engineer II at Amazon in Tokyo, Japan.&lt;/p&gt;
+&lt;p&gt;In my (not so long yet) career, I&amp;rsquo;ve worked on a variety of projects, including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Developing an app for COVID-19 vaccinations&lt;/li&gt;
+&lt;li&gt;Improving how an edge computing provider distributes configurations across hundreds of servers&lt;/li&gt;
+&lt;li&gt;Helping to launch Amazon Furusato in Japan&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;My academic background is in Electronics Engineering, so I also enjoy playing around with hardware.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Reading List</title>
+      <link>https://dorayaki.co/reading/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://dorayaki.co/reading/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Last update at 2023-12-17&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Below there&amp;rsquo;s a non exhaustive list some of the books I&amp;rsquo;ve read or that I&amp;rsquo;m currently reading &amp;#x1f4d6;&lt;/p&gt;
+&lt;h3 id=&#34;current&#34;&gt;Current&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/6spoWeG&#34;&gt;The Principles of Product Development Flow: Second Generation Lean Product Development&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/bVUOXrf&#34;&gt;Just Enough Software Architecture: A Risk-Driven Approach&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/02cIHXS&#34;&gt;Crafting Interpreters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Software-Engineering-Google-Lessons-Programming/dp/1492082791&#34;&gt;Software Engineering at Google&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321&#34;&gt;Designing Data-Intensive Applications&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;finished&#34;&gt;Finished&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/2lkv6Ky&#34;&gt;Tidy First? A Personal Exercise in Empirical Software Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/2lkv6Ky&#34;&gt;Team Topologies: Organizing Business and Technology Teams for Fast Flow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/cuD1Ynx&#34;&gt;Working Backwards: Insights, Stories, and Secrets from Inside Amazon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/jc6c0uH&#34;&gt;Accelerate: The Science of Lean Software and DevOps: Building and Scaling High Performing Technology Organizations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/2tj8a9a&#34;&gt;Essentialism: The Disciplined Pursuit of Less&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/bCWB0S2&#34;&gt;The Psychology of Money&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Annotated-Turing-Through-Historic-Computability/dp/0470229055&#34;&gt;The Annotated Turing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/hEjk3K1&#34;&gt;Building Microservices: Designing Fine-Grained Systems&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/2UAmNhz&#34;&gt;The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/gc7GYrZ&#34;&gt;Linked: How Everything Is Connected to Everything Else and What It Means for Business, Science, and Everyday Life&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/65ecQ5l&#34;&gt;Value Proposition Design: How to Create Products and Services Customers Want&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/gMbKa4P&#34;&gt;Fermat&amp;rsquo;s Enigma: The Epic Quest to Solve the World&amp;rsquo;s Greatest Mathematical Problem&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/a1vMDZD&#34;&gt;Grokking algorithms: An illustrated guide for programmers and other curious people&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/iJXcAb5&#34;&gt;Sapiens: A Brief History of Humankind&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/0hMu308&#34;&gt;Skin in the Game: Hidden Asymmetries in Daily Life&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/4OFEe20&#34;&gt;Antifragile: Things That Gain from Disorder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/3LqEUfH&#34;&gt;Nonviolent Communication: A Language of Life&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Unit-Testing-Principles-Practices-Patterns/dp/1617296279&#34;&gt;Unit Testing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Philosophy-Software-Design-John-Ousterhout/dp/1732102201&#34;&gt;A Philosophy of Software Design&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/AI-Superpowers-China-Silicon-Valley/dp/132854639X/ref=sr_1_2?keywords=ai&amp;amp;qid=1639970271&amp;amp;s=books&amp;amp;sr=1-2&#34;&gt;AI Superpowers: China, Silicon Valley, And the New World Order&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Atomic-Habits-Proven-Build-Break/dp/0735211299&#34;&gt;Atomic Habits&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Barking-Wrong-Tree-Surprising-Everything/dp/0062416049/ref=sr_1_1?keywords=barking&amp;#43;up&amp;#43;the&amp;#43;wrong&amp;#43;tree&amp;amp;qid=1639970482&amp;amp;s=books&amp;amp;sr=1-1&#34;&gt;Barking Up the Wrong Tree&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164/ref=sr_1_1?keywords=clean&amp;#43;architecture&amp;amp;qid=1639970009&amp;amp;s=books&amp;amp;sr=1-1&#34;&gt;Clean Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=sr_1_1?keywords=clean&amp;#43;code&amp;amp;qid=1639969983&amp;amp;s=books&amp;amp;sr=1-1&#34;&gt;Clean Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Cloud-Native-DevOps-Kubernetes-Applications/dp/1492040762/ref=sr_1_3?keywords=cloud&amp;#43;native&amp;amp;qid=1639969870&amp;amp;s=books&amp;amp;sr=1-3&#34;&gt;Cloud Native DevOps with Kubernetes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Deep-Work-Cal-Newport-audiobook/dp/B0189PVAWY/ref=sr_1_1?keywords=deep&amp;#43;work&amp;amp;qid=1639970348&amp;amp;s=books&amp;amp;sr=1-1&#34;&gt;Deep Work: Rules for Focused Success in a Distracted World&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://a.co/d/3Dn45RE&#34;&gt;Unscripted: Life, liberty and the pursuit of entrepreneurship&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Grokking-Algorithms-illustrated-programmers-curious/dp/1617292230/ref=sr_1_1?keywords=grokking&amp;#43;algorithms&amp;amp;qid=1639970097&amp;amp;s=books&amp;amp;sr=1-1&#34;&gt;Grokking Algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../books/low-level-programming&#34;&gt;Low-Level Programming: C, Assembly, and Program Execution on Intel® 64 Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature/dp/0134757599/ref=sr_1_1?keywords=refactoring&amp;amp;qid=1639969952&amp;amp;s=books&amp;amp;sr=1-1&#34;&gt;Refactoring (2nd Edition)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/So-Good-They-Cant-Ignore-You-audiobook/dp/B009CMO8JQ&#34;&gt;So Good They Can&amp;rsquo;t Ignore You&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Programming-Language-Addison-Wesley-Professional-Computing/dp/0134190440/ref=sr_1_2?keywords=go&amp;#43;programming&amp;amp;qid=1639970054&amp;amp;s=books&amp;amp;sr=1-2&#34;&gt;The Go Programming Language&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Lean-Startup-Entrepreneurs-Continuous-Innovation/dp/0307887898/ref=sr_1_1?keywords=lean&amp;#43;startup&amp;amp;qid=1639970247&amp;amp;s=books&amp;amp;sr=1-1&#34;&gt;The Lean Startup&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.amazon.com/Pragmatic-Programmer-journey-mastery-Anniversary/dp/0135957052/ref=sr_1_1?keywords=the&amp;#43;pragmatic&amp;#43;programmer&amp;amp;qid=1639969912&amp;amp;s=books&amp;amp;sr=1-1&#34;&gt;The Pragmatic Programmer (2nd edition)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+  </channel>
+</rss>
