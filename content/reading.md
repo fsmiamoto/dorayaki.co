@@ -2,18 +2,20 @@
 title: Reading List
 ---
 
-*Last update at 2023-12-17*
+*Last update at 2025-06-10*
 
-Below there's a non exhaustive list some of the books I've read or that I'm currently reading :book:
+Below there's a non-exhaustive list some of the books I've read or that I'm currently reading :book:
 
 ### Current
-- [The Principles of Product Development Flow: Second Generation Lean Product Development](https://a.co/d/6spoWeG)
 - [Just Enough Software Architecture: A Risk-Driven Approach](https://a.co/d/bVUOXrf)
 - [Crafting Interpreters](https://a.co/d/02cIHXS)
 - [Software Engineering at Google](https://www.amazon.com/Software-Engineering-Google-Lessons-Programming/dp/1492082791)
-- [Designing Data-Intensive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
 
 ### Finished
+- [Waltzing with Bears: Managing Risk on Software Projects](https://www.amazon.com/Waltzing-Bears-Managing-Software-Projects/dp/0932633609)
+- [The Order of Time](https://www.amazon.com/Order-Time-Carlo-Rovelli/dp/073521610X)
+- [Designing Data-Intensive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
+- [The Principles of Product Development Flow: Second Generation Lean Product Development](https://a.co/d/6spoWeG)
 - [Tidy First? A Personal Exercise in Empirical Software Design](https://a.co/d/2lkv6Ky)
 - [Team Topologies: Organizing Business and Technology Teams for Fast Flow](https://a.co/d/2lkv6Ky)
 - [Working Backwards: Insights, Stories, and Secrets from Inside Amazon](https://a.co/d/cuD1Ynx)
