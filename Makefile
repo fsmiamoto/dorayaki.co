@@ -1,8 +1,8 @@
-dev:
-	hugo server --disableFastRender
-
 build:
 	hugo
+
+dev:
+	hugo server --disableFastRender
 
 deploy: build
 	scp -r public/* dorayaki.co:/var/www/dorayaki.co
