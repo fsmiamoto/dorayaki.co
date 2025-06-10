@@ -100,7 +100,7 @@ void main(void){
 ```
 Full code available [here](https://github.com/fsmiamoto/TM4C1294_Bare_IAR9/tree/main/Projects/Laborat%C3%B3rio_03)
 
-Well, it isn't much but it's a good staring point!
+Well, it isn't much but it's a good starting point!
 
 In this we had to *manually* initiate the hardware and enable interrupts - mostly in the `setUp` function -
 calling the appropriate functions made available by the chip vendor, Texas Instruments in
@@ -130,7 +130,7 @@ An example for a hard real time system is one that controls a safety critical sy
 as ABS.
 
 For soft real time, we can consider applications such as video streaming where not hitting
-the deadlines might cause some stutter but no one get's harmed with that, right? 
+the deadlines might cause some stutter but no one gets harmed with that, right? 
 
 > Ok, maybe the remote control might get thrown at the TV but still, no human injuries are
 expected :)
