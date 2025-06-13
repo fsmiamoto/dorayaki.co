@@ -44,7 +44,7 @@ params:
 
         ミヤモト・フラヴィオ
     subtitle: "Writing bad code at Amazon"
-    imageUrl: "static/avatar.jpg"
+    imageUrl: "static/avatar.png"
     imageTitle: Avatar
   socialIcons:
       - name: github
