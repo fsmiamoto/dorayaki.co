@@ -23,7 +23,7 @@ languages:
           url: about
           weight: 3
 params:
-  defaultTheme: "dark"
+  defaultTheme: "light"
   author: "Flavio Miyamoto"
   comments: true
   displayFullLangName: true
