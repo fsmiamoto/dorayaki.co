@@ -1,6 +1,6 @@
 +++
 title = "Book Recomendation: Waltzing With Bears: Managing Risk on Software Projects"
-date = "2021-12-29"
+date = "2025-06-14"
 tags = []
 categories = []
 +++
