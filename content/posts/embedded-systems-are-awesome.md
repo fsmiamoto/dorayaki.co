@@ -1,9 +1,9 @@
-+++
-title = 'Embedded Systems are awesome!'
-date = "2021-09-04"
-tags = ['Embedded Systems']
-categories = []
-+++
+---
+title: 'Embedded Systems are awesome!'
+date: '2021-09-04'
+tags: ['Embedded Systems']
+categories: []
+---
 
 I've just finished my class of Embedded Systems in my university and
 I have to say, it was an awesome experience.
@@ -25,6 +25,7 @@ interrupts need to be handled.
 
 As an example of what it looks like, the code below shows a simple finite state machine 
 that goes through a Gray count and showing the count on the board's builtin LEDs:
+
 ```c
 #include <stdint.h>
 #include <stdbool.h>
@@ -98,6 +99,7 @@ void main(void){
   } 
 } 
 ```
+
 Full code available [here](https://github.com/fsmiamoto/TM4C1294_Bare_IAR9/tree/main/Projects/Laborat%C3%B3rio_03)
 
 Well, it isn't much but it's a good starting point!
@@ -204,6 +206,7 @@ void main(void) {
     ;
 }
 ```
+
 Full code available [here](https://github.com/fsmiamoto/TM4C1294_RTOS_IAR9/blob/main/Projects/Lab04/src/main.c)
 
 Here we can already see the advantages of using a RTOS since we don't need
@@ -253,8 +256,8 @@ The architecture of the code can be seen below:
 // Push buttons are active in 0
 #define ButtonPressed(b) !ButtonRead(b)
 
-#define notifySelectedWorker()                                                 \
-  osMessageQueuePut(workers[selected_worker].args.queue_id, &notification,     \
+#define notifySelectedWorker()                                                 \\
+  osMessageQueuePut(workers[selected_worker].args.queue_id, &notification,     \\
                     MSG_PRIO, osWaitForever)
 
 typedef enum {
@@ -432,7 +435,6 @@ void initializeManager(void) {
   manager.queue_id =
       osMessageQueueNew(MANAGER_QUEUE_SIZE, sizeof(button_event_t), NULL);
 }
-
 ```
 
 For this example we can see the use of some concurrency control mechanisms such as the

@@ -1,9 +1,9 @@
-+++
-title = "Learning languages is hard"
-date = "2025-06-22"
-tags = []
-categories = []
-+++
+---
+title: "Learning languages is hard"
+date: "2025-06-22"
+tags: []
+categories: []
+---
 
 Although I've been studying Japanese for almost 8 years at this point, I still feel like I don't know a lot of the "basic stuff."
 
