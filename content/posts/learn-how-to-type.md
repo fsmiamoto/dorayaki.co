@@ -1,9 +1,9 @@
-+++
-title = "Learn how to type!"
-date = "2021-12-29"
-tags = []
-categories = []
-+++
+---
+title: "Learn how to type!"
+date: "2021-12-29"
+tags: []
+categories: []
+---
 
 With the end of 2021 just around the corner, I took the time to reflect about some of the
 things I've deliberately practiced in the last couple of years and one of them definitely
