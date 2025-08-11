@@ -13,27 +13,28 @@ export default function Home() {
       <div className="space-y-8">
         <div>
           <ASCIIHeader text="DORAYAKI" />
-          
+
           <CommandPrompt command="whoami">
             <div className="space-y-2">
-              <div>Flavio Miyamoto</div>
-              <div className="text-terminal-gray">ミヤモト・フラヴィオ</div>
+              <div className="text-terminal-amber">Flavio Miyamoto</div>
+              <div className="text-terminal-amber">ミヤモト・フラヴィオ</div>
               <div className="text-terminal-amber">Software Development Engineer II at Amazon</div>
               <div className="text-terminal-gray">Tokyo, Japan</div>
+              <div className="text-terminal-gray">Writing terrible code for a living</div>
             </div>
           </CommandPrompt>
 
           <div className="flex gap-4 text-sm mt-4">
-            <Link 
-              href="https://github.com/fsmiamoto" 
+            <Link
+              href="https://github.com/fsmiamoto"
               className="text-terminal-amber hover:text-terminal-text transition-colors"
               target="_blank"
               rel="noopener noreferrer"
             >
               [github]
             </Link>
-            <Link 
-              href="https://www.linkedin.com/in/fsmiamoto/" 
+            <Link
+              href="https://www.linkedin.com/in/fsmiamoto/"
               className="text-terminal-amber hover:text-terminal-text transition-colors"
               target="_blank"
               rel="noopener noreferrer"
@@ -62,7 +63,7 @@ export default function Home() {
                   <span className="text-terminal-gray w-16">
                     {post.readingTime}
                   </span>
-                  <Link 
+                  <Link
                     href={`/posts/${post.slug}`}
                     className="text-terminal-text hover:text-terminal-amber transition-colors flex-1"
                   >
