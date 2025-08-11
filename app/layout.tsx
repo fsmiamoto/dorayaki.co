@@ -2,21 +2,21 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'dorayaki - Flavio Miyamoto',
-  description: 'Personal blog of Flavio Miyamoto - Software Engineer at Amazon',
+  title: 'dorayaki',
+  description: 'personal blog of a terrible engineer',
   authors: [{ name: 'Flavio Miyamoto' }],
   keywords: ['blog', 'programming', 'software engineering', 'embedded systems', 'technology'],
   openGraph: {
-    title: 'dorayaki - Flavio Miyamoto',
-    description: 'Personal blog of Flavio Miyamoto - Software Engineer at Amazon',
+    title: 'dorayaki',
+    description: 'personal blog of a terrible engineer',
     url: 'https://dorayaki.co',
     siteName: 'dorayaki',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'dorayaki - Flavio Miyamoto',
-    description: 'Personal blog of Flavio Miyamoto - Software Engineer at Amazon',
+    title: 'dorayaki',
+    description: 'personal blog of a terrible engineer',
   },
 }
 
