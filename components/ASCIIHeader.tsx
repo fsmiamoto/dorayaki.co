@@ -14,7 +14,7 @@ export default function ASCIIHeader({ text, className = '' }: ASCIIHeaderProps) 
   `
 
   return (
-    <div className={`ascii-art whitespace-pre text-xs sm:text-sm ${className}`}>
+    <div className={`ascii-art whitespace-pre text-[0.4rem] xs:text-[0.5rem] sm:text-xs md:text-sm overflow-x-auto ${className}`}>
       {text === 'DORAYAKI' ? asciiTitle : (
         <div className="text-lg font-bold">
           {`# ${text.toUpperCase()}`}

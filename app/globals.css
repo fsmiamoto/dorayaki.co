@@ -58,7 +58,7 @@
   }
   
   .terminal-content {
-    @apply p-6;
+    /* Padding now handled inline for responsiveness */
   }
   
   .cursor {

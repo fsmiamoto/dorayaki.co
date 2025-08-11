@@ -20,7 +20,7 @@ export default function TerminalWindow({ title = 'terminal', children, className
         </div>
         <div className="w-12"></div>
       </div>
-      <div className="terminal-content">
+      <div className="terminal-content px-2 py-4 sm:px-6 sm:py-6">
         {children}
       </div>
     </div>

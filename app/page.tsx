@@ -24,7 +24,7 @@ export default function Home() {
             </div>
           </CommandPrompt>
 
-          <div className="flex gap-4 text-sm mt-4">
+          <div className="flex gap-2 sm:gap-4 text-sm mt-4 flex-wrap">
             <Link
               href="https://github.com/fsmiamoto"
               className="text-terminal-amber hover:text-terminal-text transition-colors"
@@ -45,7 +45,7 @@ export default function Home() {
         </div>
 
         <CommandPrompt command="ls -la posts/" showCursor={false}>
-          <div className="space-y-2 font-mono text-sm">
+          <div className="space-y-2 font-mono text-xs sm:text-sm">
             <div className="text-terminal-gray">
               total {posts.length}
             </div>
@@ -53,24 +53,26 @@ export default function Home() {
               <div className="text-terminal-gray">No posts found. Checking content/posts directory...</div>
             ) : (
               posts.map((post, index) => (
-                <div key={post.slug} className="flex items-center gap-4">
-                  <span className="text-terminal-gray w-8">
-                    {String(index + 1).padStart(2, '0')}.
-                  </span>
-                  <span className="text-terminal-gray w-24">
-                    {post.formattedDate}
-                  </span>
-                  <span className="text-terminal-gray w-16">
-                    {post.readingTime}
-                  </span>
+                <div key={post.slug} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                  <div className="flex items-center gap-2 sm:gap-4">
+                    <span className="text-terminal-gray w-8 flex-shrink-0">
+                      {String(index + 1).padStart(2, '0')}.
+                    </span>
+                    <span className="text-terminal-gray w-20 sm:w-24 flex-shrink-0">
+                      {post.formattedDate}
+                    </span>
+                    <span className="text-terminal-gray w-12 sm:w-16 flex-shrink-0">
+                      {post.readingTime}
+                    </span>
+                  </div>
                   <Link
                     href={`/posts/${post.slug}`}
-                    className="text-terminal-text hover:text-terminal-amber transition-colors flex-1"
+                    className="text-terminal-text hover:text-terminal-amber transition-colors flex-1 min-w-0 break-words"
                   >
                     {post.frontMatter.title}
                   </Link>
                   {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-                    <div className="flex gap-2">
+                    <div className="flex gap-1 sm:gap-2 flex-wrap">
                       {post.frontMatter.tags.map(tag => (
                         <span key={tag} className="text-terminal-prompt text-xs">
                           #{tag.toLowerCase().replace(/\s+/g, '-')}
@@ -85,14 +87,14 @@ export default function Home() {
         </CommandPrompt>
 
         <CommandPrompt command="help" showCursor={false}>
-          <div className="space-y-2 text-sm">
-            <div className="flex gap-8">
+          <div className="space-y-2 text-xs sm:text-sm">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
               <Link href="/about" className="text-terminal-amber hover:text-terminal-text transition-colors">
                 cat about.md
               </Link>
               <span className="text-terminal-gray">- Learn about me</span>
             </div>
-            <div className="flex gap-8">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
               <Link href="/reading" className="text-terminal-amber hover:text-terminal-text transition-colors">
                 cat reading.md
               </Link>

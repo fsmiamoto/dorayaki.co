@@ -16,7 +16,7 @@ export default function CommandPrompt({
   showCursor = true 
 }: CommandPromptProps) {
   return (
-    <div className="flex flex-wrap items-start gap-1 font-mono">
+    <div className="flex flex-wrap items-start gap-1 font-mono text-xs sm:text-sm">
       <span className="prompt">
         {user}@dorayaki:{directory}$
       </span>
