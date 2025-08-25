@@ -51,4 +51,4 @@ with the resources we had and in the end it was great seeing everyone having a g
 In summary, this was a lesson to me that opportunities are everywhere, you just need to grab them and make the best
 out of them.
 
-![Furusato Team Photo](/furusato.jpg)
+![Team photo showing Furusato team members at Amazon Japan](/furusato.jpg)

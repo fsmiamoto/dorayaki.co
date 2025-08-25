@@ -1,5 +1,5 @@
 ---
-title: "Book Recomendation: Waltzing With Bears: Managing Risk on Software Projects"
+title: "Book Recommendation: Waltzing With Bears: Managing Risk on Software Projects"
 date: "2025-06-14"
 tags: []
 categories: []
