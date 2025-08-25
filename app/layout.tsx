@@ -6,6 +6,12 @@ export const metadata: Metadata = {
   description: 'personal blog of a terrible engineer',
   authors: [{ name: 'Flavio Miyamoto' }],
   keywords: ['blog', 'programming', 'software engineering', 'embedded systems', 'technology'],
+  icons: {
+    icon: [
+      { url: '/favicon_16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon_32.png', sizes: '32x32', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: 'dorayaki',
     description: 'personal blog of a terrible engineer',
