@@ -16,6 +16,12 @@ module.exports = {
           red: '#ff4444',
           blue: '#4499ff',
           gray: '#666666',
+          'gray-light': '#999999',
+          'gray-lighter': '#aaaaaa',
+          'green-muted': '#66cc66',
+          'cyan': '#66cccc',
+          'amber-muted': '#cc9900',
+          'white': '#ffffff',
           'window-bg': '#1a1a1a',
           'window-border': '#333333',
         }

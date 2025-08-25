@@ -66,7 +66,7 @@ export default async function PostPage({ params }: PageProps) {
                 <h1 className="text-2xl font-bold text-terminal-prompt mb-2">
                   {post.frontMatter.title}
                 </h1>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-terminal-gray">
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-terminal-white">
                   <span className="inline-flex items-center gap-1">
                     <span className="text-terminal-prompt">📅</span>
                     {post.formattedDate}
@@ -98,7 +98,7 @@ export default async function PostPage({ params }: PageProps) {
               <Link href="/" className="text-terminal-amber hover:text-terminal-text transition-colors">
                 ../
               </Link>
-              <span className="text-terminal-gray">- Back to home</span>
+              <span className="text-terminal-white">- Back to home</span>
             </div>
           </CommandPrompt>
         </div>

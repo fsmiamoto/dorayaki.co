@@ -19,8 +19,8 @@ export default function Home() {
               <div className="text-terminal-amber">Flavio Miyamoto</div>
               <div className="text-terminal-amber">ミヤモト・フラヴィオ</div>
               <div className="text-terminal-amber">Software Development Engineer II at Amazon</div>
-              <div className="text-terminal-gray">Tokyo, Japan</div>
-              <div className="text-terminal-gray">Writing terrible code for a living</div>
+              <div className="text-terminal-white">Tokyo, Japan</div>
+              <div className="text-terminal-white">Writing terrible code for a living</div>
             </div>
           </CommandPrompt>
 
@@ -55,13 +55,13 @@ export default function Home() {
               posts.map((post, index) => (
                 <div key={post.slug} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                   <div className="flex items-center gap-2 sm:gap-4">
-                    <span className="text-terminal-gray w-8 flex-shrink-0">
+                    <span className="text-terminal-white w-8 flex-shrink-0">
                       {String(index + 1).padStart(2, '0')}.
                     </span>
-                    <span className="text-terminal-gray w-20 sm:w-24 flex-shrink-0">
+                    <span className="text-terminal-white w-20 sm:w-24 flex-shrink-0">
                       {post.formattedDate}
                     </span>
-                    <span className="text-terminal-gray w-12 sm:w-16 flex-shrink-0">
+                    <span className="text-terminal-white w-12 sm:w-16 flex-shrink-0">
                       {post.readingTime}
                     </span>
                   </div>
@@ -92,13 +92,13 @@ export default function Home() {
               <Link href="/about" className="text-terminal-amber hover:text-terminal-text transition-colors">
                 cat about.md
               </Link>
-              <span className="text-terminal-gray">- Learn about me</span>
+              <span className="text-terminal-white">- Learn about me</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
               <Link href="/reading" className="text-terminal-amber hover:text-terminal-text transition-colors">
                 cat reading.md
               </Link>
-              <span className="text-terminal-gray">- My reading list</span>
+              <span className="text-terminal-white">- My reading list</span>
             </div>
           </div>
         </CommandPrompt>
