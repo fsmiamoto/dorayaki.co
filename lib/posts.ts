@@ -28,22 +28,17 @@ export function getAllPostSlugs(): string[] {
   }
   
   const fileNames = fs.readdirSync(postsDirectory)
-  console.log('Raw file names:', fileNames)
   const slugs = fileNames
     .filter(name => name.endsWith('.md') || name.endsWith('.mdx'))
     .map(name => name.replace(/\.mdx?$/, ''))
-  console.log('Generated slugs:', slugs)
   return slugs
 }
 
 export function getPostBySlug(slug: string): Post | null {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
-    console.log(`Trying to read: ${fullPath}`)
-    console.log(`File exists: ${fs.existsSync(fullPath)}`)
     
     if (!fs.existsSync(fullPath)) {
-      console.log(`File not found: ${fullPath}`)
       return null
     }
     
@@ -68,21 +63,15 @@ export function getPostBySlug(slug: string): Post | null {
 
 export function getAllPosts(): Post[] {
   const slugs = getAllPostSlugs()
-  console.log('Found slugs:', slugs)
-  console.log('Posts directory:', postsDirectory)
-  console.log('Posts directory exists:', fs.existsSync(postsDirectory))
   
   const posts = slugs
     .map(slug => {
-      console.log('Processing slug:', slug)
       const post = getPostBySlug(slug)
-      console.log('Post result:', post ? `${post.frontMatter.title}` : 'null')
       return post
     })
     .filter((post): post is Post => post !== null)
     .sort((a, b) => new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime())
   
-  console.log('Final posts:', posts.length)
   return posts
 }
 
