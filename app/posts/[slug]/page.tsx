@@ -2,6 +2,7 @@ import { getAllPostSlugs, getPostBySlug } from '@/lib/posts'
 import { MDXContent } from '@/lib/mdx'
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
+import BackNavigation from '@/components/BackNavigation'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
@@ -51,12 +52,7 @@ export default async function PostPage({ params }: PageProps) {
   return (
     <div className="space-y-6">
       <div className="mb-8">
-        <Link 
-          href="/" 
-          className="text-terminal-amber hover:text-terminal-text transition-colors text-sm"
-        >
-          ← cd ~/
-        </Link>
+        <BackNavigation />
       </div>
 
       <TerminalWindow title={`posts/${post.slug}.md`}>
@@ -70,13 +66,19 @@ export default async function PostPage({ params }: PageProps) {
                 <h1 className="text-2xl font-bold text-terminal-prompt mb-2">
                   {post.frontMatter.title}
                 </h1>
-                <div className="flex items-center gap-4 text-sm text-terminal-gray">
-                  <span>{post.formattedDate}</span>
-                  <span>{post.readingTime}</span>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-terminal-gray">
+                  <span className="inline-flex items-center gap-1">
+                    <span className="text-terminal-prompt">📅</span>
+                    {post.formattedDate}
+                  </span>
+                  <span className="inline-flex items-center gap-1">
+                    <span className="text-terminal-prompt">⏱️</span>
+                    {post.readingTime}
+                  </span>
                   {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {post.frontMatter.tags.map(tag => (
-                        <span key={tag} className="text-terminal-prompt">
+                        <span key={tag} className="text-terminal-prompt bg-terminal-window-bg px-2 py-1 rounded text-xs border border-terminal-window-border">
                           #{tag.toLowerCase().replace(/\s+/g, '-')}
                         </span>
                       ))}

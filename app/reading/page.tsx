@@ -1,6 +1,6 @@
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
-import Link from 'next/link'
+import BackNavigation from '@/components/BackNavigation'
 
 export const metadata = {
   title: 'Reading List - dorayaki',
@@ -58,12 +58,7 @@ export default function ReadingPage() {
   return (
     <div className="space-y-6">
       <div className="mb-8">
-        <Link 
-          href="/" 
-          className="text-terminal-amber hover:text-terminal-text transition-colors text-sm"
-        >
-          ← cd ~/
-        </Link>
+        <BackNavigation />
       </div>
 
       <TerminalWindow title="reading.md">

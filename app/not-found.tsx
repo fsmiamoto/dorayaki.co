@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
+import BackNavigation from '@/components/BackNavigation'
 
 export default function NotFound() {
   return (
@@ -20,12 +20,7 @@ export default function NotFound() {
               The page you're looking for doesn't exist or has been moved.
             </p>
             
-            <Link 
-              href="/" 
-              className="text-terminal-amber hover:text-terminal-text transition-colors text-lg"
-            >
-              ← cd ~/
-            </Link>
+            <BackNavigation label="← cd ~/" />
           </div>
         </CommandPrompt>
       </TerminalWindow>

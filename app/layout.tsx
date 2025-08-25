@@ -34,7 +34,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen">
-        <main className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 max-w-full sm:max-w-4xl">
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-terminal-window-bg text-terminal-text px-4 py-2 rounded border border-terminal-window-border z-50"
+        >
+          Skip to main content
+        </a>
+        <main id="main-content" className="container mx-auto px-2 sm:px-4 py-4 sm:py-8 max-w-full sm:max-w-4xl">
           {children}
         </main>
       </body>

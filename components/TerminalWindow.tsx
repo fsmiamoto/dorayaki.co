@@ -11,9 +11,9 @@ export default function TerminalWindow({ title = 'terminal', children, className
     <div className={`terminal-window ${className}`}>
       <div className="terminal-title-bar">
         <div className="flex gap-2">
-          <div className="terminal-button terminal-button-red"></div>
-          <div className="terminal-button terminal-button-amber"></div>
-          <div className="terminal-button terminal-button-green"></div>
+          <div className="terminal-button terminal-button-red hover:opacity-80 transition-opacity cursor-pointer"></div>
+          <div className="terminal-button terminal-button-amber hover:opacity-80 transition-opacity cursor-pointer"></div>
+          <div className="terminal-button terminal-button-green hover:opacity-80 transition-opacity cursor-pointer"></div>
         </div>
         <div className="flex-1 text-center text-xs text-terminal-gray">
           {title}
