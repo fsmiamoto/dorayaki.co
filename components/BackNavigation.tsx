@@ -5,14 +5,14 @@ interface BackNavigationProps {
   label?: string
 }
 
-export default function BackNavigation({ 
-  href = '/', 
-  label = '← cd ~/' 
+export default function BackNavigation({
+  href = '/',
+  label = '← cd ~/',
 }: BackNavigationProps) {
   return (
-    <Link 
+    <Link
       href={href}
-      className="text-terminal-amber hover:text-terminal-text transition-colors text-sm"
+      className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.32em] text-app-accent transition-colors hover:text-app-accent-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent sm:text-sm"
     >
       {label}
     </Link>

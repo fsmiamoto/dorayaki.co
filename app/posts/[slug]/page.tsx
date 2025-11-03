@@ -4,6 +4,7 @@ import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
 import BackNavigation from '@/components/BackNavigation'
 import Link from 'next/link'
+import clsx from 'clsx'
 import { notFound } from 'next/navigation'
 
 interface PageProps {
@@ -57,48 +58,58 @@ export default async function PostPage({ params }: PageProps) {
 
       <TerminalWindow title={`posts/${post.slug}.md`}>
         <div className="space-y-8">
-          <CommandPrompt 
-            command={`cat posts/${post.slug}.md`} 
+          <CommandPrompt
+            command={`cat posts/${post.slug}.md`}
             showCursor={false}
+            contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
           >
-            <div className="space-y-4">
-              <div className="border-b border-terminal-window-border pb-4">
-                <h1 className="text-2xl font-bold text-terminal-prompt mb-2">
+            <header className="space-y-4">
+              <div className="space-y-2">
+                <h1 className="text-2xl font-semibold text-app-foreground sm:text-3xl">
                   {post.frontMatter.title}
                 </h1>
-                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-terminal-white">
-                  <span className="inline-flex items-center gap-1">
-                    <span className="text-terminal-prompt">📅</span>
-                    {post.formattedDate}
-                  </span>
-                  <span className="inline-flex items-center gap-1">
-                    <span className="text-terminal-prompt">⏱️</span>
-                    {post.readingTime}
-                  </span>
-                  {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {post.frontMatter.tags.map(tag => (
-                        <span key={tag} className="text-terminal-prompt bg-terminal-window-bg px-2 py-1 rounded text-xs border border-terminal-window-border">
+                {post.frontMatter.excerpt && (
+                  <p className="text-app-soft">{post.frontMatter.excerpt}</p>
+                )}
+              </div>
+              <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.3em] text-app-muted sm:text-sm">
+                <span className="text-app-accent">{post.formattedDate}</span>
+                <span className="text-app-amber font-semibold">{post.readingTime}</span>
+                {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {post.frontMatter.tags.map((tag, index) => {
+                      const palette = ['text-app-info', 'text-app-accent', 'text-app-amber']
+                      return (
+                        <span
+                          key={tag}
+                          className={clsx(
+                            'inline-flex items-center rounded-full px-3 py-1 text-[0.65rem] uppercase tracking-[0.3em]',
+                            palette[index % palette.length],
+                          )}
+                        >
                           #{tag.toLowerCase().replace(/\s+/g, '-')}
                         </span>
-                      ))}
-                    </div>
-                  )}
-                </div>
+                      )
+                    })}
+                  </div>
+                )}
               </div>
-              
-              <article className="prose prose-invert max-w-none">
-                <MDXContent source={post.content} />
-              </article>
-            </div>
+            </header>
+
+            <article className="prose-terminal">
+              <MDXContent source={post.content} />
+            </article>
           </CommandPrompt>
 
           <CommandPrompt command="ls ../" showCursor={false}>
-            <div className="flex gap-8 text-sm">
-              <Link href="/" className="text-terminal-amber hover:text-terminal-text transition-colors">
+            <div className="flex flex-wrap items-center gap-4 text-sm">
+              <Link
+                href="/"
+                className="text-app-accent transition-colors hover:text-app-accent-strong"
+              >
                 ../
               </Link>
-              <span className="text-terminal-white">- Back to home</span>
+              <span className="text-app-soft">Back to home</span>
             </div>
           </CommandPrompt>
         </div>

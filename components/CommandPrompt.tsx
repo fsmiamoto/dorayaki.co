@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+import clsx from 'clsx'
 
 interface CommandPromptProps {
   user?: string
@@ -6,28 +7,36 @@ interface CommandPromptProps {
   command?: string
   children?: ReactNode
   showCursor?: boolean
+  className?: string
+  contentClassName?: string
 }
 
-export default function CommandPrompt({ 
-  user = 'fmiamoto', 
-  directory = '~', 
+export default function CommandPrompt({
+  user = 'fmiamoto',
+  directory = '~',
   command,
   children,
-  showCursor = true 
+  showCursor = true,
+  className,
+  contentClassName,
 }: CommandPromptProps) {
   return (
-    <div className="flex flex-wrap items-start gap-1 font-mono text-xs sm:text-sm">
-      <span className="prompt">
-        {user}@dorayaki:{directory}$
-      </span>
-      {command && (
-        <span className="command">
-          {command}
-        </span>
-      )}
-      {showCursor && <span className="cursor"></span>}
+    <div className={clsx('space-y-4', className)}>
+      <div className="flex flex-wrap items-baseline gap-1 text-[0.78rem] leading-relaxed text-app-muted sm:text-sm">
+        <span className="prompt">{user}@dorayaki</span>
+        <span className="text-app-faint">:</span>
+        <span className="text-app-foreground">{directory}</span>
+        <span className="text-app-faint">$</span>
+        {command && <span className="command text-app-foreground">{command}</span>}
+        {showCursor && <span className="cursor" />}
+      </div>
       {children && (
-        <div className="w-full mt-2">
+        <div
+          className={clsx(
+            'space-y-3 text-xs leading-relaxed text-app-soft sm:text-sm',
+            contentClassName,
+          )}
+        >
           {children}
         </div>
       )}

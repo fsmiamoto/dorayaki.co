@@ -7,20 +7,17 @@ export default function NotFound() {
     <div className="space-y-6">
       <TerminalWindow title="404.md">
         <CommandPrompt command="cat 404.md" showCursor={false}>
-          <div className="space-y-4 text-center">
-            <h1 className="text-6xl font-bold text-terminal-prompt mb-4">
-              404
-            </h1>
-            
-            <h2 className="text-2xl font-bold text-terminal-text mb-4">
+          <div className="space-y-4 text-center text-app-soft">
+            <h1 className="text-6xl font-semibold text-app-accent">404</h1>
+            <h2 className="text-2xl font-semibold text-app-foreground">
               Page Not Found
             </h2>
-            
-            <p className="text-terminal-white mb-6">
-              The page you're looking for doesn't exist or has been moved.
+            <p>
+              The page you&apos;re looking for doesn&apos;t exist or has been moved.
             </p>
-            
-            <BackNavigation label="← cd ~/" />
+            <div className="flex justify-center">
+              <BackNavigation label="← cd ~/" />
+            </div>
           </div>
         </CommandPrompt>
       </TerminalWindow>

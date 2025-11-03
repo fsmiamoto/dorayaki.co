@@ -15,64 +15,67 @@ export default function AboutPage() {
       </div>
 
       <TerminalWindow title="about.md">
-        <CommandPrompt command="cat about.md" showCursor={false}>
-          <div className="space-y-4 max-w-none">
-            <h1 className="text-2xl font-bold text-terminal-prompt mb-4">
+        <CommandPrompt
+          command="cat about.md"
+          showCursor={false}
+          contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
+        >
+          <section className="space-y-3 text-app-soft">
+            <h1 className="text-2xl font-semibold text-app-foreground sm:text-3xl">
               About me
             </h1>
-            
             <p>Howdy!</p>
-            
-            <p>I&apos;m currently working as a Software Development Engineer II at Amazon in Tokyo, Japan.</p>
-            
-            <p>In my (not so long yet) career, I&apos;ve worked on a variety of projects, including:</p>
-            
-            <ul className="list-none space-y-2">
-              <li className="flex items-start">
-                <span className="text-terminal-prompt mr-2">▸</span>
-                <span>Developing an app for COVID-19 vaccinations</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-terminal-prompt mr-2">▸</span>
-                <span>Improving how an edge computing provider distributes configurations across hundreds of servers</span>
-              </li>
-              <li className="flex items-start">
-                <span className="text-terminal-prompt mr-2">▸</span>
-                <span>Helping to launch Amazon Furusato in Japan</span>
-              </li>
+            <p>
+              I'm a Software Engineer currently working at Amazon in Tokyo, Japan.
+            </p>
+            <p>
+              My passion is building software solutions to deliver value to people while learning and exploring
+              technologies.
+            </p>
+          </section>
+
+          <section className="space-y-3 text-app-soft">
+            <h2 className="text-xs uppercase tracking-[0.35em] text-app-muted">
+              Career highlights
+            </h2>
+            <ul className="space-y-2">
+              <li>• Developed the financial tracking for launching Amazon Furusato in Japan.</li>
+              <li>• Delivered a novel configuration delivery system for a global Edge Computing platform.</li>
             </ul>
-            
-            <p>My academic background is in Electronics Engineering, so I also enjoy playing around with hardware.</p>
-            
-            <p>I&apos;m interested in various technical topics such as Cloud Computing, Operating Systems, Networking, and Systems Programming.</p>
-            
-            <p>Learning how things work under the hood is always fascinating to me.</p>
-            
-            <p>I love experimenting with technologies, both old and new, and you can find most of my projects on my GitHub profile.</p>
-            
-            <p>My hobbies include learning new languages and skills, as well as traveling around!</p>
-            
-            <div className="mt-8 pt-4 border-t border-terminal-window-border">
-              <div className="flex gap-4 text-sm">
-                <a 
-                  href="https://github.com/fsmiamoto" 
-                  className="text-terminal-amber hover:text-terminal-text transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  [github]
-                </a>
-                <a 
-                  href="https://www.linkedin.com/in/fsmiamoto/" 
-                  className="text-terminal-amber hover:text-terminal-text transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  [linkedin]
-                </a>
-              </div>
+          </section>
+
+          <section className="space-y-3 text-app-soft">
+            <h2 className="text-xs uppercase tracking-[0.35em] text-app-muted">
+              Curious about
+            </h2>
+            <p>
+              Cloud infrastructure, operating systems, networking, embedded systems, compilers and language learning.
+            </p>
+          </section>
+
+          <section className="space-y-3 text-app-soft">
+            <h2 className="text-xs uppercase tracking-[0.35em] text-app-muted">
+              Reach out
+            </h2>
+            <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] sm:text-sm">
+              <a
+                href="https://github.com/fsmiamoto"
+                className="inline-flex items-center gap-2 rounded-full border border-app-border-subtle px-4 py-2 transition-colors hover:border-app-accent hover:text-app-accent-strong"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                [github]
+              </a>
+              <a
+                href="https://www.linkedin.com/in/fsmiamoto/"
+                className="inline-flex items-center gap-2 rounded-full border border-app-border-subtle px-4 py-2 transition-colors hover:border-app-info hover:text-app-info"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                [linkedin]
+              </a>
             </div>
-          </div>
+          </section>
         </CommandPrompt>
       </TerminalWindow>
     </div>

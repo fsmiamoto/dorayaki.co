@@ -2,79 +2,185 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+:root {
+  --color-bg: #0f1117;
+  --color-surface: #161b22;
+  --color-surface-muted: #1e2533;
+  --color-border: #262f3f;
+  --color-text: #f1f5f9;
+  --color-text-muted: #9aa5b1;
+  --color-text-soft: #cbd4e1;
+  --color-text-faint: #7f8a9b;
+  --color-accent: #63f4a6;
+  --color-accent-strong: #7affb8;
+  --color-amber: #facc6b;
+  --color-danger: #ff7a7a;
+  --color-info: #5cc4ff;
+  --color-success: #63f4a6;
+  --color-shadow: rgba(11, 13, 18, 0.45);
+  --color-surface-elevated: rgba(22, 27, 34, 0.92);
+  --color-surface-soft: rgba(22, 27, 34, 0.68);
+  --color-border-subtle: rgba(38, 47, 63, 0.5);
+  --font-sans: 'Inter', 'SF Pro Text', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  color-scheme: dark;
+}
+
+[data-theme='light'] {
+  --color-bg: #f7f9fc;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eef3f9;
+  --color-border: #d7e1ec;
+  --color-text: #1f2933;
+  --color-text-muted: #52606d;
+  --color-text-soft: #3e4c59;
+  --color-text-faint: #8293a7;
+  --color-accent: #2f855a;
+  --color-accent-strong: #256f48;
+  --color-amber: #c05621;
+  --color-danger: #c53030;
+  --color-info: #2b6cb0;
+  --color-success: #2f855a;
+  --color-shadow: rgba(15, 23, 42, 0.08);
+  --color-surface-elevated: rgba(255, 255, 255, 0.95);
+  --color-surface-soft: rgba(238, 243, 249, 0.8);
+  --color-border-subtle: rgba(215, 225, 236, 0.6);
+  color-scheme: light;
+}
 
 @layer base {
   html {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    font-family: var(--font-mono), 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    text-rendering: optimizeLegibility;
   }
-  
+
   body {
-    @apply bg-terminal-bg text-terminal-text font-mono;
-    line-height: 1.6;
+    @apply bg-app-bg text-app-foreground font-mono antialiased;
+    line-height: 1.75;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-  
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-app-foreground font-semibold tracking-tight;
+  }
+
+  p {
+    @apply text-app-soft;
+  }
+
+  a {
+    @apply text-app-accent transition-colors;
+  }
+
+  a:hover {
+    @apply text-app-foreground;
+  }
+
+  strong {
+    @apply text-app-foreground font-semibold;
+  }
+
+  code {
+    font-family: var(--font-mono), 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  }
+
   /* Terminal scrollbar styling */
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-track {
-    @apply bg-terminal-bg;
+    @apply bg-app-surface-muted;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    @apply bg-terminal-gray rounded;
+    @apply bg-app-border rounded;
   }
-  
+
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-terminal-text;
+    @apply bg-app-accent;
   }
 }
 
 @layer components {
+  .prose-terminal {
+    @apply prose max-w-none;
+  }
+
+  html[data-theme='dark'] .prose-terminal {
+    --tw-prose-body: var(--color-text-soft);
+    --tw-prose-headings: var(--color-text);
+    --tw-prose-links: var(--color-accent);
+    --tw-prose-bold: var(--color-text);
+    --tw-prose-counters: var(--color-text-muted);
+    --tw-prose-bullets: var(--color-text-muted);
+    --tw-prose-hr: var(--color-border);
+    --tw-prose-quotes: var(--color-text-soft);
+    --tw-prose-quote-borders: var(--color-border);
+    --tw-prose-code: var(--color-accent-strong);
+    --tw-prose-pre-bg: var(--color-surface-muted);
+    --tw-prose-th-borders: var(--color-border);
+    --tw-prose-td-borders: var(--color-border);
+  }
+
+  html[data-theme='light'] .prose-terminal {
+    --tw-prose-body: var(--color-text);
+    --tw-prose-headings: var(--color-text);
+    --tw-prose-links: var(--color-accent);
+    --tw-prose-bold: var(--color-text);
+    --tw-prose-counters: var(--color-text-faint);
+    --tw-prose-bullets: var(--color-text-faint);
+    --tw-prose-hr: var(--color-border);
+    --tw-prose-quotes: var(--color-text-soft);
+    --tw-prose-quote-borders: var(--color-border);
+    --tw-prose-code: var(--color-accent-strong);
+    --tw-prose-pre-bg: var(--color-surface-muted);
+    --tw-prose-th-borders: var(--color-border);
+    --tw-prose-td-borders: var(--color-border);
+  }
+
   .terminal-window {
-    @apply bg-terminal-window-bg border border-terminal-window-border rounded-lg shadow-2xl;
+    @apply relative overflow-hidden rounded-2xl border border-app-border-subtle bg-app-surface-elevated text-app-soft shadow-pane transition-colors duration-300;
   }
-  
+
   .terminal-title-bar {
-    @apply bg-terminal-window-border px-4 py-2 rounded-t-lg flex items-center gap-2;
+    @apply flex items-center gap-3 border-b border-app-border-subtle bg-app-surface-soft px-4 py-3 text-xs font-medium text-app-faint;
   }
-  
+
   .terminal-button {
-    @apply w-3 h-3 rounded-full;
+    @apply h-2.5 w-2.5 rounded-full bg-gradient-to-br from-app-surface-muted to-app-border shadow-[inset_0_1px_2px_rgba(15,23,42,0.25)];
   }
-  
+
   .terminal-button-red {
-    @apply bg-terminal-red;
+    background: linear-gradient(135deg, #ffb3b3, #ff5c5c);
   }
-  
+
   .terminal-button-amber {
-    @apply bg-terminal-amber;
+    background: linear-gradient(135deg, #ffe7b3, #ffc561);
   }
-  
+
   .terminal-button-green {
-    @apply bg-terminal-text;
+    background: linear-gradient(135deg, #b2f5ea, #38a169);
   }
-  
+
   .terminal-content {
-    /* Padding now handled inline for responsiveness */
+    /* Padding handled inline for responsiveness */
   }
-  
+
   .cursor {
-    @apply inline-block w-2 h-5 bg-terminal-text animate-blink;
+    @apply inline-block h-5 w-2 rounded-sm bg-app-accent opacity-80 align-middle animate-blink;
   }
-  
+
   .prompt {
-    @apply text-terminal-prompt;
+    @apply font-semibold text-app-accent;
   }
-  
+
   .command {
-    @apply text-terminal-text;
+    @apply text-app-foreground;
   }
-  
+
   .ascii-art {
-    @apply text-terminal-prompt font-bold;
+    @apply text-app-accent font-bold drop-shadow-sm;
     font-family: 'Courier New', monospace;
   }
 }

@@ -1,104 +1,181 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import clsx from 'clsx'
 import { getAllPosts } from '@/lib/posts'
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
-import ASCIIHeader from '@/components/ASCIIHeader'
+
+const GitHubIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
+    className="h-4 w-4"
+  >
+    <path
+      fill="currentColor"
+      d="M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 008.012 10.928c.585.11.8-.254.8-.566 0-.28-.01-1.022-.016-2.007-3.258.708-3.945-1.571-3.945-1.571-.531-1.35-1.296-1.71-1.296-1.71-1.06-.725.08-.711.08-.711 1.172.083 1.788 1.205 1.788 1.205 1.04 1.781 2.732 1.267 3.4.969.105-.753.407-1.267.74-1.558-2.6-.296-5.334-1.3-5.334-5.783 0-1.277.456-2.32 1.205-3.136-.121-.297-.523-1.494.114-3.115 0 0 .985-.315 3.23 1.197a11.26 11.26 0 015.88 0c2.244-1.512 3.228-1.197 3.228-1.197.639 1.621.237 2.818.116 3.115.75.816 1.203 1.859 1.203 3.136 0 4.495-2.738 5.484-5.346 5.775.418.36.79 1.07.79 2.156 0 1.557-.014 2.812-.014 3.193 0 .315.212.68.806.565A11.5 11.5 0 0023.5 12C23.5 5.648 18.352.5 12 .5z"
+    />
+  </svg>
+)
+
+const LinkedInIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+    focusable="false"
+    className="h-4 w-4"
+  >
+    <path
+      fill="currentColor"
+      d="M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.851 0-2.135 1.445-2.135 2.939v5.667H9.354V9h3.413v1.561h.047c.476-.9 1.637-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.002-4.124 2.062 2.062 0 01-.002 4.124zM7.114 20.452H3.56V9h3.555v11.452z"
+    />
+  </svg>
+)
 
 export default function Home() {
   const posts = getAllPosts()
-  console.log('Posts found:', posts.length, posts.map(p => p.slug))
 
   return (
     <TerminalWindow title="dorayaki.co">
       <div className="space-y-8">
         <div>
-          <ASCIIHeader text="DORAYAKI" />
-
-          <CommandPrompt command="whoami">
-            <div className="space-y-2">
-              <div className="text-terminal-amber">Flavio Miyamoto</div>
-              <div className="text-terminal-amber">ミヤモト・フラヴィオ</div>
-              <div className="text-terminal-amber">Software Development Engineer II at Amazon</div>
-              <div className="text-terminal-white">Tokyo, Japan</div>
-              <div className="text-terminal-white">Writing terrible code for a living</div>
+          <CommandPrompt command="whoami" contentClassName="space-y-6 text-sm leading-relaxed sm:text-base">
+            <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+              <div className="relative shrink-0">
+                <span className="pointer-events-none absolute -inset-3 rounded-full bg-app-accent/10 blur-xl" />
+                <Image
+                  src="/avatar.png"
+                  alt="Flavio Miyamoto"
+                  width={128}
+                  height={128}
+                  className="relative rounded-full border border-app-border-subtle"
+                  priority
+                />
+              </div>
+              <div className="space-y-4 text-app-soft">
+                <div className="space-y-1">
+                  <h1 className="text-xl font-semibold text-app-foreground sm:text-2xl">
+                    Flavio Miyamoto
+                  </h1>
+                  <p className="text-app-muted">ミヤモト・フラヴィオ</p>
+                  <p>Software Development Engineer II @ Amazon</p>
+                  <p>Tokyo, Japan</p>
+                </div>
+                <div>
+                  <p>Building things faster that I can break them</p>
+                </div>
+                <div className="flex flex-wrap gap-3 text-[0.72rem] uppercase tracking-[0.35em] text-app-muted">
+                  <span className="rounded-full px-3 py-1 text-app-accent">builder</span>
+                  <span className="rounded-full px-3 py-1 text-app-info">curious</span>
+                  <span className="rounded-full px-3 py-1 text-app-amber">eternal learner</span>
+                </div>
+              </div>
             </div>
-          </CommandPrompt>
 
-          <div className="flex gap-2 sm:gap-4 text-sm mt-4 flex-wrap">
+          </CommandPrompt>
+        </div>
+
+        <CommandPrompt command='cat socials' showCursor={false}>
+          <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-app-foreground sm:text-sm">
             <Link
               href="https://github.com/fsmiamoto"
-              className="text-terminal-amber hover:text-terminal-text transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-app-border-subtle px-4 py-2 transition-colors hover:border-app-accent hover:text-app-accent-strong"
               target="_blank"
               rel="noopener noreferrer"
             >
+              <GitHubIcon />
               [github]
             </Link>
             <Link
               href="https://www.linkedin.com/in/fsmiamoto/"
-              className="text-terminal-amber hover:text-terminal-text transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border border-app-border-subtle px-4 py-2 transition-colors hover:border-app-info hover:text-app-info"
               target="_blank"
               rel="noopener noreferrer"
             >
+              <LinkedInIcon />
               [linkedin]
             </Link>
           </div>
-        </div>
-
-        <CommandPrompt command="ls -la posts/" showCursor={false}>
-          <div className="space-y-2 font-mono text-xs sm:text-sm">
-            <div className="text-terminal-gray">
-              total {posts.length}
-            </div>
+        </CommandPrompt>
+        <CommandPrompt command="ls -la posts/" showCursor={false} contentClassName="space-y-4">
+          <div className="space-y-4 text-xs sm:text-sm">
             {posts.length === 0 ? (
-              <div className="text-terminal-gray">No posts found. Checking content/posts directory...</div>
+              <div className="text-app-muted">
+                No posts found. Checking content/posts directory...
+              </div>
             ) : (
-              posts.map((post, index) => (
-                <div key={post.slug} className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
-                  <div className="flex items-center gap-2 sm:gap-4">
-                    <span className="text-terminal-white w-8 flex-shrink-0">
-                      {String(index + 1).padStart(2, '0')}.
-                    </span>
-                    <span className="text-terminal-white w-20 sm:w-24 flex-shrink-0">
-                      {post.formattedDate}
-                    </span>
-                    <span className="text-terminal-white w-12 sm:w-16 flex-shrink-0">
-                      {post.readingTime}
-                    </span>
-                  </div>
-                  <Link
-                    href={`/posts/${post.slug}`}
-                    className="text-terminal-text hover:text-terminal-amber transition-colors flex-1 min-w-0 break-words"
+              posts.map((post) => {
+                const tagPalette = ['text-app-accent', 'text-app-info', 'text-app-amber']
+
+                return (
+                  <article
+                    key={post.slug}
+                    className="group flex flex-col gap-2"
                   >
-                    {post.frontMatter.title}
-                  </Link>
-                  {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-                    <div className="flex gap-1 sm:gap-2 flex-wrap">
-                      {post.frontMatter.tags.map(tag => (
-                        <span key={tag} className="text-terminal-prompt text-xs">
-                          #{tag.toLowerCase().replace(/\s+/g, '-')}
-                        </span>
-                      ))}
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-[0.72rem] uppercase tracking-wide">
+                      <span className="text-app-muted font-medium">
+                        {post.formattedDate}
+                      </span>
+                      <span className="text-app-amber font-semibold">
+                        {post.readingTime}
+                      </span>
                     </div>
-                  )}
-                </div>
-              ))
+                    <Link
+                      href={`/posts/${post.slug}`}
+                      className="text-base font-semibold text-app-foreground transition-colors hover:text-app-accent-strong sm:text-lg"
+                    >
+                      {post.frontMatter.title}
+                    </Link>
+                    {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2">
+                        {post.frontMatter.tags.map((tag, index) => (
+                          <span
+                            key={tag}
+                            className={clsx(
+                              'inline-flex items-center rounded-full px-2 py-1 text-[0.65rem] uppercase tracking-[0.25em]',
+                              tagPalette[index % tagPalette.length],
+                            )}
+                          >
+                            #{tag.toLowerCase().replace(/\s+/g, '-')}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </article>
+                )
+              })
             )}
           </div>
         </CommandPrompt>
 
-        <CommandPrompt command="help" showCursor={false}>
-          <div className="space-y-2 text-xs sm:text-sm">
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
-              <Link href="/about" className="text-terminal-amber hover:text-terminal-text transition-colors">
+        <CommandPrompt
+          command="help"
+          showCursor={false}
+          contentClassName="space-y-3 text-xs sm:text-sm"
+        >
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="space-y-1">
+              <Link
+                href="/about"
+                className="inline-flex items-center gap-2 text-app-accent transition-colors hover:text-app-accent-strong"
+              >
                 cat about.md
               </Link>
-              <span className="text-terminal-white">- Learn about me</span>
+              <p className="text-app-soft">
+                Learn about me
+              </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-2 sm:gap-8">
-              <Link href="/reading" className="text-terminal-amber hover:text-terminal-text transition-colors">
+            <div className="space-y-1">
+              <Link
+                href="/reading"
+                className="inline-flex items-center gap-2 text-app-info transition-colors hover:text-app-accent"
+              >
                 cat reading.md
               </Link>
-              <span className="text-terminal-white">- My reading list</span>
+              <p className="text-app-soft">
+                My (always changing) list of books that shape how I think
+              </p>
             </div>
           </div>
         </CommandPrompt>

@@ -4,57 +4,68 @@ import BackNavigation from '@/components/BackNavigation'
 
 export const metadata = {
   title: 'Reading List - dorayaki',
-  description: 'Books I&apos;ve read and am currently reading',
+  description: 'Books I\'ve read and am currently reading',
 }
 
+const SECTIONS = [
+  {
+    title: 'Currently diving into',
+    accent: 'text-app-accent',
+    items: [
+      'Just Enough Software Architecture: A Risk-Driven Approach',
+      'Crafting Interpreters',
+      'Software Engineering at Google',
+    ],
+  },
+  {
+    title: 'Recently finished',
+    accent: 'text-app-amber',
+    items: [
+      'Waltzing with Bears: Managing Risk on Software Projects',
+      'The Order of Time',
+      'Designing Data-Intensive Applications',
+      'The Principles of Product Development Flow',
+      'Tidy First?',
+      'Team Topologies',
+      'Working Backwards',
+      'Accelerate',
+    ],
+  },
+]
+
+const ARCHIVE = [
+  'Essentialism',
+  'The Psychology of Money',
+  'The Annotated Turing',
+  'Building Microservices',
+  'The Code Book',
+  'Linked',
+  'Value Proposition Design',
+  'Fermat\'s Enigma',
+  'Grokking Algorithms',
+  'Sapiens',
+  'Skin in the Game',
+  'Antifragile',
+  'Nonviolent Communication',
+  'Unit Testing',
+  'A Philosophy of Software Design',
+  'AI Superpowers',
+  'Atomic Habits',
+  'Barking Up the Wrong Tree',
+  'Clean Architecture',
+  'Clean Code',
+  'Cloud Native DevOps with Kubernetes',
+  'Deep Work',
+  'Unscripted',
+  'Low-Level Programming',
+  'Refactoring (2nd Edition)',
+  'So Good They Can\'t Ignore You',
+  'The Go Programming Language',
+  'The Lean Startup',
+  'The Pragmatic Programmer (2nd edition)',
+]
+
 export default function ReadingPage() {
-  const currentBooks = [
-    'Just Enough Software Architecture: A Risk-Driven Approach',
-    'Crafting Interpreters',
-    'Software Engineering at Google'
-  ]
-
-  const finishedBooks = [
-    'Waltzing with Bears: Managing Risk on Software Projects',
-    'The Order of Time',
-    'Designing Data-Intensive Applications',
-    'The Principles of Product Development Flow: Second Generation Lean Product Development',
-    'Tidy First? A Personal Exercise in Empirical Software Design',
-    'Team Topologies: Organizing Business and Technology Teams for Fast Flow',
-    'Working Backwards: Insights, Stories, and Secrets from Inside Amazon',
-    'Accelerate: The Science of Lean Software and DevOps',
-    'Essentialism: The Disciplined Pursuit of Less',
-    'The Psychology of Money',
-    'The Annotated Turing',
-    'Building Microservices: Designing Fine-Grained Systems',
-    'The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography',
-    'Linked: How Everything Is Connected to Everything Else',
-    'Value Proposition Design: How to Create Products and Services Customers Want',
-    'Fermat&apos;s Enigma: The Epic Quest to Solve the World&apos;s Greatest Mathematical Problem',
-    'Grokking algorithms: An illustrated guide for programmers and other curious people',
-    'Sapiens: A Brief History of Humankind',
-    'Skin in the Game: Hidden Asymmetries in Daily Life',
-    'Antifragile: Things That Gain from Disorder',
-    'Nonviolent Communication: A Language of Life',
-    'Unit Testing',
-    'A Philosophy of Software Design',
-    'AI Superpowers: China, Silicon Valley, And the New World Order',
-    'Atomic Habits',
-    'Barking Up the Wrong Tree',
-    'Clean Architecture',
-    'Clean Code',
-    'Cloud Native DevOps with Kubernetes',
-    'Deep Work: Rules for Focused Success in a Distracted World',
-    'Unscripted: Life, liberty and the pursuit of entrepreneurship',
-    'Grokking Algorithms',
-    'Low-Level Programming: C, Assembly, and Program Execution on Intel® 64 Architecture',
-    'Refactoring (2nd Edition)',
-    'So Good They Can\'t Ignore You',
-    'The Go Programming Language',
-    'The Lean Startup',
-    'The Pragmatic Programmer (2nd edition)'
-  ]
-
   return (
     <div className="space-y-6">
       <div className="mb-8">
@@ -62,50 +73,49 @@ export default function ReadingPage() {
       </div>
 
       <TerminalWindow title="reading.md">
-        <CommandPrompt command="cat reading.md" showCursor={false}>
-          <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-terminal-prompt mb-4">
+        <CommandPrompt
+          command="cat reading.md"
+          showCursor={false}
+          contentClassName="space-y-8 text-sm leading-relaxed sm:text-base"
+        >
+          <header className="space-y-3">
+            <h1 className="text-2xl font-semibold text-app-foreground sm:text-3xl">
               Reading List
             </h1>
-            
-            <div className="text-terminal-gray text-sm mb-6">
-              *Last update at 2025-06-10*
-            </div>
-            
-            <p className="mb-6">
-              Below there&apos;s a non-exhaustive list some of the books I&apos;ve read or that I&apos;m currently reading 📚
+            <p className="text-app-soft">
+              A running log of the books that shape how I think about software, systems, and people.
+              Suggestions are always welcome.
             </p>
+            <p className="text-xs uppercase tracking-[0.3em] text-app-muted">
+              Last update: 2025-06-10
+            </p>
+          </header>
 
-            <div className="space-y-8">
-              <div>
-                <h3 className="text-lg font-bold text-terminal-prompt mb-3">
-                  ### Current
-                </h3>
-                <ul className="space-y-2">
-                  {currentBooks.map((book, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-terminal-prompt mr-2">▸</span>
-                      <span>{book}</span>
-                    </li>
+          <div className="space-y-6">
+            {SECTIONS.map((section) => (
+              <section key={section.title} className="space-y-3">
+                <h2 className={`text-xs uppercase tracking-[0.35em] ${section.accent}`}>
+                  {section.title}
+                </h2>
+                <ul className="grid gap-2 text-app-soft sm:grid-cols-2">
+                  {section.items.map((item) => (
+                    <li key={item}>• {item}</li>
                   ))}
                 </ul>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-bold text-terminal-prompt mb-3">
-                  ### Finished ({finishedBooks.length} books)
-                </h3>
-                <ul className="space-y-2">
-                  {finishedBooks.map((book, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-terminal-prompt mr-2">▸</span>
-                      <span>{book}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+              </section>
+            ))}
           </div>
+
+          <section className="space-y-3">
+            <h2 className="text-xs uppercase tracking-[0.35em] text-app-info">
+              Library archive ({ARCHIVE.length})
+            </h2>
+            <ul className="grid gap-2 text-app-soft sm:grid-cols-2 lg:grid-cols-3">
+              {ARCHIVE.map((entry) => (
+                <li key={entry}>• {entry}</li>
+              ))}
+            </ul>
+          </section>
         </CommandPrompt>
       </TerminalWindow>
     </div>
