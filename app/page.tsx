@@ -77,10 +77,10 @@ export default function Home() {
         </div>
 
         <CommandPrompt command='cat socials' showCursor={false}>
-          <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-app-foreground sm:text-sm">
+          <div className="flex flex-wrap gap-3 text-xs tracking-[0.3em] sm:text-sm">
             <Link
               href="https://github.com/fsmiamoto"
-              className="inline-flex items-center gap-2 rounded-full border border-app-border-subtle px-4 py-2 transition-colors hover:border-app-accent hover:text-app-accent-strong"
+              className="inline-flex items-center gap-2 rounded-full border border-transparent bg-transparent px-4 py-2 text-purple-600 transition-all hover:border-purple-600 dark:text-purple-400 dark:hover:border-purple-400"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -89,7 +89,7 @@ export default function Home() {
             </Link>
             <Link
               href="https://www.linkedin.com/in/fsmiamoto/"
-              className="inline-flex items-center gap-2 rounded-full border border-app-border-subtle px-4 py-2 transition-colors hover:border-app-info hover:text-app-info"
+              className="inline-flex items-center gap-2 rounded-full border border-transparent bg-transparent px-4 py-2 text-blue-600 transition-all hover:border-blue-600 dark:text-blue-400 dark:hover:border-blue-400"
               target="_blank"
               rel="noopener noreferrer"
             >
