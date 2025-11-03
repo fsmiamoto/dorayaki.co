@@ -60,10 +60,10 @@ export default function Home() {
                   </h1>
                   <p className="text-app-muted">ミヤモト・フラヴィオ</p>
                   <p>Software Development Engineer II @ Amazon</p>
-                  <p>Tokyo, Japan</p>
+                  <p>Born in 🇧🇷 and living in 🇯🇵</p>
                 </div>
                 <div>
-                  <p>Building things faster that I can break them</p>
+                  <p className="text-app-foreground italic">Building things faster that I can break them</p>
                 </div>
                 <div className="flex flex-wrap gap-3 text-[0.72rem] uppercase tracking-[0.35em] text-app-muted">
                   <span className="rounded-full px-3 py-1 text-app-accent">builder</span>
@@ -175,6 +175,19 @@ export default function Home() {
               </Link>
               <p className="text-app-soft">
                 My (always changing) list of books that shape how I think
+              </p>
+            </div>
+            <div className="space-y-1">
+              <Link
+                href="/cv.pdf"
+                className="inline-flex items-center gap-2 text-app-amber transition-colors hover:text-app-accent"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                curl resume.pdf
+              </Link>
+              <p className="text-app-soft">
+                Download my resume
               </p>
             </div>
           </div>
