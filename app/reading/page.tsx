@@ -12,9 +12,8 @@ const SECTIONS = [
     title: 'Currently diving into',
     accent: 'text-app-accent',
     items: [
-      'Just Enough Software Architecture: A Risk-Driven Approach',
-      'Crafting Interpreters',
-      'Software Engineering at Google',
+      'AI Engineering',
+      'The Principles of Product Development Flow',
     ],
   },
   {
@@ -22,18 +21,21 @@ const SECTIONS = [
     accent: 'text-app-amber',
     items: [
       'Waltzing with Bears: Managing Risk on Software Projects',
-      'The Order of Time',
       'Designing Data-Intensive Applications',
-      'The Principles of Product Development Flow',
       'Tidy First?',
-      'Team Topologies',
-      'Working Backwards',
-      'Accelerate',
     ],
   },
 ]
 
 const ARCHIVE = [
+  'The Order of Time',
+  'Working Backwards',
+  'Accelerate',
+  'Team Topologies',
+  'The Culture Map',
+  'Just Enough Software Architecture: A Risk-Driven Approach',
+  'Crafting Interpreters',
+  'Software Engineering at Google',
   'Essentialism',
   'The Psychology of Money',
   'The Annotated Turing',
