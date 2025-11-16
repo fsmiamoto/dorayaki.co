@@ -104,12 +104,12 @@ export default async function PostPage({ params }: PageProps) {
           <CommandPrompt command="ls ../" showCursor={false}>
             <div className="flex flex-wrap items-center gap-4 text-sm">
               <Link
-                href="/"
+                href="/posts"
                 className="text-app-accent transition-colors hover:text-app-accent-strong"
               >
                 ../
               </Link>
-              <span className="text-app-soft">Back to home</span>
+              <span className="text-app-soft">Back to posts</span>
             </div>
           </CommandPrompt>
         </div>

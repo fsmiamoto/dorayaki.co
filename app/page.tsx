@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import clsx from 'clsx'
 import { getAllPosts } from '@/lib/posts'
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
+import PostList from '@/components/PostList'
 
 const GitHubIcon = () => (
   <svg
@@ -35,6 +35,8 @@ const LinkedInIcon = () => (
 
 export default function Home() {
   const posts = getAllPosts()
+  const featuredPosts = posts.slice(0, 2)
+  const hasMorePosts = posts.length > featuredPosts.length
 
   return (
     <TerminalWindow title="dorayaki.co">
@@ -98,53 +100,21 @@ export default function Home() {
             </Link>
           </div>
         </CommandPrompt>
-        <CommandPrompt command="ls -la posts/" showCursor={false} contentClassName="space-y-4">
-          <div className="space-y-4 text-xs sm:text-sm">
-            {posts.length === 0 ? (
-              <div className="text-app-muted">
-                No posts found. Checking content/posts directory...
+        <CommandPrompt command="ls -la posts/ | head -2" showCursor={false} contentClassName="space-y-4 text-xs sm:text-sm">
+          <div className="space-y-4">
+            <PostList
+              posts={featuredPosts}
+              tagLinkOptions={{ basePath: '/posts' }}
+            />
+            {hasMorePosts && (
+              <div className="flex justify-end">
+                <Link
+                  href="/posts"
+                  className="inline-flex items-center gap-2 text-[0.72rem] tracking-[0.35em] text-app-accent transition-colors hover:text-app-accent-strong"
+                >
+                  see all posts
+                </Link>
               </div>
-            ) : (
-              posts.map((post) => {
-                const tagPalette = ['text-app-accent', 'text-app-info', 'text-app-amber']
-
-                return (
-                  <article
-                    key={post.slug}
-                    className="group flex flex-col gap-2"
-                  >
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-[0.72rem] uppercase tracking-wide">
-                      <span className="text-app-muted font-medium">
-                        {post.formattedDate}
-                      </span>
-                      <span className="text-app-amber font-semibold">
-                        {post.readingTime}
-                      </span>
-                    </div>
-                    <Link
-                      href={`/posts/${post.slug}`}
-                      className="text-base font-semibold text-app-foreground transition-colors hover:text-app-accent-strong sm:text-lg"
-                    >
-                      {post.frontMatter.title}
-                    </Link>
-                    {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2">
-                        {post.frontMatter.tags.map((tag, index) => (
-                          <span
-                            key={tag}
-                            className={clsx(
-                              'inline-flex items-center rounded-full px-2 py-1 text-[0.65rem] uppercase tracking-[0.25em]',
-                              tagPalette[index % tagPalette.length],
-                            )}
-                          >
-                            #{tag.toLowerCase().replace(/\s+/g, '-')}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-                  </article>
-                )
-              })
             )}
           </div>
         </CommandPrompt>
