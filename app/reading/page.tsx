@@ -14,12 +14,15 @@ const SECTIONS = [
     items: [
       'AI Engineering',
       'The Principles of Product Development Flow',
+      'Generative AI Design Patterns',
+      'LangChainとLangGraphによるRAG・AIエージェント［実践］入門 エンジニア選書'
     ],
   },
   {
     title: 'Recently finished',
     accent: 'text-app-amber',
     items: [
+      '人が増えても速くならない ～変化を抱擁せよ～',
       'Waltzing with Bears: Managing Risk on Software Projects',
       'Designing Data-Intensive Applications',
       'Tidy First?',
@@ -28,6 +31,7 @@ const SECTIONS = [
 ]
 
 const ARCHIVE = [
+  'コンサル時代に教わった 仕事ができる人の当たり前',
   'The Order of Time',
   'Working Backwards',
   'Accelerate',
