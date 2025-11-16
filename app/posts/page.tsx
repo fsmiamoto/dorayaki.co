@@ -3,9 +3,10 @@ import type { Metadata } from 'next'
 import { getAllPosts, getAllTags } from '@/lib/posts'
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
+import BackNavigation from '@/components/BackNavigation'
 import PostsFilterControls from '@/components/PostsFilterControls'
 import PostsResults from '@/components/PostsResults'
-import BackNavigation from '@/components/BackNavigation'
+import OpinionDisclaimer from '@/components/OpinionDisclaimer'
 
 export const metadata: Metadata = {
   title: 'Posts - dorayaki',
@@ -27,6 +28,10 @@ export default function PostsPage() {
             <Suspense fallback={<div className="text-xs text-app-muted">Loading filters...</div>}>
               <PostsFilterControls tags={tags} />
             </Suspense>
+          </CommandPrompt>
+
+          <CommandPrompt command="cat DISCLAIMER.txt" showCursor={false}>
+            <OpinionDisclaimer />
           </CommandPrompt>
 
           <CommandPrompt

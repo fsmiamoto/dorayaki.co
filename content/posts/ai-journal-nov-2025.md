@@ -20,8 +20,8 @@ the robots get to work.
 
 Let me tell you, that's not the case.
 
-A **LOT** of internal work is still done manually in ways you'd think are just
-not possible at such a big company. 
+As most companies, Amazon still relies on manual processes that simply
+can't be replaced easily with AI.
 
 This is of course not a bad thing per se, but it goes to show that at this
 point the company is not ready to drop in AI in place of humans and keep
@@ -32,7 +32,7 @@ but LLM-based agents at this point are just not reliable enough to handle it end
 
 But that might change.
 
-Andy Jassy, if he can be trusted, also says that [this is not AI-driven](https://fortune.com/2025/11/01/ceo-andy-jassy-amazon-layoffs-about-culture-not-ai/).
+Andy Jassy also said that this layoff [is not AI-driven](https://fortune.com/2025/11/01/ceo-andy-jassy-amazon-layoffs-about-culture-not-ai/).
 
 But a [good argument](https://www.youtube.com/watch?v=NP-qmffUNHQ) I heard that
 really made sense to me is that this move is meant to ensure Amazon has more
@@ -62,17 +62,16 @@ This, of course, makes me much happier as a developer since I never enjoyed the 
 
 ### So, are we cooked?
 
-Although CEOs sitting in their ivory towers think you can already replace most humans with LLMs, my personal opinion is that we are far from it. 
+Although some CEOs sitting in their ivory towers think you can already replace most humans with LLMs, my personal opinion is that we are far from it. 
 
-Yes, AI will change most of how we do everything but it is not as clear to me that it will completely replace people and I hope that it stays that way.
+Yes, I do think AI will change how we do most things but at this point in time, it is still too unreliable to handle
+a lot of tasks and it might stay that way for a long time.
 
-Internal Leadership is increasingly more obsessive about productivity gains and 
-we are having to report how we are making sure we need fewer people ("headcount") by using
-AI.
+The so desired productivity gains are still pretty hard to quantify, a lot in part because measuring productivity for software developers was never easy in the first place, contrary to what [McKinsey](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity) thinks.
 
-The thing is, at this point it is still incredibly difficult to quantify the gains we are seeing because measuring productivity of software developers was never easy in the first place, contrary to what [McKinsey](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity) thinks.
+Some recent research even suggests that it actually [hinders productivity](https://arxiv.org/pdf/2507.09089), despite the impressions of software developers.
 
-So I'm still not sure at this moment how this will pan out internally. My hope is that we can convince leadership that software development is still multifaceted work that needs thinking and not a [stochastic parrot](https://en.wikipedia.org/wiki/Stochastic_parrot) behind it, especially at places like Big Tech which have so much internal clutter and bloatware.
+As most people, I'm not sure how this will pan out in our industry. My hope is that we can convince leaders that software development is still multifaceted work that needs thinking and not a [stochastic parrot](https://en.wikipedia.org/wiki/Stochastic_parrot) behind it, especially at places like Big Tech which have so much internal clutter and bloatware.
 
 ### Bubble?
 

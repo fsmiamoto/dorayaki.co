@@ -3,6 +3,7 @@ import { MDXContent } from '@/lib/mdx'
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
 import BackNavigation from '@/components/BackNavigation'
+import OpinionDisclaimer from '@/components/OpinionDisclaimer'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { notFound } from 'next/navigation'
@@ -95,6 +96,8 @@ export default async function PostPage({ params }: PageProps) {
                 )}
               </div>
             </header>
+
+            <OpinionDisclaimer className="text-app-muted" />
 
             <article className="prose-terminal">
               <MDXContent source={post.content} />
