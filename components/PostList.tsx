@@ -44,26 +44,24 @@ export default function PostList({
     <div className="space-y-4 text-xs sm:text-sm">
       {posts.map((post) => (
         <article key={post.slug} className="group flex flex-col gap-2">
-          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-[0.72rem] uppercase tracking-wide">
-            <span className="text-app-muted font-medium">{post.formattedDate}</span>
-            <span className="text-app-amber font-semibold">{post.readingTime}</span>
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-xs text-app-muted">
+            <span className="font-mono">{post.formattedDate}</span>
+            <span className="font-mono text-app-amber">{post.readingTime}</span>
           </div>
           <Link
             href={`/posts/${post.slug}`}
-            className="text-base font-semibold text-app-foreground transition-colors hover:text-app-accent-strong sm:text-lg"
+            className="text-lg font-bold text-app-foreground transition-colors hover:text-app-accent sm:text-xl"
           >
             {post.frontMatter.title}
           </Link>
           {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-3 font-mono text-xs">
               {post.frontMatter.tags.map((tag, index) => {
                 const normalizedTag = tag.toLowerCase().replace(/\s+/g, '-')
                 const isActive = activeTag && activeTag.toLowerCase() === tag.toLowerCase()
                 const className = clsx(
-                  'inline-flex items-center rounded-full px-2 py-1 text-[0.65rem] uppercase tracking-[0.25em] transition-colors',
-                  tagPalette[index % tagPalette.length],
-                  tagLinkOptions && 'hover:text-app-foreground',
-                  isActive && 'ring-1 ring-current',
+                  'transition-colors hover:underline',
+                  isActive ? 'text-app-foreground font-bold' : 'text-app-muted hover:text-app-accent',
                 )
                 const tagHref = buildTagHref(tag)
 

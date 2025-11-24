@@ -8,31 +8,27 @@ interface ASCIIHeaderProps {
 export default function ASCIIHeader({ text, className = '' }: ASCIIHeaderProps) {
   if (text === 'DORAYAKI') {
     return (
-      <div
-        className={clsx(
-          'flex flex-col items-start gap-2 py-6',
-          className,
-        )}
-      >
-        <div className="inline-flex items-center gap-3 rounded-[1.75rem] border border-app-border-subtle bg-app-surface-soft/80 px-5 py-3 text-sm uppercase tracking-[0.4em] text-app-foreground shadow-pane-soft">
-          <span className="text-app-accent-strong text-base">{'>'}</span>
-          <span className="text-base sm:text-lg">DORAYAKI</span>
-          <span
-            className="inline-block h-5 w-[2px] rounded bg-app-accent animate-blink"
-            aria-hidden="true"
-          />
+      <div className={clsx('py-8', className)}>
+        <div className="flex flex-col gap-2">
+          <div className="flex items-baseline gap-3">
+            <span className="text-app-accent font-bold text-xl sm:text-2xl">{'>'}</span>
+            <h1 className="text-3xl font-black tracking-tight text-app-foreground sm:text-4xl">
+              DORAYAKI
+            </h1>
+            <span className="inline-block h-6 w-3 bg-app-accent animate-blink" />
+          </div>
+          <p className="font-mono text-sm text-app-muted pl-6">
+            personal terminal
+          </p>
         </div>
-        <span className="text-[0.7rem] uppercase tracking-[0.32em] text-app-muted">
-          personal terminal
-        </span>
       </div>
     )
   }
 
   return (
-    <div className={clsx('py-2', className)}>
-      <div className="font-mono text-sm font-semibold uppercase tracking-[0.35em] text-app-muted">
-        {`# ${text.toUpperCase()}`}
+    <div className={clsx('py-4', className)}>
+      <div className="font-mono text-sm font-bold text-app-muted/80">
+        {`# ${text.toLowerCase()}`}
       </div>
     </div>
   )

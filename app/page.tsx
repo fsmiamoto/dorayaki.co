@@ -44,33 +44,29 @@ export default function Home() {
         <div>
           <CommandPrompt command="whoami" contentClassName="space-y-6 text-sm leading-relaxed sm:text-base">
             <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-              <div className="relative shrink-0">
-                <span className="pointer-events-none absolute -inset-3 rounded-full bg-app-accent/10 blur-xl" />
+              <div className="shrink-0">
                 <Image
                   src="/avatar.png"
                   alt="Flavio Miyamoto"
-                  width={128}
-                  height={128}
-                  className="relative rounded-full border border-app-border-subtle"
+                  width={100}
+                  height={100}
+                  className="rounded-full"
                   priority
                 />
               </div>
-              <div className="space-y-4 text-app-soft">
-                <div className="space-y-1">
-                  <h1 className="text-xl font-semibold text-app-foreground sm:text-2xl">
+              <div className="space-y-2 text-app-soft">
+                <div className="space-y-0.5">
+                  <h1 className="text-xl font-bold text-app-foreground sm:text-2xl">
                     Flavio Miyamoto
                   </h1>
-                  <p className="text-app-muted">ミヤモト・フラヴィオ</p>
-                  <p>Software Development Engineer II @ Amazon</p>
-                  <p>Born in 🇧🇷 and living in 🇯🇵</p>
+                  <p className="text-app-muted text-sm">Software Development Engineer II @ Amazon</p>
                 </div>
-                <div>
-                  <p className="text-app-foreground italic">Building things faster that I can break them</p>
+                <p className="italic text-app-muted/80 text-sm">Building things faster than I can break them</p>
+                <div className="font-mono text-xs text-app-accent">
+                  <span>{'>'} tags: [builder, curious, learner]</span>
                 </div>
-                <div className="flex flex-wrap gap-3 text-[0.72rem] uppercase tracking-[0.35em] text-app-muted">
-                  <span className="rounded-full px-3 py-1 text-app-accent">builder</span>
-                  <span className="rounded-full px-3 py-1 text-app-info">curious</span>
-                  <span className="rounded-full px-3 py-1 text-app-amber">eternal learner</span>
+                <div className="font-mono text-xs text-app-muted">
+                  <span>{'>'} location: Tokyo, Japan </span>
                 </div>
               </div>
             </div>
