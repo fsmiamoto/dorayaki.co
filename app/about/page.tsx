@@ -52,30 +52,6 @@ export default function AboutPage() {
               Cloud infrastructure, operating systems, networking, embedded systems, compilers and language learning.
             </p>
           </section>
-
-          <section className="space-y-3 text-app-soft">
-            <h2 className="text-xs uppercase tracking-[0.35em] text-app-muted">
-              Reach out
-            </h2>
-            <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] sm:text-sm">
-              <a
-                href="https://github.com/fsmiamoto"
-                className="inline-flex items-center gap-2 rounded-full border border-app-border-subtle px-4 py-2 transition-colors hover:border-app-accent hover:text-app-accent-strong"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                [github]
-              </a>
-              <a
-                href="https://www.linkedin.com/in/fsmiamoto/"
-                className="inline-flex items-center gap-2 rounded-full border border-app-border-subtle px-4 py-2 transition-colors hover:border-app-info hover:text-app-info"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                [linkedin]
-              </a>
-            </div>
-          </section>
         </CommandPrompt>
       </TerminalWindow>
     </div>
