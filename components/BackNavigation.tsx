@@ -12,7 +12,7 @@ export default function BackNavigation({
   return (
     <Link
       href={href}
-      className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.32em] text-app-accent transition-colors hover:text-app-accent-strong focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent sm:text-sm"
+      className="link-nav inline-flex items-center gap-2 text-xs uppercase tracking-[0.32em] sm:text-sm"
     >
       {label}
     </Link>

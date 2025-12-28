@@ -16,8 +16,6 @@ interface PostListProps {
   activeTag?: string
 }
 
-const tagPalette = ['text-app-accent', 'text-app-info', 'text-app-amber'] as const
-
 export default function PostList({
   posts,
   emptyState = 'No posts found. Checking content/posts directory...',
@@ -50,7 +48,7 @@ export default function PostList({
           </div>
           <Link
             href={`/posts/${post.slug}`}
-            className="text-lg font-bold text-app-foreground transition-colors hover:text-app-accent sm:text-xl"
+            className="link-content text-lg font-bold sm:text-xl"
           >
             {post.frontMatter.title}
           </Link>
@@ -60,8 +58,8 @@ export default function PostList({
                 const normalizedTag = tag.toLowerCase().replace(/\s+/g, '-')
                 const isActive = activeTag && activeTag.toLowerCase() === tag.toLowerCase()
                 const className = clsx(
-                  'transition-colors hover:underline',
-                  isActive ? 'text-app-foreground font-bold' : 'text-app-muted hover:text-app-accent',
+                  'link-muted',
+                  isActive && 'text-app-foreground font-bold'
                 )
                 const tagHref = buildTagHref(tag)
 

@@ -23,6 +23,7 @@ module.exports = {
           accent: 'var(--color-accent)',
           'accent-strong': 'var(--color-accent-strong)',
           amber: 'var(--color-amber)',
+          purple: 'var(--color-purple)',
           success: 'var(--color-success)',
           info: 'var(--color-info)',
           danger: 'var(--color-danger)',

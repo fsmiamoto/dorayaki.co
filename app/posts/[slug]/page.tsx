@@ -108,7 +108,7 @@ export default async function PostPage({ params }: PageProps) {
             <div className="flex flex-wrap items-center gap-4 text-sm">
               <Link
                 href="/posts"
-                className="text-app-accent transition-colors hover:text-app-accent-strong"
+                className="link-nav-underline"
               >
                 ../
               </Link>

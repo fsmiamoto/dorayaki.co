@@ -1,9 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllPosts } from '@/lib/posts'
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
-import PostList from '@/components/PostList'
 
 const GitHubIcon = () => (
   <svg
@@ -34,10 +32,6 @@ const LinkedInIcon = () => (
 )
 
 export default function Home() {
-  const posts = getAllPosts()
-  const featuredPosts = posts.slice(0, 2)
-  const hasMorePosts = posts.length > featuredPosts.length
-
   return (
     <TerminalWindow title="dorayaki.co">
       <div className="space-y-8">
@@ -62,12 +56,6 @@ export default function Home() {
                   <p className="text-app-muted text-sm">Software Development Engineer II @ Amazon</p>
                 </div>
                 <p className="italic text-app-muted/80 text-sm">Building things faster than I can break them</p>
-                <div className="font-mono text-xs text-app-accent">
-                  <span>{'>'} tags: [builder, curious, learner]</span>
-                </div>
-                <div className="font-mono text-xs text-app-muted">
-                  <span>{'>'} location: Tokyo, Japan </span>
-                </div>
               </div>
             </div>
 
@@ -78,7 +66,7 @@ export default function Home() {
           <div className="flex flex-wrap gap-3 text-xs tracking-[0.3em] sm:text-sm">
             <Link
               href="https://github.com/fsmiamoto"
-              className="inline-flex items-center gap-2 rounded-full border border-transparent bg-transparent px-4 py-2 text-purple-600 transition-all hover:border-purple-600 dark:text-purple-400 dark:hover:border-purple-400"
+              className="link-pill text-app-purple hover:border-app-purple"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -87,31 +75,13 @@ export default function Home() {
             </Link>
             <Link
               href="https://www.linkedin.com/in/fsmiamoto/"
-              className="inline-flex items-center gap-2 rounded-full border border-transparent bg-transparent px-4 py-2 text-blue-600 transition-all hover:border-blue-600 dark:text-blue-400 dark:hover:border-blue-400"
+              className="link-pill text-app-info hover:border-app-info"
               target="_blank"
               rel="noopener noreferrer"
             >
               <LinkedInIcon />
               [linkedin]
             </Link>
-          </div>
-        </CommandPrompt>
-        <CommandPrompt command="ls -la posts/ | head -2" showCursor={false} contentClassName="space-y-4 text-xs sm:text-sm">
-          <div className="space-y-4">
-            <PostList
-              posts={featuredPosts}
-              tagLinkOptions={{ basePath: '/posts' }}
-            />
-            {hasMorePosts && (
-              <div className="flex justify-end">
-                <Link
-                  href="/posts"
-                  className="inline-flex items-center gap-2 text-[0.72rem] tracking-[0.35em] text-app-accent transition-colors hover:text-app-accent-strong"
-                >
-                  see all posts
-                </Link>
-              </div>
-            )}
           </div>
         </CommandPrompt>
 
@@ -123,30 +93,41 @@ export default function Home() {
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="space-y-1">
               <Link
+                href="/posts"
+                className="link-nav-underline inline-flex items-center gap-2"
+              >
+                ls posts/
+              </Link>
+              <p className="text-app-soft">
+                My (not so great) writing
+              </p>
+            </div>
+            <div className="space-y-1">
+              <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-app-accent transition-colors hover:text-app-accent-strong"
+                className="link-nav-underline inline-flex items-center gap-2"
               >
                 cat about.md
               </Link>
               <p className="text-app-soft">
-                Learn about me
+                A bit more about me
               </p>
             </div>
             <div className="space-y-1">
               <Link
                 href="/reading"
-                className="inline-flex items-center gap-2 text-app-info transition-colors hover:text-app-accent"
+                className="link-nav-underline inline-flex items-center gap-2 text-app-info"
               >
                 cat reading.md
               </Link>
               <p className="text-app-soft">
-                My (always changing) list of books that shape how I think
+                My attempt to document what I'm reading
               </p>
             </div>
             <div className="space-y-1">
               <Link
                 href="/cv.pdf"
-                className="inline-flex items-center gap-2 text-app-amber transition-colors hover:text-app-accent"
+                className="link-nav-underline inline-flex items-center gap-2 text-app-amber"
                 target="_blank"
                 rel="noopener noreferrer"
               >

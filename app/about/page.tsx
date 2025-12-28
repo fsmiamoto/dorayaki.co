@@ -29,8 +29,7 @@ export default function AboutPage() {
               I'm a Software Engineer currently working at Amazon in Tokyo, Japan.
             </p>
             <p>
-              My passion is building software solutions to deliver value to people while learning and exploring
-              technologies.
+              My passion is building software to deliver value while learning and exploring technologies.
             </p>
           </section>
 

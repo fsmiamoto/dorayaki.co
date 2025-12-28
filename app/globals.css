@@ -16,6 +16,7 @@
   --color-amber: #fbbf24;
   --color-danger: #ef4444;
   --color-info: #38bdf8;
+  --color-purple: #c084fc;
   --color-success: #4ade80;
   --color-shadow: rgba(0, 0, 0, 0.5);
   --color-surface-elevated: #171717;
@@ -40,6 +41,7 @@
   --color-amber: #d97706;
   --color-danger: #dc2626;
   --color-info: #0284c7;
+  --color-purple: #9333ea;
   --color-success: #16a34a;
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-surface-elevated: #ffffff;
@@ -182,5 +184,39 @@
   .ascii-art {
     @apply text-app-accent font-bold drop-shadow-sm;
     font-family: 'Courier New', monospace;
+  }
+
+  /* Link Utilities - Standardized terminal-style links */
+
+  .link-nav {
+    @apply text-app-accent transition-colors duration-150;
+    @apply hover:text-app-accent-strong;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
+  }
+
+  .link-nav-underline {
+    @apply text-app-accent transition-all duration-150;
+    @apply underline decoration-transparent decoration-2 underline-offset-4;
+    @apply hover:text-app-accent-strong hover:decoration-app-accent-strong;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
+  }
+
+  .link-content {
+    @apply text-app-foreground transition-colors duration-150;
+    @apply hover:text-app-accent;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
+  }
+
+  .link-muted {
+    @apply text-app-muted transition-colors duration-150;
+    @apply hover:text-app-accent hover:underline;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
+  }
+
+  .link-pill {
+    @apply inline-flex items-center gap-2 rounded-full border border-transparent px-4 py-2;
+    @apply transition-all duration-150;
+    @apply hover:border-current;
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
   }
 }
