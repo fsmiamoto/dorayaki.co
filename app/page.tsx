@@ -94,7 +94,7 @@ export default function Home() {
             <div className="space-y-1">
               <Link
                 href="/posts"
-                className="link-nav-underline inline-flex items-center gap-2"
+                className="link-nav-underline inline-flex items-center gap-2 text-app-purple"
               >
                 ls posts/
               </Link>
