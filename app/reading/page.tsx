@@ -12,6 +12,7 @@ const SECTIONS = [
     title: 'Currently diving into',
     accent: 'text-app-accent',
     items: [
+      'Build a Large Language Model (From Scratch)',
       'Building Applications with AI Agents',
       'SOFT SKILLS ソフトウェア開発者の人生マニュアル',
       'Generative AI Design Patterns',
