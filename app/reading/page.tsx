@@ -12,25 +12,27 @@ const SECTIONS = [
     title: 'Currently diving into',
     accent: 'text-app-accent',
     items: [
-      'AI Engineering',
-      'The Principles of Product Development Flow',
+      'Building Applications with AI Agents',
+      'SOFT SKILLS ソフトウェア開発者の人生マニュアル',
       'Generative AI Design Patterns',
-      'LangChainとLangGraphによるRAG・AIエージェント［実践］入門 エンジニア選書'
     ],
   },
   {
     title: 'Recently finished',
     accent: 'text-app-amber',
     items: [
-      '人が増えても速くならない ～変化を抱擁せよ～',
-      'Waltzing with Bears: Managing Risk on Software Projects',
-      'Designing Data-Intensive Applications',
-      'Tidy First?',
+      'AI Engineering',
+      'LangChainとLangGraphによるRAG・AIエージェント［実践］入門 エンジニア選書',
     ],
   },
 ]
 
 const ARCHIVE = [
+  'The Principles of Product Development Flow',
+  '人が増えても速くならない ～変化を抱擁せよ～',
+  'Waltzing with Bears: Managing Risk on Software Projects',
+  'Designing Data-Intensive Applications',
+  'Tidy First?',
   'コンサル時代に教わった 仕事ができる人の当たり前',
   'The Order of Time',
   'Working Backwards',
@@ -93,7 +95,7 @@ export default function ReadingPage() {
               Suggestions are always welcome.
             </p>
             <p className="text-xs uppercase tracking-[0.3em] text-app-muted">
-              Last update: 2025-06-10
+              Last update: 2025-12-30
             </p>
           </header>
 
