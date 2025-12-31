@@ -1,41 +1,17 @@
-'use client'
-
 import Link from 'next/link'
-import clsx from 'clsx'
 import type { Post } from '@/lib/posts'
-
-interface TagLinkOptions {
-  basePath: string
-  preservedQuery?: Record<string, string>
-}
 
 interface PostListProps {
   posts: Post[]
   emptyState?: string
-  tagLinkOptions?: TagLinkOptions
-  activeTag?: string
 }
 
 export default function PostList({
   posts,
-  emptyState = 'No posts found. Checking content/posts directory...',
-  tagLinkOptions,
-  activeTag,
+  emptyState = 'No posts found.',
 }: PostListProps) {
   if (!posts || posts.length === 0) {
     return <div className="text-app-muted">{emptyState}</div>
-  }
-
-  const buildTagHref = (tag: string) => {
-    if (!tagLinkOptions) {
-      return null
-    }
-
-    const params = new URLSearchParams(tagLinkOptions.preservedQuery ?? {})
-    params.set('tag', tag.toLowerCase())
-
-    const query = params.toString()
-    return query ? `${tagLinkOptions.basePath}?${query}` : tagLinkOptions.basePath
   }
 
   return (
@@ -54,25 +30,10 @@ export default function PostList({
           </Link>
           {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
             <div className="flex flex-wrap gap-3 font-mono text-xs">
-              {post.frontMatter.tags.map((tag, index) => {
+              {post.frontMatter.tags.map((tag) => {
                 const normalizedTag = tag.toLowerCase().replace(/\s+/g, '-')
-                const isActive = activeTag && activeTag.toLowerCase() === tag.toLowerCase()
-                const className = clsx(
-                  'link-muted',
-                  isActive && 'text-app-foreground font-bold'
-                )
-                const tagHref = buildTagHref(tag)
-
-                if (tagHref) {
-                  return (
-                    <Link key={`${post.slug}-${tag}`} href={tagHref} className={className}>
-                      #{normalizedTag}
-                    </Link>
-                  )
-                }
-
                 return (
-                  <span key={`${post.slug}-${tag}`} className={className}>
+                  <span key={`${post.slug}-${tag}`} className="text-app-muted">
                     #{normalizedTag}
                   </span>
                 )

@@ -1,4 +1,3 @@
-import { Suspense } from 'react'
 import type { Metadata } from 'next'
 import { getAllPosts } from '@/lib/posts'
 import TerminalWindow from '@/components/TerminalWindow'
@@ -31,9 +30,7 @@ export default function PostsPage() {
             showCursor={false}
             contentClassName="space-y-4 text-xs sm:text-sm"
           >
-            <Suspense fallback={<div className="text-xs text-app-muted">Loading posts...</div>}>
-              <PostsResults posts={posts} />
-            </Suspense>
+            <PostsResults posts={posts} />
           </CommandPrompt>
         </div>
       </TerminalWindow>
