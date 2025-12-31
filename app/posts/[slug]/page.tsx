@@ -4,6 +4,7 @@ import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
 import BackNavigation from '@/components/BackNavigation'
 import OpinionDisclaimer from '@/components/OpinionDisclaimer'
+import Comments from '@/components/Comments'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { notFound } from 'next/navigation'
@@ -103,6 +104,10 @@ export default async function PostPage({ params }: PageProps) {
               <MDXContent source={post.content} />
             </article>
           </CommandPrompt>
+
+          <div className="pt-6">
+            <Comments slug={post.slug} />
+          </div>
 
           <CommandPrompt command="ls ../" showCursor={false}>
             <div className="flex flex-wrap items-center gap-4 text-sm">
