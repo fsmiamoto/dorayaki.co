@@ -22,4 +22,6 @@ The Association for Computing Machinery has an [add-on](https://learning.acm.org
 
 This is added on top of the annual subscription cost of $99 USD (or less if you're in a developing country), but even so, you get ACM membership that allows you to read the latest research while also having the O'Reilly platform for around $175 USD.
 
-Considering that a single book can cost around 5,000 to 10,000 JPY in Japan these days (even more expensive if you want the original English versions), I cannot recommend it enough. Just get it.
+Considering that a single book can cost around 5,000 to 10,000 JPY in Japan these days (even more expensive if you want the original English versions), I cannot recommend it enough.
+
+Just get it.
