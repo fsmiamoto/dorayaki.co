@@ -1,18 +1,13 @@
-import clsx from 'clsx'
+import clsx from "clsx";
 
 interface OpinionDisclaimerProps {
-  className?: string
+  className?: string;
 }
 
 export default function OpinionDisclaimer({ className }: OpinionDisclaimerProps) {
   return (
-    <p
-      className={clsx(
-        'text-xs leading-relaxed text-app-muted/90 italic sm:text-sm',
-        className,
-      )}
-    >
+    <p className={clsx("text-app-muted/90 text-xs italic leading-relaxed sm:text-sm", className)}>
       All posts reflect my own thoughts and opinions and do not represent my employer.
     </p>
-  )
+  );
 }

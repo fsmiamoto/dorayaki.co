@@ -1,14 +1,14 @@
 ---
-title: 'Embedded Systems are awesome!'
-date: '2021-09-04'
-tags: ['Embedded Systems']
+title: "Embedded Systems are awesome!"
+date: "2021-09-04"
+tags: ["Embedded Systems"]
 categories: []
 ---
 
 I've just finished my class of Embedded Systems in my university and
 I have to say, it was an awesome experience.
 
-As a guy that really likes low level stuff, understanding how a micro controller 
+As a guy that really likes low level stuff, understanding how a micro controller
 works internally to get to the point of running an actual Real Time Operating System (RTOS)
 was really enjoyable.
 
@@ -16,21 +16,21 @@ Let's go through some of things you can learn while studying Embedded Systems :D
 
 ## Bare Metal?
 
-We all have to start somewhere and that's bare metal, running code without 
+We all have to start somewhere and that's bare metal, running code without
 an actual operating system behind it.
 
 In this case you get to understand how the internal peripherals of the chip need to be
 configured for some desired clock frequency, how to enable GPIO pins and even how
 interrupts need to be handled.
 
-As an example of what it looks like, the code below shows a simple finite state machine 
+As an example of what it looks like, the code below shows a simple finite state machine
 that goes through a Gray count and showing the count on the board's builtin LEDs:
 
 ```c
 #include <stdint.h>
 #include <stdbool.h>
 #include "driverlib/systick.h"
-#include "driverleds.h" 
+#include "driverleds.h"
 
 #define SYSTICK_ONE_SEC_24MHZ_CLK 12000000
 
@@ -50,7 +50,7 @@ state_t state;
 
 void SysTick_Handler(void){
   tick = 1;
-} 
+}
 
 void setUp(void) {
   LEDInit(LED1 | LED2 | LED3);
@@ -62,7 +62,7 @@ void setUp(void) {
 void main(void){
   setUp();
 
-  state = COUNT_000; 
+  state = COUNT_000;
 
   for(;;){
     if(tick){
@@ -92,19 +92,19 @@ void main(void){
         case COUNT_100:
           state = COUNT_000;
           break;
-      } 
+      }
       LEDOn(state);
       LEDOff(~state);
-    } 
-  } 
-} 
+    }
+  }
+}
 ```
 
 Full code available [here](https://github.com/fsmiamoto/TM4C1294_Bare_IAR9/tree/main/Projects/Laborat%C3%B3rio_03)
 
 Well, it isn't much but it's a good starting point!
 
-In this we had to *manually* initiate the hardware and enable interrupts - mostly in the `setUp` function -
+In this we had to _manually_ initiate the hardware and enable interrupts - mostly in the `setUp` function -
 calling the appropriate functions made available by the chip vendor, Texas Instruments in
 this case.
 
@@ -115,12 +115,13 @@ That's when a Real Time Operating System (RTOS) comes in handy.
 
 ## Real Time?
 
-To start, what does exactly *Real Time* mean in here?
+To start, what does exactly _Real Time_ mean in here?
 
-Simply put, it means that tasks executing on a RTOS have a **deadline** and with that a 
+Simply put, it means that tasks executing on a RTOS have a **deadline** and with that a
 very important separation appears between **soft** and **hard** real time systems.
 
 ### Hard and Soft
+
 Although these definitions might have some room for different interpretations, the
 following describe the general idea:
 
@@ -132,17 +133,17 @@ An example for a hard real time system is one that controls a safety critical sy
 as ABS.
 
 For soft real time, we can consider applications such as video streaming where not hitting
-the deadlines might cause some stutter but no one gets harmed with that, right? 
+the deadlines might cause some stutter but no one gets harmed with that, right?
 
 > Ok, maybe the remote control might get thrown at the TV but still, no human injuries are
-expected :)
+> expected :)
 
 But how do we manage running tasks in a real time OS?
 
 For most embedded applications you might only have a single computing core so the task
 becomes even more interesting.
 
-With that, we need to get into *concurrency controls* and *scheduling algorithms*, two operating
+With that, we need to get into _concurrency controls_ and _scheduling algorithms_, two operating
 systems topics that I really like!
 
 Both are huge topics but you'll definitely need to remember all those things from your
@@ -154,7 +155,7 @@ starvation and much more :D
 Let's start with a simple example, just blinking 4 LEDs at different
 frequencies.
 
-In this example, we create 4 threads - one for each LED - which has a *body* that simply
+In this example, we create 4 threads - one for each LED - which has a _body_ that simply
 switches a particular LED on and off and waits for the given amount of time.
 
 ```c
@@ -218,8 +219,8 @@ But now let's see a more elaborate example, where a RTOS can **really** shine.
 ## PWM'ing 4 LEDs concurrently
 
 In this final example, we'll have the same 4 threads managing one LED but this time using
-[Pulse Width Modulation](https://en.wikipedia.org/wiki/Pulse-width_modulation) (PWM). 
-The threads read from a *message queue* that signals whether the duty cycle should increase.
+[Pulse Width Modulation](https://en.wikipedia.org/wiki/Pulse-width_modulation) (PWM).
+The threads read from a _message queue_ that signals whether the duty cycle should increase.
 
 Messages are queued by a **manager** thread which also receives messages from a queue
 that signals that the development board built-in push button was pressed.

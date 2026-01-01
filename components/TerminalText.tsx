@@ -1,15 +1,21 @@
-import { ReactNode } from 'react'
+import { ReactNode } from "react";
 
 interface TerminalTextProps {
-  children: ReactNode
-  className?: string
-  animate?: boolean
+  children: ReactNode;
+  className?: string;
+  animate?: boolean;
 }
 
-export default function TerminalText({ children, className = '', animate = false }: TerminalTextProps) {
+export default function TerminalText({
+  children,
+  className = "",
+  animate = false,
+}: TerminalTextProps) {
   return (
-    <div className={`font-mono ${animate ? 'animate-typing overflow-hidden whitespace-nowrap' : ''} ${className}`}>
+    <div
+      className={`font-mono ${animate ? "animate-typing overflow-hidden whitespace-nowrap" : ""} ${className}`}
+    >
       {children}
     </div>
-  )
+  );
 }

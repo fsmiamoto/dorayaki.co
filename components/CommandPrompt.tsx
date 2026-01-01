@@ -1,19 +1,19 @@
-import { ReactNode } from 'react'
-import clsx from 'clsx'
+import { ReactNode } from "react";
+import clsx from "clsx";
 
 interface CommandPromptProps {
-  user?: string
-  directory?: string
-  command?: string
-  children?: ReactNode
-  showCursor?: boolean
-  className?: string
-  contentClassName?: string
+  user?: string;
+  directory?: string;
+  command?: string;
+  children?: ReactNode;
+  showCursor?: boolean;
+  className?: string;
+  contentClassName?: string;
 }
 
 export default function CommandPrompt({
-  user = 'fmiamoto',
-  directory = '~',
+  user = "fmiamoto",
+  directory = "~",
   command,
   children,
   showCursor = true,
@@ -21,7 +21,7 @@ export default function CommandPrompt({
   contentClassName,
 }: CommandPromptProps) {
   return (
-    <div className={clsx('space-y-4', className)}>
+    <div className={clsx("space-y-4", className)}>
       <div className="flex flex-wrap items-baseline gap-1 text-[0.78rem] leading-relaxed text-app-muted sm:text-sm">
         <span className="prompt">{user}@dorayaki</span>
         <span className="text-app-faint">:</span>
@@ -33,7 +33,7 @@ export default function CommandPrompt({
       {children && (
         <div
           className={clsx(
-            'space-y-3 text-xs leading-relaxed text-app-soft sm:text-sm',
+            "space-y-3 text-xs leading-relaxed text-app-soft sm:text-sm",
             contentClassName,
           )}
         >
@@ -41,5 +41,5 @@ export default function CommandPrompt({
         </div>
       )}
     </div>
-  )
+  );
 }

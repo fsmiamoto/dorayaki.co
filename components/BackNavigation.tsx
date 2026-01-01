@@ -1,14 +1,11 @@
-import Link from 'next/link'
+import Link from "next/link";
 
 interface BackNavigationProps {
-  href?: string
-  label?: string
+  href?: string;
+  label?: string;
 }
 
-export default function BackNavigation({
-  href = '/',
-  label = '← cd ~/',
-}: BackNavigationProps) {
+export default function BackNavigation({ href = "/", label = "← cd ~/" }: BackNavigationProps) {
   return (
     <Link
       href={href}
@@ -16,5 +13,5 @@ export default function BackNavigation({
     >
       {label}
     </Link>
-  )
+  );
 }

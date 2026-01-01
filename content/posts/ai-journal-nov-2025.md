@@ -62,7 +62,7 @@ This, of course, makes me much happier as a developer since I never enjoyed the 
 
 ### So, are we cooked?
 
-Although some CEOs sitting in their ivory towers think you can already replace most humans with LLMs, my personal opinion is that we are far from it. 
+Although some CEOs sitting in their ivory towers think you can already replace most humans with LLMs, my personal opinion is that we are far from it.
 
 Yes, I do think AI will change how we do most things but at this point in time, it is still too unreliable to handle
 a lot of tasks and it might stay that way for a long time.
@@ -77,7 +77,7 @@ As most people, I'm not sure how this will pan out in our industry. My hope is t
 
 Another topic that has been floating around quite a lot these days is the idea that we're in a bubble.
 
-Some people say we are and some say we don't and I tend to agree with what [Jeff Bezos](https://www.cnbc.com/2025/10/03/jeff-bezos-ai-in-an-industrial-bubble-but-society-to-benefit.html) said: 
+Some people say we are and some say we don't and I tend to agree with what [Jeff Bezos](https://www.cnbc.com/2025/10/03/jeff-bezos-ai-in-an-industrial-bubble-but-society-to-benefit.html) said:
 
 > This is a kind of industrial bubble [...] The good ideas and the bad ideas. And investors have a hard time in the middle of this excitement, distinguishing between the good ideas and the bad ideas. And that's also probably happening today
 

@@ -19,7 +19,7 @@ actually being part of something so big, was awesome.
 
 Outside of work though, I had to adapt and reinvent myself to deal with the
 fact that I'm at a place where I can't communicate 100% - despite my
-efforts to improve that. 
+efforts to improve that.
 
 It can really get to you sometimes, the feeling of desperation of trying to
 convey something and just feeling completely unable to do so but that's also

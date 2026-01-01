@@ -7,12 +7,14 @@ tags: ["Career"]
 It was a regular 1:1 with my manager.
 
 My manager asked me (maybe not with these exact words but bear with me):
+
 > I have something to check with you. We have an upcoming All Hands
-> event and I need to appoint a PoC to organize from our team. 
+> event and I need to appoint a PoC to organize from our team.
 > Do you want to be that person?
 
 At first, I wasn't sure what exactly I would need to do.
 After asking my manager though, I thought to myself:
+
 > Well, it surely can't be that bad. I'll get the chance to interact
 > with the business team, something I don't usually get the chance to do
 > and potentially earn some trust in the meantime so why not.
@@ -26,12 +28,13 @@ prepared their part of the All Hands presentation and I also did the
 facilitation role during the actual event.
 
 It felt like going back to school, where I had to nudge people to ensure our
-class presentation would be done in time. 
+class presentation would be done in time.
 
-Not something I'd like to do every week but I guess at the end of the day, 
+Not something I'd like to do every week but I guess at the end of the day,
 this is how you really gain trust from your leadership.
 
 As a Software Engineer, it is easy to think:
+
 > Well, this is not code so I shouldn't do it.
 
 But I think that's not the right way to frame it.

@@ -10,24 +10,24 @@ things I've deliberately practiced in the last couple of years and one of them d
 stands out: Learning how to touch type properly.
 
 Although I've played around with computers pretty much my entire life, my typing skills
-were not really great (about 40 WPM at best) back in 2019. 
+were not really great (about 40 WPM at best) back in 2019.
 
 It was during a Computer Architecture class where I observed a colleague
 with really great typing skills and asked him about it. He mentioned that he practiced
-using a website called [TypingClub](https://www.typingclub.com/) 
+using a website called [TypingClub](https://www.typingclub.com/)
 and by looking at him typing the results really showed.
 
 I've realized that without a targeted effort it would never get better and so I've
 decided to give TypingClub a shot.
 
-From there onward I've began training using their website - which I really recommend :D - 
+From there onward I've began training using their website - which I really recommend :D -
 and slowly but surely saw my speed increase and my typos rate decrease.
 
 It wasn't too long before I saw my speed get to 80WPM and then close to 100 WPM, which is
 what I'm currently capable.
 
 The benefits might not seem obvious but I've definitely started to feel them after a
-while. 
+while.
 
 As a programmer I most likely won't be smashing code at 100+ WPM since it usually requires
 careful thinking but being able to type without too many mistakes really helps you stay in

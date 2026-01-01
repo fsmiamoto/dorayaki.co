@@ -1,16 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: "export",
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
-  distDir: 'out',
+  distDir: "out",
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
   experimental: {
     mdxRs: true,
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

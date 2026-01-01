@@ -1,10 +1,10 @@
-import PostList from '@/components/PostList'
-import type { Post } from '@/lib/posts'
+import PostList from "@/components/PostList";
+import type { Post } from "@/lib/posts";
 
 interface PostsResultsProps {
-  posts: Post[]
+  posts: Post[];
 }
 
 export default function PostsResults({ posts }: PostsResultsProps) {
-  return <PostList posts={posts} />
+  return <PostList posts={posts} />;
 }
