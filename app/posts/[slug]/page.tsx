@@ -8,6 +8,9 @@ import Comments from '@/components/Comments'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
+import JsonLd from '@/components/JsonLd'
+import { absoluteUrl, toPlainTextExcerpt, withTrailingSlash } from '@/lib/seo'
 
 interface PageProps {
   params: Promise<{
@@ -29,18 +32,33 @@ export async function generateMetadata({ params }: PageProps) {
   if (!post) {
     return {
       title: 'Post Not Found',
-    }
+    } satisfies Metadata
   }
+
+  const canonicalPath = withTrailingSlash(`/posts/${slug}`)
+  const url = absoluteUrl(canonicalPath)
+  const description = toPlainTextExcerpt(post.frontMatter.excerpt ?? post.content)
+  const publishedTime = new Date(post.frontMatter.date).toISOString()
 
   return {
     title: `${post.frontMatter.title} - dorayaki`,
-    description: post.frontMatter.excerpt || post.content.substring(0, 160),
+    description,
+    alternates: {
+      canonical: canonicalPath,
+    },
     openGraph: {
       title: post.frontMatter.title,
-      description: post.frontMatter.excerpt || post.content.substring(0, 160),
+      description,
+      url,
       type: 'article',
-      publishedTime: post.frontMatter.date,
+      publishedTime,
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.frontMatter.title,
+      description,
+    },
+    keywords: post.frontMatter.tags,
   }
 }
 
@@ -52,6 +70,27 @@ export default async function PostPage({ params }: PageProps) {
     notFound()
   }
 
+  const canonicalPath = withTrailingSlash(`/posts/${post.slug}`)
+  const canonicalUrl = absoluteUrl(canonicalPath)
+  const description = toPlainTextExcerpt(post.frontMatter.excerpt ?? post.content)
+  const publishedTime = new Date(post.frontMatter.date).toISOString()
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.frontMatter.title,
+    description,
+    datePublished: publishedTime,
+    author: {
+      '@type': 'Person',
+      name: 'Flavio Miyamoto',
+      url: absoluteUrl('/'),
+    },
+    mainEntityOfPage: canonicalUrl,
+    url: canonicalUrl,
+    keywords: post.frontMatter.tags,
+  } as const
+
   return (
     <div className="space-y-6">
       <div className="mb-8">
@@ -60,6 +99,7 @@ export default async function PostPage({ params }: PageProps) {
 
       <TerminalWindow title={`posts/${post.slug}.md`}>
         <div className="space-y-8">
+          <JsonLd data={jsonLd} />
           <CommandPrompt
             command={`cat posts/${post.slug}.md`}
             showCursor={false}

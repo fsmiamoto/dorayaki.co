@@ -1,10 +1,26 @@
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
 import BackNavigation from '@/components/BackNavigation'
+import type { Metadata } from 'next'
+import { absoluteUrl, withTrailingSlash } from '@/lib/seo'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Reading List - dorayaki',
-  description: 'Books I\'ve read and am currently reading',
+  description: 'My attempt to document what I\' reading',
+  alternates: {
+    canonical: withTrailingSlash('/reading'),
+  },
+  openGraph: {
+    title: 'Reading List - dorayaki',
+    description: 'My attempt to document what I\' reading',
+    url: absoluteUrl(withTrailingSlash('/reading')),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Reading List - dorayaki',
+    description: 'My attempt to document what I\' reading',
+  },
 }
 
 const SECTIONS = [

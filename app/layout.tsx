@@ -2,12 +2,17 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import ThemeToggle from '@/components/ThemeToggle'
+import { SITE_ORIGIN } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'dorayaki',
   description: 'personal blog of a terrible engineer',
+  metadataBase: new URL(SITE_ORIGIN),
   authors: [{ name: 'Flavio Miyamoto' }],
   keywords: ['blog', 'programming', 'software engineering', 'embedded systems', 'technology'],
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: [
       { url: '/favicon_16.png', sizes: '16x16', type: 'image/png' },
@@ -17,7 +22,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'dorayaki',
     description: 'personal blog of a terrible engineer',
-    url: 'https://dorayaki.co',
     siteName: 'dorayaki',
     type: 'website',
   },

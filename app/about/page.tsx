@@ -1,10 +1,26 @@
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
 import BackNavigation from '@/components/BackNavigation'
+import type { Metadata } from 'next'
+import { absoluteUrl, withTrailingSlash } from '@/lib/seo'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'About - dorayaki',
   description: 'About Flavio Miyamoto - Software Development Engineer II at Amazon',
+  alternates: {
+    canonical: withTrailingSlash('/about'),
+  },
+  openGraph: {
+    title: 'About - dorayaki',
+    description: 'About Flavio Miyamoto - Software Development Engineer II at Amazon',
+    url: absoluteUrl(withTrailingSlash('/about')),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About - dorayaki',
+    description: 'About Flavio Miyamoto - Software Development Engineer II at Amazon',
+  },
 }
 
 export default function AboutPage() {

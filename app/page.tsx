@@ -1,7 +1,28 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import type { Metadata } from 'next'
 import TerminalWindow from '@/components/TerminalWindow'
 import CommandPrompt from '@/components/CommandPrompt'
+import { absoluteUrl } from '@/lib/seo'
+
+export const metadata: Metadata = {
+  title: 'dorayaki',
+  description: 'personal blog of a Flavio Miyamoto',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'dorayaki',
+    description: 'personal blog of a Flavio Miyamoto',
+    url: absoluteUrl('/'),
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'dorayaki',
+    description: 'personal blog of a Flavio Miyamoto',
+  },
+}
 
 const GitHubIcon = () => (
   <svg

@@ -1,12 +1,31 @@
+import fs from 'fs'
+import path from 'path'
+import type { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
+import { absoluteUrl, withTrailingSlash } from '@/lib/seo'
 
 export const dynamic = 'force-static'
 
-export default function sitemap() {
+function getStaticLastModified(): string {
+  try {
+    const siteJsonPath = path.join(process.cwd(), 'content', 'site.json')
+    const json = JSON.parse(fs.readFileSync(siteJsonPath, 'utf8')) as { lastUpdated?: string }
+    if (json.lastUpdated) {
+      return new Date(json.lastUpdated).toISOString()
+    }
+  } catch {
+    // ignore
+  }
+  return new Date('2026-01-01').toISOString()
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts()
-  
+
+  const staticLastModified = getStaticLastModified()
+
   const postUrls = posts.map((post) => ({
-    url: `https://dorayaki.co/posts/${post.slug}`,
+    url: absoluteUrl(withTrailingSlash(`/posts/${post.slug}`)),
     lastModified: post.frontMatter.date,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
@@ -14,22 +33,28 @@ export default function sitemap() {
 
   const staticUrls = [
     {
-      url: 'https://dorayaki.co',
-      lastModified: new Date().toISOString(),
+      url: absoluteUrl('/'),
+      lastModified: staticLastModified,
       changeFrequency: 'daily' as const,
       priority: 1.0,
     },
     {
-      url: 'https://dorayaki.co/about',
-      lastModified: new Date().toISOString(),
+      url: absoluteUrl(withTrailingSlash('/about')),
+      lastModified: staticLastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     },
     {
-      url: 'https://dorayaki.co/reading',
-      lastModified: new Date().toISOString(),
+      url: absoluteUrl(withTrailingSlash('/reading')),
+      lastModified: staticLastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.5,
+    },
+    {
+      url: absoluteUrl(withTrailingSlash('/posts')),
+      lastModified: staticLastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
     },
   ]
 

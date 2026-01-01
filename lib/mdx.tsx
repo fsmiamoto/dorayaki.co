@@ -35,14 +35,29 @@ const components = {
     return <code className="rounded bg-app-surface-soft px-2 py-1 text-app-amber" {...props} />
   },
   pre: (props: React.HTMLAttributes<HTMLDivElement>) => <div {...props} />,
-  a: (props: React.HTMLAttributes<HTMLAnchorElement>) => (
-    <a 
-      className="text-app-accent underline transition-colors hover:text-app-accent-strong" 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      {...props} 
-    />
-  ),
+  a: ({ href, className, ...props }: React.ComponentPropsWithoutRef<'a'>) => {
+    const hrefValue = href ?? ''
+    const isInternal = hrefValue.startsWith('/') || hrefValue.startsWith('#')
+    const isExternal =
+      hrefValue !== '' &&
+      !isInternal &&
+      (hrefValue.startsWith('http://') || hrefValue.startsWith('https://') || hrefValue.startsWith('//'))
+
+    return (
+      <a
+        className={[
+          'text-app-accent underline transition-colors hover:text-app-accent-strong',
+          className,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        href={href}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
+        {...props}
+      />
+    )
+  },
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => <ul className="mb-4 list-none space-y-2 text-app-soft" {...props} />,
   ol: (props: React.HTMLAttributes<HTMLOListElement>) => <ol className="mb-4 list-decimal list-inside space-y-2 text-app-soft" {...props} />,
   li: (props: React.HTMLAttributes<HTMLLIElement>) => (
