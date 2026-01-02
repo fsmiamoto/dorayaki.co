@@ -1,0 +1,10 @@
+# dorayaki.co
+
+> Personal blog by Flavio Miyamoto, a software engineer. 
+
+## Pages
+
+- [Home](https://dorayaki.co/): Home page with profile
+- [About](https://dorayaki.co/about/): About Flavio
+- [Posts](https://dorayaki.co/posts/): List of posts
+- [Reading](https://dorayaki.co/reading/): Reading list of Flavio
