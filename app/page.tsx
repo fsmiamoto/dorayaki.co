@@ -68,7 +68,7 @@ export default function Home() {
                     Flavio Miyamoto
                   </h1>
                   <p className="text-sm text-app-muted">
-                    Software Development Engineer II @ Amazon
+                    Software Development Engineer @ Amazon
                   </p>
                 </div>
                 <p className="text-app-muted/80 text-sm italic">
