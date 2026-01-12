@@ -1,0 +1,446 @@
+{
+  "lastUpdated": "2026-01-12",
+  "books": [
+    {
+      "id": "build-a-large-language-model-from-scratch",
+      "title": "Build a Large Language Model (From Scratch)",
+      "author": "Sebastian Raschka",
+      "isbn": "9781638355731",
+      "status": "reading",
+      "recommended": false,
+      "coverUrl": "/covers/build-a-large-language-model-from-scratch.jpg"
+    },
+    {
+      "id": "building-applications-with-ai-agents",
+      "title": "Building Applications with AI Agents",
+      "author": "Michael Albada",
+      "isbn": "9781098176501",
+      "status": "reading",
+      "recommended": false,
+      "coverUrl": "/covers/building-applications-with-ai-agents.jpg"
+    },
+    {
+      "id": "soft-skills-software-developer-life-manual",
+      "title": "SOFT SKILLS ソフトウェア開発者の人生マニュアル",
+      "author": "ジョン・ソンメズ",
+      "isbn": "9784822251550",
+      "status": "reading",
+      "recommended": false,
+      "coverUrl": null
+    },
+    {
+      "id": "generative-ai-design-patterns",
+      "title": "Generative AI Design Patterns",
+      "author": "Valliappa Lakshmanan",
+      "isbn": "9798341622630",
+      "status": "reading",
+      "recommended": false,
+      "coverUrl": "/covers/generative-ai-design-patterns.jpg"
+    },
+    {
+      "id": "ai-engineering",
+      "title": "AI Engineering",
+      "author": "Chip Huyen",
+      "isbn": "9781098166274",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/ai-engineering.jpg"
+    },
+    {
+      "id": "langchain-langgraph-rag-ai-agent",
+      "title": "LangChainとLangGraphによるRAG・AIエージェント［実践］入門 エンジニア選書",
+      "author": "西見公宏",
+      "isbn": "9784297145309",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/langchain-langgraph-rag-ai-agent.jpg"
+    },
+    {
+      "id": "the-principles-of-product-development-flow",
+      "title": "The Principles of Product Development Flow",
+      "author": "Donald G. Reinertsen",
+      "isbn": "9781935401001",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-principles-of-product-development-flow.jpg"
+    },
+    {
+      "id": "people-increase-not-faster",
+      "title": "人が増えても速くならない ～変化を抱擁せよ～",
+      "author": "倉貫義人",
+      "isbn": "9784297135652",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/people-increase-not-faster.jpg"
+    },
+    {
+      "id": "waltzing-with-bears-managing-risk-on-software-projects",
+      "title": "Waltzing with Bears: Managing Risk on Software Projects",
+      "author": "Tom DeMarco",
+      "isbn": "9780932633606",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/waltzing-with-bears-managing-risk-on-software-projects.jpg"
+    },
+    {
+      "id": "designing-data-intensive-applications",
+      "title": "Designing Data-Intensive Applications",
+      "author": "Martin Kleppmann",
+      "isbn": "9781491903100",
+      "status": "finished",
+      "recommended": true,
+      "coverUrl": "/covers/designing-data-intensive-applications.jpg"
+    },
+    {
+      "id": "tidy-first",
+      "title": "Tidy First?",
+      "author": "Kent Beck",
+      "isbn": "9781098151249",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/tidy-first.jpg"
+    },
+    {
+      "id": "consul-era-working-competent-people-basics",
+      "title": "コンサル時代に教わった 仕事ができる人の当たり前",
+      "author": "西原亮",
+      "isbn": "9784478120545",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/consul-era-working-competent-people-basics.jpg"
+    },
+    {
+      "id": "the-order-of-time",
+      "title": "The Order of Time",
+      "author": "Carlo Rovelli",
+      "isbn": "9780735216105",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-order-of-time.jpg"
+    },
+    {
+      "id": "working-backwards",
+      "title": "Working Backwards",
+      "author": "Colin Bryar",
+      "isbn": "9781529033854",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/working-backwards.jpg"
+    },
+    {
+      "id": "accelerate",
+      "title": "Accelerate",
+      "author": "Nicole Forsgren",
+      "isbn": "9781942788355",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/accelerate.jpg"
+    },
+    {
+      "id": "team-topologies",
+      "title": "Team Topologies",
+      "author": "Matthew Skelton",
+      "isbn": "9781942788812",
+      "status": "finished",
+      "recommended": true,
+      "coverUrl": "/covers/team-topologies.jpg"
+    },
+    {
+      "id": "the-culture-map",
+      "title": "The Culture Map",
+      "author": "Erin Meyer",
+      "isbn": "9781610396714",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-culture-map.jpg"
+    },
+    {
+      "id": "just-enough-software-architecture-a-risk-driven-approach",
+      "title": "Just Enough Software Architecture: A Risk-Driven Approach",
+      "author": "George Fairbanks",
+      "isbn": "9780984618101",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/just-enough-software-architecture-a-risk-driven-approach.jpg"
+    },
+    {
+      "id": "crafting-interpreters",
+      "title": "Crafting Interpreters",
+      "author": "Robert Nystrom",
+      "isbn": "9780990582946",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/crafting-interpreters.jpg"
+    },
+    {
+      "id": "software-engineering-at-google",
+      "title": "Software Engineering at Google",
+      "author": "Titus Winters",
+      "isbn": "9781492082743",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/software-engineering-at-google.jpg"
+    },
+    {
+      "id": "essentialism",
+      "title": "Essentialism",
+      "author": "Sean McArdle",
+      "isbn": "9780804137386",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/essentialism.jpg"
+    },
+    {
+      "id": "the-psychology-of-money",
+      "title": "The Psychology of Money",
+      "author": "Michael Argyle",
+      "isbn": "9780857197689",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-psychology-of-money.jpg"
+    },
+    {
+      "id": "the-annotated-turing",
+      "title": "The Annotated Turing",
+      "author": "Charles Petzold",
+      "isbn": "9780470229057",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-annotated-turing.jpg"
+    },
+    {
+      "id": "building-microservices",
+      "title": "Building Microservices",
+      "author": "Sam Newman",
+      "isbn": "9781491950319",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/building-microservices.jpg"
+    },
+    {
+      "id": "the-code-book",
+      "title": "The Code Book",
+      "author": "Simon Singh",
+      "isbn": "9780375890123",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-code-book.jpg"
+    },
+    {
+      "id": "linked",
+      "title": "Linked: The New Science of Networks",
+      "author": "Albert-László Barabási",
+      "isbn": "9780738206677",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "https://covers.openlibrary.org/b/id/14582832-L.jpg"
+    },
+    {
+      "id": "value-proposition-design",
+      "title": "Value Proposition Design: How to Create Products and Services Customers Want",
+      "author": "Alexander Osterwalder",
+      "isbn": "9781118968062",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/value-proposition-design.jpg"
+    },
+    {
+      "id": "fermats-enigma",
+      "title": "Fermat's Enigma",
+      "author": "Simon Singh",
+      "isbn": "9780385493628",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/fermats-enigma.jpg"
+    },
+    {
+      "id": "grokking-algorithms",
+      "title": "Grokking Algorithms",
+      "author": "Aditya Y. Bhargava",
+      "isbn": "9781638354567",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/grokking-algorithms.jpg"
+    },
+    {
+      "id": "sapiens",
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "isbn": "9780063453982",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/sapiens.jpg"
+    },
+    {
+      "id": "skin-in-the-game",
+      "title": "Skin in the Game",
+      "author": "Nassim Nicholas Taleb",
+      "isbn": "9780425284636",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/skin-in-the-game.jpg"
+    },
+    {
+      "id": "antifragile",
+      "title": "Antifragile",
+      "author": "Nassim Nicholas Taleb",
+      "isbn": "9780679645276",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/antifragile.jpg"
+    },
+    {
+      "id": "nonviolent-communication",
+      "title": "Nonviolent Communication",
+      "author": "Marshall B. Rosenberg",
+      "isbn": "9781892005540",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/nonviolent-communication.jpg"
+    },
+    {
+      "id": "unit-testing",
+      "title": "Unit Testing: Principles, Practices, and Patterns",
+      "author": "Vladimir Khorikov",
+      "isbn": "9781617296277",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/unit-testing.jpg"
+    },
+    {
+      "id": "a-philosophy-of-software-design",
+      "title": "A Philosophy of Software Design",
+      "author": "John K. Ousterhout",
+      "isbn": "9781732102217",
+      "status": "finished",
+      "recommended": true,
+      "coverUrl": "/covers/a-philosophy-of-software-design.jpg"
+    },
+    {
+      "id": "ai-superpowers",
+      "title": "AI Superpowers",
+      "author": "Kai-Fu Lee",
+      "isbn": "9781328546395",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/ai-superpowers.jpg"
+    },
+    {
+      "id": "atomic-habits",
+      "title": "Atomic Habits",
+      "author": "James Clear",
+      "isbn": "9789388241908",
+      "status": "finished",
+      "recommended": true,
+      "coverUrl": "/covers/atomic-habits.jpg"
+    },
+    {
+      "id": "barking-up-the-wrong-tree",
+      "title": "Barking Up the Wrong Tree",
+      "author": "Jenn McKinlay",
+      "isbn": "9780399584732",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/barking-up-the-wrong-tree.jpg"
+    },
+    {
+      "id": "clean-architecture",
+      "title": "Clean Architecture",
+      "author": "Robert C. Martin",
+      "isbn": "9780134494326",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/clean-architecture.jpg"
+    },
+    {
+      "id": "clean-code",
+      "title": "Clean Code",
+      "author": "Robert C. Martin",
+      "isbn": "9780132350884",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/clean-code.jpg"
+    },
+    {
+      "id": "cloud-native-devops-with-kubernetes",
+      "title": "Cloud Native DevOps with Kubernetes",
+      "author": "John Arundel",
+      "isbn": "9781492040736",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/cloud-native-devops-with-kubernetes.jpg"
+    },
+    {
+      "id": "deep-work",
+      "title": "Deep Work",
+      "author": "Cal Newport",
+      "isbn": "9780349411910",
+      "status": "finished",
+      "recommended": true,
+      "coverUrl": "/covers/deep-work.jpg"
+    },
+    {
+      "id": "unscripted",
+      "title": "Unscripted",
+      "author": "M. J. DeMarco",
+      "isbn": "9780984358182",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/unscripted.jpg"
+    },
+    {
+      "id": "low-level-programming",
+      "title": "Low-Level Programming",
+      "author": "E. O'Donnell",
+      "isbn": "9781484224021",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/low-level-programming.jpg"
+    },
+    {
+      "id": "refactoring-2nd-edition",
+      "title": "Refactoring (2nd Edition)",
+      "author": "Martin Fowler",
+      "isbn": "9780134757599",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/refactoring-2nd-edition.jpg"
+    },
+    {
+      "id": "so-good-they-cant-ignore-you",
+      "title": "So Good They Can't Ignore You",
+      "author": "Cal Newport",
+      "isbn": "9781455509102",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/so-good-they-cant-ignore-you.jpg"
+    },
+    {
+      "id": "the-go-programming-language",
+      "title": "The Go Programming Language",
+      "author": "Alan A. A. Donovan",
+      "isbn": "9780134190563",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-go-programming-language.jpg"
+    },
+    {
+      "id": "the-lean-startup",
+      "title": "The Lean Startup",
+      "author": "Eric Ries",
+      "isbn": "9780307887917",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-lean-startup.jpg"
+    },
+    {
+      "id": "the-pragmatic-programmer-2nd-edition",
+      "title": "The Pragmatic Programmer (2nd edition)",
+      "author": "Andy Hunt",
+      "isbn": "9780135957059",
+      "status": "finished",
+      "recommended": false,
+      "coverUrl": "/covers/the-pragmatic-programmer-2nd-edition.jpg"
+    }
+  ]
+}
