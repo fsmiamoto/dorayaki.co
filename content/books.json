@@ -15,18 +15,9 @@
       "title": "Building Applications with AI Agents",
       "author": "Michael Albada",
       "isbn": "9781098176501",
-      "status": "reading",
+      "status": "finished",
       "recommended": false,
       "coverUrl": "/covers/building-applications-with-ai-agents.jpg"
-    },
-    {
-      "id": "soft-skills-software-developer-life-manual",
-      "title": "SOFT SKILLS ソフトウェア開発者の人生マニュアル",
-      "author": "ジョン・ソンメズ",
-      "isbn": "9784822251550",
-      "status": "reading",
-      "recommended": false,
-      "coverUrl": null
     },
     {
       "id": "generative-ai-design-patterns",
@@ -34,7 +25,7 @@
       "author": "Valliappa Lakshmanan",
       "isbn": "9798341622630",
       "status": "reading",
-      "recommended": false,
+      "recommended": true,
       "coverUrl": "/covers/generative-ai-design-patterns.jpg"
     },
     {
@@ -43,7 +34,7 @@
       "author": "Chip Huyen",
       "isbn": "9781098166274",
       "status": "finished",
-      "recommended": false,
+      "recommended": true,
       "coverUrl": "/covers/ai-engineering.jpg"
     },
     {
