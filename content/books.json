@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-01-12",
+  "lastUpdated": "2026-01-15",
   "books": [
     {
       "id": "build-a-large-language-model-from-scratch",
@@ -224,7 +224,7 @@
       "isbn": "9780738206677",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "https://covers.openlibrary.org/b/id/14582832-L.jpg"
+      "coverUrl": "/covers/linked.jpg"
     },
     {
       "id": "value-proposition-design",
@@ -327,9 +327,9 @@
     },
     {
       "id": "barking-up-the-wrong-tree",
-      "title": "Barking Up the Wrong Tree",
-      "author": "Jenn McKinlay",
-      "isbn": "9780399584732",
+      "title": "Barking Up the Wrong Tree: The Surprising Science Behind Why Everything You Know About Success Is (Mostly) Wrong",
+      "author": "Erik Barker",
+      "isbn": "9780062416179",
       "status": "finished",
       "recommended": false,
       "coverUrl": "/covers/barking-up-the-wrong-tree.jpg"
