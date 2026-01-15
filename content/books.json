@@ -160,7 +160,7 @@
       "author": "Robert Nystrom",
       "isbn": "9780990582946",
       "status": "finished",
-      "recommended": false,
+      "recommended": true,
       "coverUrl": "/covers/crafting-interpreters.jpg"
     },
     {

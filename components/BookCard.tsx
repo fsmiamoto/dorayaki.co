@@ -25,14 +25,14 @@ export default function BookCard({
     <div className="flex gap-3 items-start">
       {/* Cover or First-Letter Avatar */}
       {showCover && (
-        <div className="flex-shrink-0 w-12 h-16 rounded overflow-hidden bg-app-surface-muted border border-app-border-subtle relative">
+        <div className="flex-shrink-0 w-16 h-20 rounded overflow-hidden bg-app-surface-muted border border-app-border-subtle relative">
           {coverImageUrl ? (
             <Image
               src={coverImageUrl}
               alt={`Cover of ${book.title}`}
               className="object-cover"
               fill
-              sizes="48px"
+              sizes="64px"
               onError={(e) => {
                 // Fallback to letter avatar on image load error
                 const target = e.currentTarget;
@@ -45,9 +45,8 @@ export default function BookCard({
             />
           ) : null}
           <div
-            className={`w-full h-full flex items-center justify-center text-app-accent text-lg font-bold ${
-              coverImageUrl ? "hidden" : ""
-            }`}
+            className={`w-full h-full flex items-center justify-center text-app-accent text-lg font-bold ${coverImageUrl ? "hidden" : ""
+              }`}
           >
             {firstLetter}
           </div>
