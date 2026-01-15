@@ -63,11 +63,11 @@ export default function BookCard({
           </span>
           {book.recommended && (
             <span
-              className="text-app-amber flex-shrink-0 text-sm"
+              className="inline-flex items-center flex-shrink-0 px-1.5 py-0.5 text-[10px] font-mono rounded border border-app-amber text-app-amber bg-app-amber/10"
               title="Recommended"
               aria-label="Recommended"
             >
-              ★
+              recommended
             </span>
           )}
         </div>

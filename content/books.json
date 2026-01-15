@@ -52,7 +52,7 @@
       "author": "Donald G. Reinertsen",
       "isbn": "9781935401001",
       "status": "finished",
-      "recommended": false,
+      "recommended": true,
       "coverUrl": "/covers/the-principles-of-product-development-flow.jpg"
     },
     {
@@ -70,7 +70,7 @@
       "author": "Tom DeMarco",
       "isbn": "9780932633606",
       "status": "finished",
-      "recommended": false,
+      "recommended": true,
       "coverUrl": "/covers/waltzing-with-bears-managing-risk-on-software-projects.jpg"
     },
     {
@@ -277,7 +277,7 @@
       "author": "Nassim Nicholas Taleb",
       "isbn": "9780679645276",
       "status": "finished",
-      "recommended": false,
+      "recommended": true,
       "coverUrl": "/covers/antifragile.jpg"
     },
     {
@@ -430,7 +430,7 @@
       "author": "Andy Hunt",
       "isbn": "9780135957059",
       "status": "finished",
-      "recommended": false,
+      "recommended": true,
       "coverUrl": "/covers/the-pragmatic-programmer-2nd-edition.jpg"
     }
   ]
