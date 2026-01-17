@@ -1,12 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import type { Book } from "@/lib/books";
 import {
   getGoodreadsIsbnUrl,
   getGoogleBooksIsbnUrl,
-  getCoverUrl,
+  getGoogleBooksCoverUrl,
+  getOpenLibraryCoverUrl,
 } from "@/lib/books-client";
+
+type CoverSource = "google" | "openLibrary" | "avatar";
 
 interface BookCardProps {
   book: Book;
@@ -17,9 +21,32 @@ export default function BookCard({
   book,
   showCover = true,
 }: BookCardProps) {
-  // Use local cover if available, otherwise fall back to generating URL from ISBN
-  const coverImageUrl = book.coverUrl || getCoverUrl(book.isbn, "S");
+  const [coverSource, setCoverSource] = useState<CoverSource>("google");
   const firstLetter = book.title.charAt(0).toUpperCase();
+
+  // Get cover URL based on current source
+  const getCoverImageUrl = (): string | null => {
+    if (!book.isbn) return null;
+    switch (coverSource) {
+      case "google":
+        return getGoogleBooksCoverUrl(book.isbn);
+      case "openLibrary":
+        return getOpenLibraryCoverUrl(book.isbn, "S");
+      case "avatar":
+        return null;
+    }
+  };
+
+  const handleImageError = () => {
+    // Cascade through sources: google -> openLibrary -> avatar
+    if (coverSource === "google") {
+      setCoverSource("openLibrary");
+    } else if (coverSource === "openLibrary") {
+      setCoverSource("avatar");
+    }
+  };
+
+  const coverImageUrl = getCoverImageUrl();
 
   return (
     <div className="flex gap-3 items-start">
@@ -33,23 +60,13 @@ export default function BookCard({
               className="object-cover"
               fill
               sizes="64px"
-              onError={(e) => {
-                // Fallback to letter avatar on image load error
-                const target = e.currentTarget;
-                target.style.display = "none";
-                const fallback = target.nextElementSibling as HTMLElement;
-                if (fallback) {
-                  fallback.classList.remove("hidden");
-                }
-              }}
+              onError={handleImageError}
             />
-          ) : null}
-          <div
-            className={`w-full h-full flex items-center justify-center text-app-accent text-lg font-bold ${coverImageUrl ? "hidden" : ""
-              }`}
-          >
-            {firstLetter}
-          </div>
+          ) : (
+            <div className="w-full h-full flex items-center justify-center text-app-accent text-lg font-bold">
+              {firstLetter}
+            </div>
+          )}
         </div>
       )}
 

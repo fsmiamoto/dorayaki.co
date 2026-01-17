@@ -8,7 +8,7 @@
       "isbn": "9781638355731",
       "status": "reading",
       "recommended": false,
-      "coverUrl": "/covers/build-a-large-language-model-from-scratch.jpg"
+      "coverUrl": null
     },
     {
       "id": "building-applications-with-ai-agents",
@@ -17,7 +17,7 @@
       "isbn": "9781098176501",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/building-applications-with-ai-agents.jpg"
+      "coverUrl": null
     },
     {
       "id": "generative-ai-design-patterns",
@@ -26,7 +26,7 @@
       "isbn": "9798341622630",
       "status": "reading",
       "recommended": true,
-      "coverUrl": "/covers/generative-ai-design-patterns.jpg"
+      "coverUrl": null
     },
     {
       "id": "ai-engineering",
@@ -35,7 +35,7 @@
       "isbn": "9781098166274",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/ai-engineering.jpg"
+      "coverUrl": null
     },
     {
       "id": "langchain-langgraph-rag-ai-agent",
@@ -44,7 +44,7 @@
       "isbn": "9784297145309",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/langchain-langgraph-rag-ai-agent.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-principles-of-product-development-flow",
@@ -53,7 +53,7 @@
       "isbn": "9781935401001",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/the-principles-of-product-development-flow.jpg"
+      "coverUrl": null
     },
     {
       "id": "people-increase-not-faster",
@@ -62,7 +62,7 @@
       "isbn": "9784297135652",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/people-increase-not-faster.jpg"
+      "coverUrl": null
     },
     {
       "id": "waltzing-with-bears-managing-risk-on-software-projects",
@@ -71,7 +71,7 @@
       "isbn": "9780932633606",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/waltzing-with-bears-managing-risk-on-software-projects.jpg"
+      "coverUrl": null
     },
     {
       "id": "designing-data-intensive-applications",
@@ -80,7 +80,7 @@
       "isbn": "9781491903100",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/designing-data-intensive-applications.jpg"
+      "coverUrl": null
     },
     {
       "id": "tidy-first",
@@ -89,7 +89,7 @@
       "isbn": "9781098151249",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/tidy-first.jpg"
+      "coverUrl": null
     },
     {
       "id": "consul-era-working-competent-people-basics",
@@ -98,7 +98,7 @@
       "isbn": "9784478120545",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/consul-era-working-competent-people-basics.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-order-of-time",
@@ -107,7 +107,7 @@
       "isbn": "9780735216105",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/the-order-of-time.jpg"
+      "coverUrl": null
     },
     {
       "id": "working-backwards",
@@ -116,7 +116,7 @@
       "isbn": "9781529033854",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/working-backwards.jpg"
+      "coverUrl": null
     },
     {
       "id": "accelerate",
@@ -125,7 +125,7 @@
       "isbn": "9781942788355",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/accelerate.jpg"
+      "coverUrl": null
     },
     {
       "id": "team-topologies",
@@ -134,7 +134,7 @@
       "isbn": "9781942788812",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/team-topologies.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-culture-map",
@@ -143,7 +143,7 @@
       "isbn": "9781610396714",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/the-culture-map.jpg"
+      "coverUrl": null
     },
     {
       "id": "just-enough-software-architecture-a-risk-driven-approach",
@@ -152,7 +152,7 @@
       "isbn": "9780984618101",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/just-enough-software-architecture-a-risk-driven-approach.jpg"
+      "coverUrl": null
     },
     {
       "id": "crafting-interpreters",
@@ -161,7 +161,7 @@
       "isbn": "9780990582946",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/crafting-interpreters.jpg"
+      "coverUrl": null
     },
     {
       "id": "software-engineering-at-google",
@@ -170,7 +170,7 @@
       "isbn": "9781492082743",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/software-engineering-at-google.jpg"
+      "coverUrl": null
     },
     {
       "id": "essentialism",
@@ -179,7 +179,7 @@
       "isbn": "9780804137386",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/essentialism.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-psychology-of-money",
@@ -188,7 +188,7 @@
       "isbn": "9780857197689",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/the-psychology-of-money.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-annotated-turing",
@@ -197,7 +197,7 @@
       "isbn": "9780470229057",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/the-annotated-turing.jpg"
+      "coverUrl": null
     },
     {
       "id": "building-microservices",
@@ -206,7 +206,7 @@
       "isbn": "9781491950319",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/building-microservices.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-code-book",
@@ -215,7 +215,7 @@
       "isbn": "9780375890123",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/the-code-book.jpg"
+      "coverUrl": null
     },
     {
       "id": "linked",
@@ -224,7 +224,7 @@
       "isbn": "9780738206677",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/linked.jpg"
+      "coverUrl": null
     },
     {
       "id": "value-proposition-design",
@@ -233,7 +233,7 @@
       "isbn": "9781118968062",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/value-proposition-design.jpg"
+      "coverUrl": null
     },
     {
       "id": "fermats-enigma",
@@ -242,7 +242,7 @@
       "isbn": "9780385493628",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/fermats-enigma.jpg"
+      "coverUrl": null
     },
     {
       "id": "grokking-algorithms",
@@ -251,7 +251,7 @@
       "isbn": "9781638354567",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/grokking-algorithms.jpg"
+      "coverUrl": null
     },
     {
       "id": "sapiens",
@@ -260,7 +260,7 @@
       "isbn": "9780063453982",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/sapiens.jpg"
+      "coverUrl": null
     },
     {
       "id": "skin-in-the-game",
@@ -269,7 +269,7 @@
       "isbn": "9780425284636",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/skin-in-the-game.jpg"
+      "coverUrl": null
     },
     {
       "id": "antifragile",
@@ -278,7 +278,7 @@
       "isbn": "9780679645276",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/antifragile.jpg"
+      "coverUrl": null
     },
     {
       "id": "nonviolent-communication",
@@ -287,7 +287,7 @@
       "isbn": "9781892005540",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/nonviolent-communication.jpg"
+      "coverUrl": null
     },
     {
       "id": "unit-testing",
@@ -296,7 +296,7 @@
       "isbn": "9781617296277",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/unit-testing.jpg"
+      "coverUrl": null
     },
     {
       "id": "a-philosophy-of-software-design",
@@ -305,7 +305,7 @@
       "isbn": "9781732102217",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/a-philosophy-of-software-design.jpg"
+      "coverUrl": null
     },
     {
       "id": "ai-superpowers",
@@ -314,7 +314,7 @@
       "isbn": "9781328546395",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/ai-superpowers.jpg"
+      "coverUrl": null
     },
     {
       "id": "atomic-habits",
@@ -323,7 +323,7 @@
       "isbn": "9789388241908",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/atomic-habits.jpg"
+      "coverUrl": null
     },
     {
       "id": "barking-up-the-wrong-tree",
@@ -332,7 +332,7 @@
       "isbn": "9780062416179",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/barking-up-the-wrong-tree.jpg"
+      "coverUrl": null
     },
     {
       "id": "clean-architecture",
@@ -341,7 +341,7 @@
       "isbn": "9780134494326",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/clean-architecture.jpg"
+      "coverUrl": null
     },
     {
       "id": "clean-code",
@@ -350,7 +350,7 @@
       "isbn": "9780132350884",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/clean-code.jpg"
+      "coverUrl": null
     },
     {
       "id": "cloud-native-devops-with-kubernetes",
@@ -359,7 +359,7 @@
       "isbn": "9781492040736",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/cloud-native-devops-with-kubernetes.jpg"
+      "coverUrl": null
     },
     {
       "id": "deep-work",
@@ -368,7 +368,7 @@
       "isbn": "9780349411910",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/deep-work.jpg"
+      "coverUrl": null
     },
     {
       "id": "unscripted",
@@ -377,7 +377,7 @@
       "isbn": "9780984358182",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/unscripted.jpg"
+      "coverUrl": null
     },
     {
       "id": "low-level-programming",
@@ -386,7 +386,7 @@
       "isbn": "9781484224021",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/low-level-programming.jpg"
+      "coverUrl": null
     },
     {
       "id": "refactoring-2nd-edition",
@@ -395,7 +395,7 @@
       "isbn": "9780134757599",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/refactoring-2nd-edition.jpg"
+      "coverUrl": null
     },
     {
       "id": "so-good-they-cant-ignore-you",
@@ -404,7 +404,7 @@
       "isbn": "9781455509102",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/so-good-they-cant-ignore-you.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-go-programming-language",
@@ -413,7 +413,7 @@
       "isbn": "9780134190563",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/the-go-programming-language.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-lean-startup",
@@ -422,7 +422,7 @@
       "isbn": "9780307887917",
       "status": "finished",
       "recommended": false,
-      "coverUrl": "/covers/the-lean-startup.jpg"
+      "coverUrl": null
     },
     {
       "id": "the-pragmatic-programmer-2nd-edition",
@@ -431,7 +431,7 @@
       "isbn": "9780135957059",
       "status": "finished",
       "recommended": true,
-      "coverUrl": "/covers/the-pragmatic-programmer-2nd-edition.jpg"
+      "coverUrl": null
     }
   ]
 }
