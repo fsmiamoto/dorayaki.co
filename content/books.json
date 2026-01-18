@@ -1,6 +1,15 @@
 {
-  "lastUpdated": "2026-01-15",
+  "lastUpdated": "2026-01-18",
   "books": [
+    {
+      "id": "designing-multi-agent-systems",
+      "title": "Designing Multi-Agent Systems: Principles, Patterns, and Implementation for AI Agents",
+      "author": "Victor Dibia",
+      "isbn": "9798993101200",
+      "status": "reading",
+      "recommended": false,
+      "coverUrl": null
+    },
     {
       "id": "build-a-large-language-model-from-scratch",
       "title": "Build a Large Language Model (From Scratch)",
