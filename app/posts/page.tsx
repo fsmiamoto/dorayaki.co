@@ -9,20 +9,20 @@ import { absoluteUrl, withTrailingSlash } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Posts - dorayaki",
-  description: "My (not go great) writing",
+  description: "My (not so great) writing",
   alternates: {
     canonical: withTrailingSlash("/posts"),
   },
   openGraph: {
     title: "Posts - dorayaki",
-    description: "My (not go great) writing",
+    description: "My (not so great) writing",
     url: absoluteUrl(withTrailingSlash("/posts")),
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Posts - dorayaki",
-    description: "My (not go great) writing",
+    description: "My (not so great) writing",
   },
 };
 

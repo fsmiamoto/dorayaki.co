@@ -50,3 +50,17 @@ export function getRecommendedBooks(): Book[] {
   return allBooks.filter((book) => book.recommended);
 }
 
+/**
+ * Get the last updated date from books.json
+ */
+export function getBooksLastUpdated(): string {
+  try {
+    const fileContents = fs.readFileSync(booksPath, "utf8");
+    const data: BooksData = JSON.parse(fileContents);
+    return data.lastUpdated;
+  } catch (error) {
+    console.error("Error reading books.json:", error);
+    return "";
+  }
+}
+

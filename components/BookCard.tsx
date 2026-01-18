@@ -49,7 +49,7 @@ export default function BookCard({
   const coverImageUrl = getCoverImageUrl();
 
   return (
-    <div className="flex gap-3 items-start">
+    <div className="flex gap-3 items-start p-2 -m-2 rounded-md transition-colors hover:bg-app-surface-muted">
       {/* Cover or First-Letter Avatar */}
       {showCover && (
         <div className="flex-shrink-0 w-16 h-20 rounded overflow-hidden bg-app-surface-muted border border-app-border-subtle relative">

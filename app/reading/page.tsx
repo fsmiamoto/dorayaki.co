@@ -2,26 +2,26 @@ import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
 import BackNavigation from "@/components/BackNavigation";
 import BookSection from "@/components/BookSection";
-import { getBooksByStatus } from "@/lib/books";
+import { getBooksByStatus, getBooksLastUpdated } from "@/lib/books";
 import type { Metadata } from "next";
 import { absoluteUrl, withTrailingSlash } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Reading List - dorayaki",
-  description: "My attempt to document what I' reading",
+  description: "My attempt to document what I'm reading",
   alternates: {
     canonical: withTrailingSlash("/reading"),
   },
   openGraph: {
     title: "Reading List - dorayaki",
-    description: "My attempt to document what I' reading",
+    description: "My attempt to document what I'm reading",
     url: absoluteUrl(withTrailingSlash("/reading")),
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Reading List - dorayaki",
-    description: "My attempt to document what I' reading",
+    description: "My attempt to document what I'm reading",
   },
 };
 
@@ -29,6 +29,7 @@ export default function ReadingPage() {
   const readingBooks = getBooksByStatus("reading");
   const finishedBooks = getBooksByStatus("finished");
   const queueBooks = getBooksByStatus("queue");
+  const lastUpdated = getBooksLastUpdated();
 
   return (
     <div className="space-y-6">
@@ -51,7 +52,7 @@ export default function ReadingPage() {
               Suggestions are always welcome.
             </p>
             <p className="text-xs uppercase tracking-[0.3em] text-app-muted">
-              Last update: 2026-01-12
+              Last update: {lastUpdated}
             </p>
           </header>
 
