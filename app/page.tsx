@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
+import ProjectList from "@/components/ProjectList";
 import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -67,9 +68,7 @@ export default function Home() {
                   <h1 className="text-xl font-bold text-app-foreground sm:text-2xl">
                     Flavio Miyamoto
                   </h1>
-                  <p className="text-sm text-app-muted">
-                    Software Development Engineer @ Amazon
-                  </p>
+                  <p className="text-sm text-app-muted">Software Development Engineer @ Amazon</p>
                 </div>
                 <p className="text-app-muted/80 text-sm italic">
                   Building things faster than I can break them
@@ -144,6 +143,14 @@ export default function Home() {
               <p className="text-app-soft">Download my resume</p>
             </div>
           </div>
+        </CommandPrompt>
+
+        <CommandPrompt
+          command="gh repo list --sort=pushed"
+          showCursor={false}
+          contentClassName="space-y-3 text-xs sm:text-sm"
+        >
+          <ProjectList limit={4} />
         </CommandPrompt>
       </div>
     </TerminalWindow>
