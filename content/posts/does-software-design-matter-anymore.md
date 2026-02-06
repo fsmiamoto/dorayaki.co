@@ -1,5 +1,5 @@
 ---
-title: "Does Software Design Matter Anymore?"
+title: "Does Software Design even matter anymore?"
 date: "2026-01-18"
 tags: ["AI", "Software Design"]
 ---
