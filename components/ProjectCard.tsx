@@ -11,7 +11,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="-m-2 block rounded-md p-2 hover:bg-app-surface-muted"
+      className="-m-2 block rounded-md p-2 transition-all duration-200 hover:-translate-y-0.5 hover:bg-app-surface-muted"
     >
       <div className="space-y-1">
         <div className="flex items-center gap-2">

@@ -156,6 +156,31 @@
     @apply relative overflow-hidden rounded-lg border border-app-border-subtle bg-app-surface-elevated text-app-soft shadow-2xl transition-colors duration-300;
   }
 
+  .terminal-window::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  [data-theme="light"] .terminal-window::after {
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.015) 0px,
+      rgba(0, 0, 0, 0.015) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+
   .terminal-title-bar {
     @apply flex items-center gap-4 border-b border-app-border-subtle bg-app-surface-muted px-4 py-3 text-xs text-app-muted;
   }
@@ -186,6 +211,11 @@
 
   .prompt {
     @apply font-semibold text-app-accent;
+    text-shadow: 0 0 6px rgba(74,222,128,0.3), 0 0 2px rgba(74,222,128,0.15);
+  }
+
+  [data-theme="light"] .prompt {
+    text-shadow: none;
   }
 
   .command {
@@ -195,6 +225,11 @@
   .ascii-art {
     @apply font-bold text-app-accent drop-shadow-sm;
     font-family: "Courier New", monospace;
+    text-shadow: 0 0 8px rgba(74,222,128,0.35), 0 0 3px rgba(74,222,128,0.2);
+  }
+
+  [data-theme="light"] .ascii-art {
+    text-shadow: none;
   }
 
   /* Link Utilities - Standardized terminal-style links */
@@ -206,10 +241,18 @@
   }
 
   .link-nav-underline {
-    @apply text-app-accent transition-all duration-150;
-    @apply underline decoration-transparent decoration-2 underline-offset-4;
-    @apply hover:text-app-accent-strong hover:decoration-app-accent-strong;
+    @apply text-app-accent;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size 0.3s ease, color 0.15s ease;
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
+  }
+
+  .link-nav-underline:hover {
+    @apply text-app-accent-strong;
+    background-size: 100% 2px;
   }
 
   .link-content {
@@ -229,5 +272,33 @@
     @apply transition-all duration-150;
     @apply hover:border-current;
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
+  }
+
+}
+
+/* Background dot-grid texture */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(circle, currentColor 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  opacity: 0.07;
+  color: var(--color-text);
+}
+
+[data-theme="light"] body::before {
+  opacity: 0.04;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.01ms !important;
   }
 }

@@ -14,7 +14,7 @@ export default function PostList({ posts, emptyState = "No posts found." }: Post
   return (
     <div className="space-y-4 text-xs sm:text-sm">
       {posts.map((post) => (
-        <article key={post.slug} className="group flex flex-col gap-2">
+        <article key={post.slug} className="group -mx-3 flex flex-col gap-2 rounded-md px-3 py-2 transition-colors duration-200 hover:bg-app-surface-muted/50">
           <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 text-xs text-app-muted">
             <span className="font-mono">{post.formattedDate}</span>
             <span className="font-mono text-app-amber">{post.readingTime}</span>

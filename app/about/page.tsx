@@ -44,7 +44,7 @@ export default function AboutPage() {
               My passion is building software to deliver value while learning and exploring new domains and technologies.
             </p>
             <p>
-              Over my still not so long career, I had the change of working with increadibly talented individuals on challeging projects and was able to grow and develop myself.
+              Over my still not so long career, I had the chance of working with incredibly talented individuals on challenging projects and was able to grow and develop myself.
             </p>
           </section>
 
@@ -76,7 +76,7 @@ export default function AboutPage() {
                 <span className="text-app-muted shrink-0 sm:w-28">2024 – Present</span>
                 <div>
                   <span className="font-semibold text-app-foreground">Amazon.co.jp</span>
-                  <span className="text-app-soft ml-2">Software Develpment Engineer</span>
+                  <span className="text-app-soft ml-2">Software Development Engineer</span>
                 </div>
               </div>
               <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
