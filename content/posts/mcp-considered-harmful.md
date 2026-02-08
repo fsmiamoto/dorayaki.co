@@ -4,37 +4,55 @@ date: "2026-02-06"
 tags: ["coding", "ai"]
 ---
 
-Whenever faced with the question about how to give an Agent a capability or more context, I still often hear:
+![A small robot standing at a fork in the road, choosing between MCP and CLIs](/images/mcp-considered-harmful.png)
+
+Whenever faced with the question about how to give an Agent a new capability, I still often hear:
 
 > Oh, what if we build an MCP server for this?
 
 This post aims to discourage that.
 
-Instead, we should be building more CLIs and letting our agents use Bash (something they are really good at).
+Instead, we should be building more CLIs and letting our agents use Bash - something they are really good at.
 
 ## Why MCP is not ideal
 
 If you've interacted with any Coding Agent, you might be familiar with the concept of [Context Rot](https://research.trychroma.com/context-rot).
 
-The core idea is that model performance **degrades significantly as input length increases** — even on simple tasks. 
+The core idea is that model performance **degrades significantly as context window increases** — even on simple tasks. 
 
 This creates an optimization problem: provide the agent with the context it needs using as few tokens as possible.
 
-MCP is particularly harmful here because it loads **all tool definitions into your context window upfront**, even when you don't need them. And the numbers are not small:
+MCP is particularly harmful here because it loads **all tool definitions into your context window upfront**, even when you don't need them. Even [Anthropic's engineering team](https://www.anthropic.com/engineering/code-execution-with-mcp) already 
+acknowledged this problem.
 
-- A popular GitHub MCP server injects **93 tool definitions** consuming **~55,000 tokens** before you even ask a question
-- Playwright MCP uses **~13,700 tokens**, Chrome DevTools MCP around **~18,000 tokens**
+Popular servers like [Playwright](https://github.com/microsoft/playwright-mcp) can consume 13,700 tokens just with the definitions.
 
-If we think of 200k token context windows, you could be using half of your budget **before even starting any work**.
+This means you're consuming valuable context window without doing any valuable work.
 
 ## What should I use instead?
 
-In most cases, you should build an [agent skill](https://agentskills.io/home) that just calls a CLI.
+The core idea to tackle this is **progressive disclosure**, which essentially means we give the agent more details about something **only when it needs it**.
 
-Skills solve the context pollution problem through **progressive disclosure**: at startup, the agent loads only the skill's name and one-line description. The full instructions are loaded into context **only when the agent actually needs them**. 
-This means you can have hundreds of skills available while only paying a small amount of tokens.
+The main emerging pattern for this are [Agent Skills](https://agentskills.io/home), where instead of including all the details in the context window upfront, 
+we include just a small description that tells hints the Agent when it should use that skill.
 
-Here's a short example of a skill:
+But we can also start with an even simpler approach: using your `AGENTS.md` file you can nudge your agent to use some CLI when it needs to accomplish some task.
+
+For example, let's say you want your agent to be able to create GitHub pull requests for you. Instead of using the GitHub MCP server, you can do something like:
+
+```
+# AGENTS.md
+[...]
+
+# Pull Request
+- Whenever you need to create a pull request, use the `gh` CLI with the `pr` subcommand. Check the details of how to do it with `--help`
+
+[...]
+```
+
+This pattern is simple but a powerful way to save on tokens and make sure your agent knows how to do something only when it needs it.
+
+To scale this further, you can then build a proper Skill, with more details for any particular need you have. Here's an example:
 
 ```md
  ---
@@ -76,46 +94,42 @@ Here's a short example of a skill:
 
 ```
 
-If you want to be extra frugal, you can have separate agent configurations with separate skills for each of your use cases.
-
 ## Composability
 
-Beyond token savings, we get another major benefit: **composability**.
+Beyond valuable token savings that progressive disclosure brings, using CLI instead of an brings another major benefit: **composability**.
 
-CLIs already speak a universal interface — stdin, stdout, stderr, exit codes - and  every major service (probably) already has one: `gh`, `aws`, `kubectl`, `docker`, `terraform`.
+CLIs already speak a universal interface — stdin, stdout, stderr, exit codes - and  every major service (probably) already has one.
 
-Let's say you want to fetch your GitHub issues and prioritize them by running some script.
+This means your agent is able to compose it with other CLI tools and code to achieve a particular goal, something which is not straighforward with MCP.
 
-When we rely on MCP tools, you can't avoid the model calling something like `get_issue`, bringing all the details into its context just to then call the script. Each issue is a round-trip through the model.
+Let's say you want to fetch your GitHub issues and extract some information by running some script.
 
-With Bash + CLIs, your agent can just write:
+When we rely on MCP tools, you can't avoid the model calling something like `get_issue`, bringing all the details into its context just to then call the script.
 
+This bloats your context window unnecessarily as you probably only care about the output of your script, not the input which contains all the issue data.
+
+If we let our agent just use Bash and CLI, it can then come up with something like this:
 ```bash
 gh issue list --json number,title,labels,updatedAt --limit 50 \
-  | python3 prioritize.py \
-  | head -10
+  | python3 extract.py \
 ```
-
-No round-trips to the model, no context bloat — just data flowing through pipes.
-
-[Mario Zechner demonstrated this](https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/) by replacing the Playwright MCP server with four simple Node.js scripts. 
-The README for his tools consumes **225 tokens** compared to Playwright MCP's 13,700 — a **98% reduction**.
 
 ## So can I just drop MCP completely?
 
-For most cases, I'd say yes — unless you need the server for authentication or a stateful connection.
+For most day to day software engineering scenarios, I'd say yes — unless you want some specific feature of the MCP.
 
-For example, in my [Reagent](https://github.com/fsmiamoto/reagent) MCP server, I use the stateful nature of the server to boot an HTTP server alongside it, so users get a the local server running without extra friction.
+For example, in [ReAgent](https://github.com/fsmiamoto/reagent) MCP server, I use the stateful nature to boot an HTTP server alongside the MCP server. This reduces friction as users don't
+have to do anything extra to be able to see code reviews in their browser.
 
-[Anthropic's own engineering team](https://www.anthropic.com/engineering/code-execution-with-mcp) acknowledged this problem, proposing code execution as a way to reduce MCP token usage from 150,000 to 2,000 tokens — a 98.7% reduction. Their key insight is the same: **progressive disclosure beats upfront loading**.
+There's also other advantages but right now for me the composability and token savings of CLIs+Skills definitely make it unbeatable to me.
 
 ## Wrap up
 
 The core idea of this post builds on [Mario Zechner's excellent post](https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/), but I wanted to also nudge people to just write more CLIs.
 
-The protocol you use is just plumbing. What matters is giving your agent the right context at the right time — and a well-designed CLI behind a skill does that far better than a bloated MCP server.
+By building a CLI instead of an MCP server, not only you get the ability to use it for ad-hoc tasks on your terminal, but you also get a powerful to give your agent new capabilities as well.
 
-So next time you're thinking of writing an MCP server, how about you just build a CLI?
+So next time you're thinking of writing an MCP server, how about you build a CLI instead?
 
 ### References
 - [Context Rot paper from Chroma](https://research.trychroma.com/context-rot)
