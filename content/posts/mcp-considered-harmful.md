@@ -1,5 +1,5 @@
 ---
-title: "CLIs over Tools: MCP considered harmful"
+title: "CLIs over Tools: MCP considered harmful?"
 date: "2026-02-06"
 tags: ["coding", "ai"]
 ---
@@ -12,7 +12,7 @@ Whenever faced with the question about how to give an Agent a new capability, I 
 
 This post aims to discourage that.
 
-Instead, we should be building more CLIs and letting our agents use Bash - something they are really good at.
+Instead, we should be relying more on CLIs and letting our agents use Bash - something they are really good at.
 
 ## Why MCP is not ideal
 
@@ -34,7 +34,7 @@ This means you're consuming valuable context window without doing any valuable w
 The core idea to tackle this is **progressive disclosure**, which essentially means we give the agent more details about something **only when it needs it**.
 
 The main emerging pattern for this are [Agent Skills](https://agentskills.io/home), where instead of including all the details in the context window upfront, 
-we include just a small description that tells hints the Agent when it should use that skill.
+we include just a small description that hints to the Agent when it should use that skill.
 
 But we can also start with an even simpler approach: using your `AGENTS.md` file you can nudge your agent to use some CLI when it needs to accomplish some task.
 
@@ -96,11 +96,11 @@ To scale this further, you can then build a proper Skill, with more details for 
 
 ## Composability
 
-Beyond valuable token savings that progressive disclosure brings, using CLI instead of an brings another major benefit: **composability**.
+Beyond valuable token savings that progressive disclosure brings, using CLI instead of MCP brings another major benefit: **composability**.
 
-CLIs already speak a universal interface — stdin, stdout, stderr, exit codes - and  every major service (probably) already has one.
+CLIs already speak a universal interface — stdin, stdout, stderr, exit codes - and every major service (probably) already has one.
 
-This means your agent is able to compose it with other CLI tools and code to achieve a particular goal, something which is not straighforward with MCP.
+This means your agent is able to compose it with other CLI tools and code to achieve a particular goal, something which is not straightforward with MCP.
 
 Let's say you want to fetch your GitHub issues and extract some information by running some script.
 
@@ -116,16 +116,20 @@ gh issue list --json number,title,labels,updatedAt --limit 50 \
 
 ## So can I just drop MCP completely?
 
-For most day to day software engineering scenarios, I'd say yes — unless you want some specific feature of the MCP.
+If you find an existing CLI that accomplishes what you need out of an MCP server, I'd say yes — unless you want it for some specific reason.
 
-For example, in [ReAgent](https://github.com/fsmiamoto/reagent) MCP server, I use the stateful nature to boot an HTTP server alongside the MCP server. This reduces friction as users don't
-have to do anything extra to be able to see code reviews in their browser.
+For example, in [ReAgent](https://github.com/fsmiamoto/reagent) MCP server, I
+use the stateful nature to boot an HTTP server alongside the MCP server. This
+reduces friction as users don't have to do anything extra to be able to see
+code reviews in their browser.
+
+Of course, there's a ton of other MCP features (and issues) I'm not mentioning here so your mileage may vary.
 
 ## Wrap up
 
 The core idea of this post builds on [Mario Zechner's excellent post](https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/), but I wanted to also nudge people to just write more CLIs.
 
-By building a CLI instead of an MCP server, not only you get the ability to use it for ad-hoc tasks on your terminal, but you also get a powerful to give your agent new capabilities as well.
+By building a CLI instead of an MCP server, not only you get the ability to use it for ad-hoc tasks on your terminal, but you also get a powerful way to give your agent new capabilities as well.
 
 So next time you're thinking of writing an MCP server, how about you build a CLI instead?
 
