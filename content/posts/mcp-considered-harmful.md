@@ -16,11 +16,11 @@ Instead, we should be building more CLIs and letting our agents use Bash (someth
 
 If you've interacted with any Coding Agent, you might be familiar with the concept of [Context Rot](https://research.trychroma.com/context-rot).
 
-The Chroma team studied 18 leading LLMs and found that model performance **degrades significantly as input length increases** — even on simple tasks. More importantly, distractors (irrelevant information in context) compound the problem: even a single distractor reduces performance, and the effect gets worse at longer input lengths.
+The core idea is that model performance **degrades significantly as input length increases** — even on simple tasks. 
 
 This creates an optimization problem: provide the agent with the context it needs using as few tokens as possible.
 
-MCP is particularly harmful here because it loads **all tool definitions into your context window upfront**, even when you don't need them. And the numbers are staggering:
+MCP is particularly harmful here because it loads **all tool definitions into your context window upfront**, even when you don't need them. And the numbers are not small:
 
 - A popular GitHub MCP server injects **93 tool definitions** consuming **~55,000 tokens** before you even ask a question
 - Playwright MCP uses **~13,700 tokens**, Chrome DevTools MCP around **~18,000 tokens**
