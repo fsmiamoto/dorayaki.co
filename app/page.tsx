@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
 import ProjectList from "@/components/ProjectList";
+import PostList from "@/components/PostList";
+import { getAllPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -43,7 +45,9 @@ const LinkedInIcon = () => (
   </svg>
 );
 
-export default function Home() {
+export default async function Home() {
+  const latestPosts = getAllPosts().slice(0, 1);
+
   return (
     <TerminalWindow title="dorayaki.co">
       <div className="space-y-8">
@@ -99,6 +103,10 @@ export default function Home() {
               [linkedin]
             </Link>
           </div>
+        </CommandPrompt>
+
+        <CommandPrompt command="ls -lt posts/ | head -1" showCursor={false}>
+          <PostList posts={latestPosts} />
         </CommandPrompt>
 
         <CommandPrompt
