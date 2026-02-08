@@ -40,7 +40,7 @@ But we can also start with an even simpler approach: using your `AGENTS.md` file
 
 For example, let's say you want your agent to be able to create GitHub pull requests for you. Instead of using the GitHub MCP server, you can do something like:
 
-```
+```md
 # AGENTS.md
 [...]
 
@@ -120,8 +120,6 @@ For most day to day software engineering scenarios, I'd say yes — unless you w
 
 For example, in [ReAgent](https://github.com/fsmiamoto/reagent) MCP server, I use the stateful nature to boot an HTTP server alongside the MCP server. This reduces friction as users don't
 have to do anything extra to be able to see code reviews in their browser.
-
-There's also other advantages but right now for me the composability and token savings of CLIs+Skills definitely make it unbeatable to me.
 
 ## Wrap up
 
