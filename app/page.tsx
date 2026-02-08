@@ -3,7 +3,6 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
-import ProjectList from "@/components/ProjectList";
 import PostList from "@/components/PostList";
 import { getAllPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/seo";
@@ -151,14 +150,6 @@ export default async function Home() {
               <p className="text-app-soft">Download my resume</p>
             </div>
           </div>
-        </CommandPrompt>
-
-        <CommandPrompt
-          command="gh repo list --sort=pushed"
-          showCursor={false}
-          contentClassName="space-y-3 text-xs sm:text-sm"
-        >
-          <ProjectList limit={4} />
         </CommandPrompt>
       </div>
     </TerminalWindow>
