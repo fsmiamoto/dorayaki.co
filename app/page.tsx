@@ -74,7 +74,7 @@ export default async function Home() {
                   <p className="text-sm text-app-muted">Software Development Engineer @ Amazon</p>
                 </div>
                 <p className="text-app-muted/80 text-sm italic">
-                  Building things faster than I can break them
+                  Trying to build things faster than I can break them
                 </p>
               </div>
             </div>
