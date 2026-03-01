@@ -10,6 +10,10 @@ In the last couple of months, the [Ralph Wiggum](https://ghuntley.com/ralph/) te
 
 The core idea is incredibly simple and surprisingly powerful: just run your coding agent in a bash loop.
 
+```sh
+while :; do cat PROMPT.md | claude-code ; done
+```
+
 Although at first this might seem nonsensical, given how well the models have been evolving, this actually makes sense. 
 They are great at "figuring things out" without too much hand-holding, so we can just ask them to pick the most important task, work on it and quit.
 So the loop actually ensures we continue to make progress while each iteration has a fresh context window to work on.
