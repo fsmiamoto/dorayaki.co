@@ -2,6 +2,15 @@
   "lastUpdated": "2026-01-18",
   "books": [
     {
+      "id": "the-scaling-era",
+      "title": "The Scaling Era: An Oral History of AI, 2019–2025",
+      "author": "Dwarkesh Patel",
+      "isbn": "9781953953568",
+      "status": "reading",
+      "recommended": true,
+      "coverUrl": null
+    },
+    {
       "id": "designing-multi-agent-systems",
       "title": "Designing Multi-Agent Systems: Principles, Patterns, and Implementation for AI Agents",
       "author": "Victor Dibia",
