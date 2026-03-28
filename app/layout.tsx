@@ -6,7 +6,7 @@ import { SITE_ORIGIN } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "dorayaki",
-  description: "personal blog of a terrible engineer",
+  description: "Software engineer writing about systems, AI agents, and engineering culture",
   metadataBase: new URL(SITE_ORIGIN),
   authors: [{ name: "Flavio Miyamoto" }],
   keywords: ["blog", "programming", "software engineering", "embedded systems", "technology"],
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "dorayaki",
-    description: "personal blog of a terrible engineer",
+    description: "Software engineer writing about systems, AI agents, and engineering culture",
     siteName: "dorayaki",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "dorayaki",
-    description: "personal blog of a terrible engineer",
+    description: "Software engineer writing about systems, AI agents, and engineering culture",
   },
 };
 
