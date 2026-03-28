@@ -108,50 +108,8 @@ export default async function Home() {
           },
           {
             command: "ls -lt posts/ | head -3",
+            showCursorWhenDone: true,
             children: <PostList posts={latestPosts} />,
-          },
-          {
-            command: "help",
-            contentClassName: "space-y-3 text-xs sm:text-sm",
-            children: (
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="space-y-1">
-                  <Link
-                    href="/posts"
-                    className="link-nav-underline inline-flex items-center gap-2 text-app-purple"
-                  >
-                    ls posts/
-                  </Link>
-                  <p className="text-app-soft">My (not so great) writing</p>
-                </div>
-                <div className="space-y-1">
-                  <Link href="/about" className="link-nav-underline inline-flex items-center gap-2">
-                    cat about.md
-                  </Link>
-                  <p className="text-app-soft">A bit more about me</p>
-                </div>
-                <div className="space-y-1">
-                  <Link
-                    href="/reading"
-                    className="link-nav-underline inline-flex items-center gap-2 text-app-info"
-                  >
-                    cat reading.md
-                  </Link>
-                  <p className="text-app-soft">My attempt to document what I&apos;m reading</p>
-                </div>
-                <div className="space-y-1">
-                  <Link
-                    href="/cv.pdf"
-                    className="link-nav-underline inline-flex items-center gap-2 text-app-amber"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    curl resume.pdf
-                  </Link>
-                  <p className="text-app-soft">Download my resume</p>
-                </div>
-              </div>
-            ),
           },
         ]}
       />

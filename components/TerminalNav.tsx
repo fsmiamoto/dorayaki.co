@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function TerminalNav() {
   return (
-    <nav className="mt-6 border-t border-app-border-subtle pt-4">
+    <nav className="mb-6 border-b border-app-border-subtle pb-4">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-app-muted sm:text-sm">
         <span className="text-app-faint">~/</span>
         <Link href="/" className="link-nav">

@@ -2,7 +2,6 @@ import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
 import { MDXContent } from "@/lib/mdx";
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
-import BackNavigation from "@/components/BackNavigation";
 import OpinionDisclaimer from "@/components/OpinionDisclaimer";
 import Comments from "@/components/Comments";
 import Link from "next/link";
@@ -93,10 +92,6 @@ export default async function PostPage({ params }: PageProps) {
 
   return (
     <div className="space-y-6">
-      <div className="mb-8">
-        <BackNavigation />
-      </div>
-
       <TerminalWindow title={`posts/${post.slug}.md`}>
         <div className="space-y-8">
           <JsonLd data={jsonLd} />

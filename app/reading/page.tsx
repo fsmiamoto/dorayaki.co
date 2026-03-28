@@ -1,6 +1,5 @@
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
-import BackNavigation from "@/components/BackNavigation";
 import BookSection from "@/components/BookSection";
 import { getBooksByStatus, getBooksLastUpdated } from "@/lib/books";
 import type { Metadata } from "next";
@@ -33,10 +32,6 @@ export default function ReadingPage() {
 
   return (
     <div className="space-y-6">
-      <div className="mb-8">
-        <BackNavigation />
-      </div>
-
       <TerminalWindow title="reading.md">
         <CommandPrompt
           command="cat reading.md"

@@ -1,6 +1,5 @@
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
-import BackNavigation from "@/components/BackNavigation";
 import type { Metadata } from "next";
 import { absoluteUrl, withTrailingSlash } from "@/lib/seo";
 
@@ -26,10 +25,6 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="space-y-6">
-      <div className="mb-8">
-        <BackNavigation />
-      </div>
-
       <TerminalWindow title="about.md">
         <CommandPrompt
           command="cat about.md"

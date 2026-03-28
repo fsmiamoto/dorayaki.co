@@ -44,15 +44,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             Skip to main content
           </a>
+          <div className="container mx-auto max-w-full px-2 pt-4 sm:max-w-4xl sm:px-4 sm:pt-8">
+            <TerminalNav />
+          </div>
           <main
             id="main-content"
-            className="container mx-auto max-w-full px-2 py-4 sm:max-w-4xl sm:px-4 sm:py-8"
+            className="container mx-auto max-w-full px-2 pb-4 sm:max-w-4xl sm:px-4 sm:pb-8"
           >
             {children}
           </main>
-          <div className="container mx-auto max-w-full px-2 pb-8 sm:max-w-4xl sm:px-4">
-            <TerminalNav />
-          </div>
           <div className="fixed bottom-4 right-4 z-50">
             <ThemeToggle />
           </div>
