@@ -63,7 +63,13 @@ export default function ReadingPage() {
               accentColor="text-app-accent"
             />
 
-            <BookSection title="Finished" books={finishedBooks} accentColor="text-app-amber" />
+            <BookSection
+              title="Finished"
+              books={finishedBooks}
+              accentColor="text-app-amber"
+              collapsible={true}
+              defaultCollapsed={true}
+            />
 
             <BookSection title="Reading Queue" books={queueBooks} accentColor="text-app-info" />
           </div>
