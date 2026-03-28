@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
+import TerminalNav from "@/components/TerminalNav";
 import { SITE_ORIGIN } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -49,6 +50,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             {children}
           </main>
+          <div className="container mx-auto max-w-full px-2 pb-8 sm:max-w-4xl sm:px-4">
+            <TerminalNav />
+          </div>
           <div className="fixed bottom-4 right-4 z-50">
             <ThemeToggle />
           </div>
