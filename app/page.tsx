@@ -45,7 +45,7 @@ const LinkedInIcon = () => (
 );
 
 export default async function Home() {
-  const latestPosts = getAllPosts().slice(0, 1);
+  const latestPosts = getAllPosts().slice(0, 3);
 
   return (
     <TerminalWindow title="dorayaki.co">
@@ -107,7 +107,7 @@ export default async function Home() {
             ),
           },
           {
-            command: "ls -lt posts/ | head -1",
+            command: "ls -lt posts/ | head -3",
             children: <PostList posts={latestPosts} />,
           },
           {
