@@ -1,7 +1,7 @@
 ---
 title: "Ralph Wiggum: How to actually let your agent code for hours"
 date: "2026-02-28"
-tags: [learning,agents]
+tags: [learning, agents]
 ---
 
 In the last couple of months, the [Ralph Wiggum](https://ghuntley.com/ralph/) technique has gained quite a bit of popularity.
@@ -14,7 +14,7 @@ The core idea is incredibly simple and surprisingly powerful: just run your codi
 while :; do cat PROMPT.md | claude-code ; done
 ```
 
-Although at first this might seem nonsensical, given how well the models have been evolving, this actually makes sense. 
+Although at first this might seem nonsensical, given how well the models have been evolving, this actually makes sense.
 They are great at "figuring things out" without too much hand-holding, so we can just ask them to pick the most important task, work on it and quit.
 So the loop actually ensures we continue to make progress while each iteration has a fresh context window to work on.
 
@@ -28,7 +28,7 @@ hundreds of implementations have popped up including ones from Anthropic, Cursor
 
 Up until now, I was mostly relying on shell scripts to do the plumbing but figured why not try to build my own tool for it, and that's what I did with [Ralfinho](https://github.com/fsmiamoto/ralfinho/tree/main)
 
-This one is building on top of the [pi](https://pi.dev) coding agent - a tool I've been loving to work with recently. 
+This one is building on top of the [pi](https://pi.dev) coding agent - a tool I've been loving to work with recently.
 
 The cool thing is that you learn how the different tools interact with the models and pick up the nuance between them. Like for example, Claude Code cannot give you a stream of output in a raw text format in non-TUI mode so you have to rely on JSON mode which is terrible to read for humans and forces you into building **something**.
 

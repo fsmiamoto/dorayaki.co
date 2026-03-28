@@ -26,7 +26,7 @@ export default function CommandPrompt({
         <span className="prompt">{user}@dorayaki</span>
         <span className="text-app-faint">:</span>
         <span className="text-app-foreground">{directory}</span>
-        <span className="text-app-faint">$</span>
+        <span className="prompt-glow text-app-faint">$</span>
         {command && <span className="command text-app-foreground">{command}</span>}
         {showCursor && <span className="cursor" />}
       </div>

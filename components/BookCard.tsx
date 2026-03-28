@@ -17,10 +17,7 @@ interface BookCardProps {
   showCover?: boolean;
 }
 
-export default function BookCard({
-  book,
-  showCover = true,
-}: BookCardProps) {
+export default function BookCard({ book, showCover = true }: BookCardProps) {
   const [coverSource, setCoverSource] = useState<CoverSource>("google");
   const firstLetter = book.title.charAt(0).toUpperCase();
 
@@ -49,10 +46,10 @@ export default function BookCard({
   const coverImageUrl = getCoverImageUrl();
 
   return (
-    <div className="flex gap-3 items-start p-2 -m-2 rounded-md transition-colors hover:bg-app-surface-muted">
+    <div className="-m-2 flex items-start gap-3 rounded-md p-2 transition-colors hover:bg-app-surface-muted">
       {/* Cover or First-Letter Avatar */}
       {showCover && (
-        <div className="flex-shrink-0 w-16 h-20 rounded overflow-hidden bg-app-surface-muted border border-app-border-subtle relative">
+        <div className="relative h-20 w-16 flex-shrink-0 overflow-hidden rounded border border-app-border-subtle bg-app-surface-muted">
           {coverImageUrl ? (
             <Image
               src={coverImageUrl}
@@ -63,7 +60,7 @@ export default function BookCard({
               onError={handleImageError}
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-app-accent text-lg font-bold">
+            <div className="flex h-full w-full items-center justify-center text-lg font-bold text-app-accent">
               {firstLetter}
             </div>
           )}
@@ -71,15 +68,13 @@ export default function BookCard({
       )}
 
       {/* Book Details */}
-      <div className="flex-1 min-w-0 space-y-1">
+      <div className="min-w-0 flex-1 space-y-1">
         {/* Title and Star */}
         <div className="flex items-start gap-2">
-          <span className="text-app-soft text-sm leading-tight">
-            {book.title}
-          </span>
+          <span className="text-sm leading-tight text-app-soft">{book.title}</span>
           {book.recommended && (
             <span
-              className="inline-flex items-center flex-shrink-0 px-1.5 py-0.5 text-[10px] font-mono rounded border border-app-amber text-app-amber bg-app-amber/10"
+              className="bg-app-amber/10 inline-flex flex-shrink-0 items-center rounded border border-app-amber px-1.5 py-0.5 font-mono text-[10px] text-app-amber"
               title="Recommended"
               aria-label="Recommended"
             >
@@ -89,9 +84,7 @@ export default function BookCard({
         </div>
 
         {/* Author */}
-        {book.author && (
-          <div className="text-app-muted text-xs truncate">{book.author}</div>
-        )}
+        {book.author && <div className="truncate text-xs text-app-muted">{book.author}</div>}
 
         {/* Book Links */}
         <div className="flex gap-3 text-xs">

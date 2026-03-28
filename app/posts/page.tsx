@@ -36,7 +36,9 @@ export default function PostsPage() {
       </div>
       <TerminalWindow title="posts/">
         <div className="space-y-8">
-          <h1 className="text-2xl font-semibold text-app-foreground sm:text-3xl">Posts</h1>
+          <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
+            Posts
+          </h1>
           <CommandPrompt command="cat DISCLAIMER.txt" showCursor={false}>
             <OpinionDisclaimer />
           </CommandPrompt>

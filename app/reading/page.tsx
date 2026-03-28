@@ -44,7 +44,7 @@ export default function ReadingPage() {
           contentClassName="space-y-8 text-sm leading-relaxed sm:text-base"
         >
           <header className="space-y-3">
-            <h1 className="text-2xl font-semibold text-app-foreground sm:text-3xl">
+            <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
               Reading List
             </h1>
             <p className="text-app-soft">
@@ -63,17 +63,9 @@ export default function ReadingPage() {
               accentColor="text-app-accent"
             />
 
-            <BookSection
-              title="Finished"
-              books={finishedBooks}
-              accentColor="text-app-amber"
-            />
+            <BookSection title="Finished" books={finishedBooks} accentColor="text-app-amber" />
 
-            <BookSection
-              title="Reading Queue"
-              books={queueBooks}
-              accentColor="text-app-info"
-            />
+            <BookSection title="Reading Queue" books={queueBooks} accentColor="text-app-info" />
           </div>
         </CommandPrompt>
       </TerminalWindow>

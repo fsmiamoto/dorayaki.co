@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #0a0a0a;
+  --color-bg: #0c0c0e;
   --color-surface: #171717;
   --color-surface-muted: #262626;
   --color-border: #404040;
@@ -32,8 +32,8 @@
 }
 
 [data-theme="light"] {
-  --color-bg: #ffffff;
-  --color-surface: #f4f4f5;
+  --color-bg: #fafaf8;
+  --color-surface: #f5f5f3;
   --color-surface-muted: #e4e4e7;
   --color-border: #d4d4d8;
   --color-text: #18181b;
@@ -154,6 +154,32 @@
 
   .terminal-window {
     @apply relative overflow-hidden rounded-lg border border-app-border-subtle bg-app-surface-elevated text-app-soft shadow-2xl transition-colors duration-300;
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="light"] .terminal-window {
+    box-shadow:
+      0 25px 50px -12px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.04);
+  }
+
+  .terminal-window::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  [data-theme="light"] .terminal-window::before {
+    opacity: 0.03;
   }
 
   .terminal-window::after {
@@ -168,14 +194,14 @@
       transparent 3px
     );
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
   }
 
   [data-theme="light"] .terminal-window::after {
     background: repeating-linear-gradient(
       0deg,
-      rgba(0, 0, 0, 0.015) 0px,
-      rgba(0, 0, 0, 0.015) 1px,
+      rgba(0, 0, 0, 0.025) 0px,
+      rgba(0, 0, 0, 0.025) 1px,
       transparent 1px,
       transparent 3px
     );
@@ -203,6 +229,20 @@
 
   .terminal-content {
     /* Padding handled inline for responsiveness */
+    position: relative;
+  }
+
+  .terminal-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.04) 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  [data-theme="light"] .terminal-content::before {
+    background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.025) 100%);
   }
 
   .cursor {
@@ -211,7 +251,9 @@
 
   .prompt {
     @apply font-semibold text-app-accent;
-    text-shadow: 0 0 6px rgba(74,222,128,0.3), 0 0 2px rgba(74,222,128,0.15);
+    text-shadow:
+      0 0 6px rgba(74, 222, 128, 0.3),
+      0 0 2px rgba(74, 222, 128, 0.15);
   }
 
   [data-theme="light"] .prompt {
@@ -225,7 +267,9 @@
   .ascii-art {
     @apply font-bold text-app-accent drop-shadow-sm;
     font-family: "Courier New", monospace;
-    text-shadow: 0 0 8px rgba(74,222,128,0.35), 0 0 3px rgba(74,222,128,0.2);
+    text-shadow:
+      0 0 8px rgba(74, 222, 128, 0.35),
+      0 0 3px rgba(74, 222, 128, 0.2);
   }
 
   [data-theme="light"] .ascii-art {
@@ -246,7 +290,9 @@
     background-position: 0% 100%;
     background-repeat: no-repeat;
     background-size: 0% 2px;
-    transition: background-size 0.3s ease, color 0.15s ease;
+    transition:
+      background-size 0.3s ease,
+      color 0.15s ease;
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
   }
 
@@ -274,6 +320,27 @@
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
   }
 
+  .prompt-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation-name: fadeInUp;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Background dot-grid texture */
@@ -295,7 +362,9 @@ body::before {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     animation-delay: 0ms !important;

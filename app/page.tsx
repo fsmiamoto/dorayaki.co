@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import TerminalWindow from "@/components/TerminalWindow";
-import CommandPrompt from "@/components/CommandPrompt";
+import TerminalBoot from "@/components/TerminalBoot";
 import PostList from "@/components/PostList";
 import { getAllPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/seo";
@@ -49,109 +49,112 @@ export default async function Home() {
 
   return (
     <TerminalWindow title="dorayaki.co">
-      <div className="space-y-8">
-        <div>
-          <CommandPrompt
-            command="whoami"
-            contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
-          >
-            <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-              <div className="shrink-0">
-                <Image
-                  src="/avatar.png"
-                  alt="Flavio Miyamoto"
-                  width={100}
-                  height={100}
-                  className="rounded-full"
-                  priority
-                />
-              </div>
-              <div className="space-y-2 text-app-soft">
-                <div className="space-y-0.5">
-                  <h1 className="text-xl font-bold text-app-foreground sm:text-2xl">
-                    Flavio Miyamoto
-                  </h1>
-                  <p className="text-sm text-app-muted">Software Development Engineer @ Amazon</p>
+      <TerminalBoot
+        sections={[
+          {
+            command: "whoami",
+            showCursorWhenDone: true,
+            contentClassName: "space-y-6 text-sm leading-relaxed sm:text-base",
+            children: (
+              <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+                <div className="shrink-0">
+                  <Image
+                    src="/avatar.png"
+                    alt="Flavio Miyamoto"
+                    width={100}
+                    height={100}
+                    className="ring-app-accent/20 rounded-full shadow-[0_0_15px_rgba(74,222,128,0.1)] ring-2"
+                    priority
+                  />
                 </div>
-                <p className="text-app-muted/80 text-sm italic">
-                  Trying to build things faster than I can break them
-                </p>
+                <div className="space-y-2 text-app-soft">
+                  <div className="space-y-0.5">
+                    <h1 className="text-xl font-bold text-app-foreground sm:text-2xl">
+                      Flavio Miyamoto
+                    </h1>
+                    <p className="text-sm text-app-muted">Software Development Engineer @ Amazon</p>
+                  </div>
+                  <p className="text-app-muted/80 text-sm italic">
+                    Trying to build things faster than I can break them
+                  </p>
+                </div>
               </div>
-            </div>
-          </CommandPrompt>
-        </div>
-
-        <CommandPrompt command="cat socials" showCursor={false}>
-          <div className="flex flex-wrap gap-3 text-xs tracking-[0.3em] sm:text-sm">
-            <Link
-              href="https://github.com/fsmiamoto"
-              className="link-pill text-app-purple hover:border-app-purple"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitHubIcon />
-              [github]
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/fsmiamoto/"
-              className="link-pill text-app-info hover:border-app-info"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedInIcon />
-              [linkedin]
-            </Link>
-          </div>
-        </CommandPrompt>
-
-        <CommandPrompt command="ls -lt posts/ | head -1" showCursor={false}>
-          <PostList posts={latestPosts} />
-        </CommandPrompt>
-
-        <CommandPrompt
-          command="help"
-          showCursor={false}
-          contentClassName="space-y-3 text-xs sm:text-sm"
-        >
-          <div className="grid gap-3 sm:grid-cols-2">
-            <div className="space-y-1">
-              <Link
-                href="/posts"
-                className="link-nav-underline inline-flex items-center gap-2 text-app-purple"
-              >
-                ls posts/
-              </Link>
-              <p className="text-app-soft">My (not so great) writing</p>
-            </div>
-            <div className="space-y-1">
-              <Link href="/about" className="link-nav-underline inline-flex items-center gap-2">
-                cat about.md
-              </Link>
-              <p className="text-app-soft">A bit more about me</p>
-            </div>
-            <div className="space-y-1">
-              <Link
-                href="/reading"
-                className="link-nav-underline inline-flex items-center gap-2 text-app-info"
-              >
-                cat reading.md
-              </Link>
-              <p className="text-app-soft">My attempt to document what I'm reading</p>
-            </div>
-            <div className="space-y-1">
-              <Link
-                href="/cv.pdf"
-                className="link-nav-underline inline-flex items-center gap-2 text-app-amber"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                curl resume.pdf
-              </Link>
-              <p className="text-app-soft">Download my resume</p>
-            </div>
-          </div>
-        </CommandPrompt>
-      </div>
+            ),
+          },
+          {
+            command: "cat socials",
+            children: (
+              <div className="flex flex-wrap gap-3 text-xs tracking-[0.3em] sm:text-sm">
+                <Link
+                  href="https://github.com/fsmiamoto"
+                  className="link-pill text-app-purple hover:border-app-purple"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <GitHubIcon />
+                  [github]
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/fsmiamoto/"
+                  className="link-pill text-app-info hover:border-app-info"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LinkedInIcon />
+                  [linkedin]
+                </Link>
+              </div>
+            ),
+          },
+          {
+            command: "ls -lt posts/ | head -1",
+            children: <PostList posts={latestPosts} />,
+          },
+          {
+            command: "help",
+            contentClassName: "space-y-3 text-xs sm:text-sm",
+            children: (
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="space-y-1">
+                  <Link
+                    href="/posts"
+                    className="link-nav-underline inline-flex items-center gap-2 text-app-purple"
+                  >
+                    ls posts/
+                  </Link>
+                  <p className="text-app-soft">My (not so great) writing</p>
+                </div>
+                <div className="space-y-1">
+                  <Link href="/about" className="link-nav-underline inline-flex items-center gap-2">
+                    cat about.md
+                  </Link>
+                  <p className="text-app-soft">A bit more about me</p>
+                </div>
+                <div className="space-y-1">
+                  <Link
+                    href="/reading"
+                    className="link-nav-underline inline-flex items-center gap-2 text-app-info"
+                  >
+                    cat reading.md
+                  </Link>
+                  <p className="text-app-soft">My attempt to document what I&apos;m reading</p>
+                </div>
+                <div className="space-y-1">
+                  <Link
+                    href="/cv.pdf"
+                    className="link-nav-underline inline-flex items-center gap-2 text-app-amber"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    curl resume.pdf
+                  </Link>
+                  <p className="text-app-soft">Download my resume</p>
+                </div>
+              </div>
+            ),
+          },
+        ]}
+      />
     </TerminalWindow>
   );
 }

@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
+import CopyButton from "@/components/CopyButton";
 
 interface CodeBlockProps {
   children: string;
@@ -13,10 +14,11 @@ function CodeBlock({ children, className }: CodeBlockProps) {
 
   return (
     <div className="relative my-4">
-      <div className="absolute right-3 top-2 text-xs uppercase tracking-[0.3em] text-app-muted">
-        {language}
+      <div className="flex items-center justify-between rounded-t-xl border border-b-0 border-app-border-subtle bg-app-surface-muted px-4 py-2">
+        <span className="text-xs uppercase tracking-[0.3em] text-app-muted">{language}</span>
+        <CopyButton text={children} />
       </div>
-      <pre className="rounded-xl border border-app-border-subtle bg-app-surface-soft px-4 py-4 text-sm leading-relaxed text-app-soft shadow-pane-soft">
+      <pre className="rounded-b-xl rounded-t-none border border-app-border-subtle bg-app-surface-soft px-4 py-4 text-sm leading-relaxed text-app-soft shadow-pane-soft">
         <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
       </pre>
     </div>

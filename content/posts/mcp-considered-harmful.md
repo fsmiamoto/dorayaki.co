@@ -18,11 +18,11 @@ Instead, we should be relying more on CLIs and letting our agents use Bash - som
 
 If you've interacted with any Coding Agent, you might be familiar with the concept of [Context Rot](https://research.trychroma.com/context-rot).
 
-The core idea is that model performance **degrades significantly as context window increases** — even on simple tasks. 
+The core idea is that model performance **degrades significantly as context window increases** — even on simple tasks.
 
 This creates an optimization problem: provide the agent with the context it needs using as few tokens as possible.
 
-MCP is particularly harmful here because it loads **all tool definitions into your context window upfront**, even when you don't need them. Even [Anthropic's engineering team](https://www.anthropic.com/engineering/code-execution-with-mcp) already 
+MCP is particularly harmful here because it loads **all tool definitions into your context window upfront**, even when you don't need them. Even [Anthropic's engineering team](https://www.anthropic.com/engineering/code-execution-with-mcp) already
 acknowledged this problem.
 
 Popular servers like [Playwright](https://github.com/microsoft/playwright-mcp) can consume 13,700 tokens just with the definitions.
@@ -33,7 +33,7 @@ This means you're consuming valuable context window without doing any valuable w
 
 The core idea to tackle this is **progressive disclosure**, which essentially means we give the agent more details about something **only when it needs it**.
 
-The main emerging pattern for this are [Agent Skills](https://agentskills.io/home), where instead of including all the details in the context window upfront, 
+The main emerging pattern for this are [Agent Skills](https://agentskills.io/home), where instead of including all the details in the context window upfront,
 we include just a small description that hints to the Agent when it should use that skill.
 
 But we can also start with an even simpler approach: using your `AGENTS.md` file you can nudge your agent to use some CLI when it needs to accomplish some task.
@@ -42,9 +42,11 @@ For example, let's say you want your agent to be able to create GitHub pull requ
 
 ```md
 # AGENTS.md
+
 [...]
 
 # Pull Request
+
 - Whenever you need to create a pull request, use the `gh` CLI with the `pr` subcommand. Check the details of how to do it with `--help`
 
 [...]
@@ -55,43 +57,41 @@ This pattern is simple but a powerful way to save on tokens and make sure your a
 To scale this further, you can then build a proper Skill, with more details for any particular need you have. Here's an example:
 
 ```md
- ---
-  name: github-issues
-  description: Create, list, and manage GitHub issues using the gh CLI.
-  allowed-tools:
-    - Bash
-    - Read
-    - Grep
-  user-invocable: true
-  ---
+---
 
-  # GitHub Issues Skill
+name: github-issues
+description: Create, list, and manage GitHub issues using the gh CLI.
+allowed-tools: - Bash - Read - Grep
+user-invocable: true
 
-  You manage GitHub issues using the `gh` CLI tool.
+---
 
-  ## Available Actions
+# GitHub Issues Skill
 
-  - **List issues**: `gh issue list`
-  - **Create issue**: `gh issue create --title "..." --body "..."`
-  - **View issue**: `gh issue view <number>`
-  - **Close issue**: `gh issue close <number>`
-  - **Add labels**: `gh issue edit <number> --add-label "bug"`
+You manage GitHub issues using the `gh` CLI tool.
 
-  ## Rules
+## Available Actions
 
-  - Always confirm with the user before creating or closing issues.
-  - Use `gh auth status` to verify authentication if a command fails.
-  - Format issue bodies with markdown for readability.
-  - When listing issues, default to showing open issues unless the user specifies otherwise.
+- **List issues**: `gh issue list`
+- **Create issue**: `gh issue create --title "..." --body "..."`
+- **View issue**: `gh issue view <number>`
+- **Close issue**: `gh issue close <number>`
+- **Add labels**: `gh issue edit <number> --add-label "bug"`
 
-  ## Example Workflows
+## Rules
 
-  **Creating a bug report:**
-  gh issue create --title "Fix login timeout" --body "## Description\nLogin times out after 5s on slow connections.\n\n## Steps to Reproduce\n1. Throttle network\n2. Attempt login"
+- Always confirm with the user before creating or closing issues.
+- Use `gh auth status` to verify authentication if a command fails.
+- Format issue bodies with markdown for readability.
+- When listing issues, default to showing open issues unless the user specifies otherwise.
 
-  **Listing issues by label:**
-  gh issue list --label "bug" --state open
+## Example Workflows
 
+**Creating a bug report:**
+gh issue create --title "Fix login timeout" --body "## Description\nLogin times out after 5s on slow connections.\n\n## Steps to Reproduce\n1. Throttle network\n2. Attempt login"
+
+**Listing issues by label:**
+gh issue list --label "bug" --state open
 ```
 
 ## Composability
@@ -109,6 +109,7 @@ When we rely on MCP tools, you can't avoid the model calling something like `get
 This bloats your context window unnecessarily as you probably only care about the output of your script, not the input which contains all the issue data.
 
 If we let our agent just use Bash and CLI, it can then come up with something like this:
+
 ```bash
 gh issue list --json number,title,labels,updatedAt --limit 50 \
   | python3 extract.py \
@@ -134,6 +135,7 @@ By building a CLI instead of an MCP server, not only you get the ability to use 
 So next time you're thinking of writing an MCP server, how about you build a CLI instead?
 
 ### References
+
 - [Context Rot paper from Chroma](https://research.trychroma.com/context-rot)
 - [Mario Zechner — "What if you don't need MCP?"](https://mariozechner.at/posts/2025-11-02-what-if-you-dont-need-mcp/)
 - [Agent Skills specification](https://agentskills.io/home)

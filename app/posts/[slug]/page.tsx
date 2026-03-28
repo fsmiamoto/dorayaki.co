@@ -107,7 +107,7 @@ export default async function PostPage({ params }: PageProps) {
           >
             <header className="space-y-4">
               <div className="space-y-2">
-                <h1 className="text-2xl font-semibold text-app-foreground sm:text-3xl">
+                <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
                   {post.frontMatter.title}
                 </h1>
                 {post.frontMatter.excerpt && (

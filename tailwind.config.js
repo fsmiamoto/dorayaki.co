@@ -54,6 +54,7 @@ module.exports = {
       animation: {
         blink: "blink 1s infinite",
         typing: "typing 3s steps(40, end)",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
       },
       boxShadow: {
         pane: "0 36px 120px -60px var(--color-shadow)",
@@ -67,6 +68,10 @@ module.exports = {
         typing: {
           "0%": { width: "0" },
           "100%": { width: "100%" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { opacity: "0.7" },
+          "50%": { opacity: "1" },
         },
       },
     },
