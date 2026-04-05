@@ -108,7 +108,6 @@ export default async function Home() {
           },
           {
             command: "ls -lt posts/ | head -3",
-            showCursorWhenDone: true,
             children: <PostList posts={latestPosts} />,
           },
         ]}
