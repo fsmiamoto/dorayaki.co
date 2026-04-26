@@ -18,14 +18,6 @@ export default function TerminalNav() {
         <Link href="/reading" className="link-nav text-app-info">
           reading.md
         </Link>
-        <Link
-          href="/cv.pdf"
-          className="link-nav text-app-amber"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          resume.pdf
-        </Link>
       </div>
     </nav>
   );
