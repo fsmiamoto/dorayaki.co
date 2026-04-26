@@ -246,7 +246,7 @@
   }
 
   .cursor {
-    @apply inline-block h-5 w-2 animate-blink rounded-sm bg-app-accent align-middle opacity-80;
+    @apply inline-block h-[1.1em] w-2 animate-blink self-center rounded-sm bg-app-accent align-middle opacity-80;
   }
 
   .prompt {

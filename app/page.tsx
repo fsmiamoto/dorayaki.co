@@ -2,7 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import TerminalWindow from "@/components/TerminalWindow";
-import TerminalBoot from "@/components/TerminalBoot";
+import CommandPrompt from "@/components/CommandPrompt";
+import Typewriter from "@/components/Typewriter";
 import PostList from "@/components/PostList";
 import { getAllPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/seo";
@@ -49,69 +50,64 @@ export default async function Home() {
 
   return (
     <TerminalWindow title="dorayaki.co">
-      <TerminalBoot
-        sections={[
-          {
-            command: "whoami",
-            showCursorWhenDone: true,
-            contentClassName: "space-y-6 text-sm leading-relaxed sm:text-base",
-            children: (
-              <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-                <div className="shrink-0">
-                  <Image
-                    src="/avatar.png"
-                    alt="Flavio Miyamoto"
-                    width={100}
-                    height={100}
-                    className="ring-app-accent/20 rounded-full shadow-[0_0_15px_rgba(74,222,128,0.1)] ring-2"
-                    priority
-                  />
-                </div>
-                <div className="space-y-2 text-app-soft">
-                  <div className="space-y-0.5">
-                    <h1 className="text-xl font-bold text-app-foreground sm:text-2xl">
-                      Flavio Miyamoto
-                    </h1>
-                    <p className="text-sm text-app-muted">Software Development Engineer @ Amazon</p>
-                  </div>
-                  <p className="text-app-muted/80 text-sm italic">
-                    Trying to build things faster than I can break them
-                  </p>
-                </div>
+      <div className="space-y-8">
+        <CommandPrompt
+          command="whoami"
+          showCursor={false}
+          contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
+        >
+          <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+            <div className="shrink-0">
+              <Image
+                src="/avatar.png"
+                alt="Flavio Miyamoto"
+                width={100}
+                height={100}
+                className="ring-app-accent/20 rounded-full shadow-[0_0_15px_rgba(74,222,128,0.1)] ring-2"
+                priority
+              />
+            </div>
+            <div className="space-y-2 text-app-soft">
+              <div className="space-y-0.5">
+                <h1 className="text-xl font-bold text-app-foreground sm:text-2xl">
+                  Flavio Miyamoto
+                </h1>
+                <p className="text-sm text-app-muted">Software Development Engineer @ Amazon</p>
               </div>
-            ),
-          },
-          {
-            command: "cat socials",
-            children: (
-              <div className="flex flex-wrap gap-3 text-xs tracking-[0.3em] sm:text-sm">
-                <Link
-                  href="https://github.com/fsmiamoto"
-                  className="link-pill text-app-purple hover:border-app-purple"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GitHubIcon />
-                  [github]
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in/fsmiamoto/"
-                  className="link-pill text-app-info hover:border-app-info"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <LinkedInIcon />
-                  [linkedin]
-                </Link>
-              </div>
-            ),
-          },
-          {
-            command: "ls -lt posts/ | head -3",
-            children: <PostList posts={latestPosts} />,
-          },
-        ]}
-      />
+              <p className="text-app-muted/80 text-sm italic">
+                <Typewriter text="Trying to build things faster than I can break them" />
+              </p>
+            </div>
+          </div>
+        </CommandPrompt>
+
+        <CommandPrompt command="cat socials" showCursor={false}>
+          <div className="flex flex-wrap gap-3 text-xs tracking-[0.3em] sm:text-sm">
+            <Link
+              href="https://github.com/fsmiamoto"
+              className="link-pill text-app-purple hover:border-app-purple"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GitHubIcon />
+              [github]
+            </Link>
+            <Link
+              href="https://www.linkedin.com/in/fsmiamoto/"
+              className="link-pill text-app-info hover:border-app-info"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon />
+              [linkedin]
+            </Link>
+          </div>
+        </CommandPrompt>
+
+        <CommandPrompt command="ls -lt posts/ | head -3" showCursor>
+          <PostList posts={latestPosts} />
+        </CommandPrompt>
+      </div>
     </TerminalWindow>
   );
 }
