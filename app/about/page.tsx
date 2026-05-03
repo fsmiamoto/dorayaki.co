@@ -52,7 +52,7 @@ export default function AboutPage() {
               Career highlights
             </h2>
             <ul className="space-y-2">
-              <li>• Developed the financial tracking for launching Amazon Furusato in Japan.</li>
+              <li>• Part of the team that initially launched Amazon Furusato in Japan.</li>
               <li>
                 • Delivered a novel configuration delivery system for a global Edge Computing
                 platform.
@@ -63,8 +63,8 @@ export default function AboutPage() {
           <section className="space-y-3 text-app-soft">
             <h2 className="text-xs uppercase tracking-[0.35em] text-app-muted">Curious about</h2>
             <p>
-              Cloud infrastructure, operating systems, networking, embedded systems, compilers, AI
-              and language learning.
+              Recently been learning and reading so much about AI and Agents to figure out how to navigate this new world.
+              But I'm also interested in things like operating systems, networking, embedded systems, compilers, and human language learning.
             </p>
           </section>
 
@@ -123,7 +123,7 @@ export default function AboutPage() {
                 <span className="font-semibold text-app-foreground">English</span> – Fluent
               </p>
               <p>
-                <span className="font-semibold text-app-foreground">Japanese</span> – JLPT N2
+                <span className="font-semibold text-app-foreground">Japanese</span> – JLPT N2 (but I still suck)
               </p>
             </div>
           </section>
