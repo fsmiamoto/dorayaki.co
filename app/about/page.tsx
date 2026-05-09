@@ -63,8 +63,9 @@ export default function AboutPage() {
           <section className="space-y-3 text-app-soft">
             <h2 className="text-xs uppercase tracking-[0.35em] text-app-muted">Curious about</h2>
             <p>
-              Recently been learning and reading so much about AI and Agents to figure out how to navigate this new world.
-              But I'm also interested in things like operating systems, networking, embedded systems, compilers, and human language learning.
+              Recently been learning and reading so much about AI and Agents to figure out how to
+              navigate this new world. But I'm also interested in things like operating systems,
+              networking, embedded systems, compilers, and human language learning.
             </p>
           </section>
 
@@ -123,7 +124,7 @@ export default function AboutPage() {
                 <span className="font-semibold text-app-foreground">English</span> – Fluent
               </p>
               <p>
-                <span className="font-semibold text-app-foreground">Japanese</span> – JLPT N2 (but I still suck)
+                <span className="font-semibold text-app-foreground">Japanese</span> – JLPT N2
               </p>
             </div>
           </section>

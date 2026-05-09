@@ -33,7 +33,7 @@ suckless advocates for minimal and extensible software, which is exactly what I 
 
 With Pi, I add exactly what I want, when I want, and that's it.
 
-> Primitives, not features.  
+> Primitives, not features.
 
 — from the [Pi website](https://pi.dev)
 
