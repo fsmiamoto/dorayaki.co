@@ -1,12 +1,57 @@
 {
-  "lastUpdated": "2026-01-18",
+  "lastUpdated": "2026-05-09",
   "books": [
+    {
+      "id": "frictionless",
+      "title": "Frictionless: 7 Steps to Remove Barriers, Unlock Value, and Outpace Your Competition in the AI Era",
+      "author": "Nicole Forsgren, Abi Noda",
+      "isbn": "9781662966378",
+      "status": "reading",
+      "recommended": false,
+      "coverUrl": null
+    },
+    {
+      "id": "suisen-system-jissen-nyumon",
+      "title": "推薦システム実践入門 ―仕事で使える導入ガイド",
+      "author": "風間 正弘, 飯塚 洸二郎, 松村 優也",
+      "isbn": "9784873119663",
+      "status": "queue",
+      "recommended": false,
+      "coverUrl": null
+    },
+    {
+      "id": "system-development-trouble-avoidance-learn-from-cases",
+      "title": "システム開発のトラブル回避は裁判に学べ！",
+      "author": "細川 義洋",
+      "isbn": "9784297155254",
+      "status": "queue",
+      "recommended": false,
+      "coverUrl": null
+    },
+    {
+      "id": "the-design-of-design",
+      "title": "The Design of Design: Essays from a Computer Scientist",
+      "author": "Frederick P. Brooks Jr.",
+      "isbn": "9780201362985",
+      "status": "queue",
+      "recommended": false,
+      "coverUrl": null
+    },
+    {
+      "id": "why-greatness-cannot-be-planned",
+      "title": "Why Greatness Cannot Be Planned: The Myth of the Objective",
+      "author": "Kenneth O. Stanley, Joel Lehman",
+      "isbn": "9783319155234",
+      "status": "queue",
+      "recommended": false,
+      "coverUrl": null
+    },
     {
       "id": "the-scaling-era",
       "title": "The Scaling Era: An Oral History of AI, 2019–2025",
       "author": "Dwarkesh Patel",
       "isbn": "9781953953568",
-      "status": "reading",
+      "status": "finished",
       "recommended": true,
       "coverUrl": null
     },

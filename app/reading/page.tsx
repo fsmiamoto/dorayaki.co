@@ -1,6 +1,6 @@
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
-import BookSection from "@/components/BookSection";
+import ReadingTabs from "@/components/ReadingTabs";
 import { getBooksByStatus, getBooksLastUpdated } from "@/lib/books";
 import type { Metadata } from "next";
 import { absoluteUrl, withTrailingSlash } from "@/lib/seo";
@@ -31,45 +31,33 @@ export default function ReadingPage() {
   const lastUpdated = getBooksLastUpdated();
 
   return (
-    <div className="space-y-6">
-      <TerminalWindow title="reading.md">
+    <TerminalWindow title="reading.md">
+      <div className="space-y-8">
         <CommandPrompt
           command="cat reading.md"
           showCursor={false}
-          contentClassName="space-y-8 text-sm leading-relaxed sm:text-base"
+          contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
         >
           <header className="space-y-3">
             <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
               Reading List
             </h1>
             <p className="text-app-soft">
-              A running log of the books that shape how I think about software, systems, and people.
-              Suggestions are always welcome.
+              My attempt to document the books that shape how I think about software, systems, and
+              people. Suggestions are always welcome.
             </p>
             <p className="text-xs uppercase tracking-[0.3em] text-app-muted">
               Last update: {lastUpdated}
             </p>
           </header>
-
-          <div className="space-y-8">
-            <BookSection
-              title="Currently Reading"
-              books={readingBooks}
-              accentColor="text-app-accent"
-            />
-
-            <BookSection
-              title="Finished"
-              books={finishedBooks}
-              accentColor="text-app-amber"
-              collapsible={true}
-              defaultCollapsed={true}
-            />
-
-            <BookSection title="Reading Queue" books={queueBooks} accentColor="text-app-info" />
-          </div>
         </CommandPrompt>
-      </TerminalWindow>
-    </div>
+
+        <ReadingTabs
+          readingBooks={readingBooks}
+          finishedBooks={finishedBooks}
+          queueBooks={queueBooks}
+        />
+      </div>
+    </TerminalWindow>
   );
 }
