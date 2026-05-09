@@ -47,6 +47,15 @@
       "coverUrl": null
     },
     {
+      "id": "the-art-of-doing-science-and-engineering",
+      "title": "The Art of Doing Science and Engineering: Learning to Learn",
+      "author": "Richard Hamming",
+      "isbn": "9781732265172",
+      "status": "queue",
+      "recommended": false,
+      "coverUrl": null
+    },
+    {
       "id": "the-scaling-era",
       "title": "The Scaling Era: An Oral History of AI, 2019–2025",
       "author": "Dwarkesh Patel",
