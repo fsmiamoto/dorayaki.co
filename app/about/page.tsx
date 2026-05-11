@@ -1,5 +1,6 @@
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { absoluteUrl, withTrailingSlash } from "@/lib/seo";
 
@@ -32,9 +33,19 @@ export default function AboutPage() {
           contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
         >
           <section className="space-y-3 text-app-soft">
-            <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
-              About me
-            </h1>
+            <div className="flex items-start justify-between gap-4">
+              <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
+                About me
+              </h1>
+              <Image
+                src="/icons/dorayaki-normal.webp"
+                alt=""
+                width={64}
+                height={58}
+                className="hidden h-auto w-14 shrink-0 -rotate-6 opacity-60 transition-opacity duration-300 hover:opacity-100 sm:block sm:w-16"
+                aria-hidden="true"
+              />
+            </div>
             <p>Howdy!</p>
             <p>I'm a Software Engineer currently working at Amazon in Tokyo, Japan.</p>
             <p>

@@ -7,9 +7,24 @@ export default function TerminalNav() {
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2 font-mono text-xs text-app-muted sm:text-sm">
         <Link
           href="/"
-          className="flex items-center gap-1.5 font-bold text-app-foreground transition-colors duration-150 hover:text-app-accent"
+          className="group flex items-center gap-1.5 font-bold text-app-foreground transition-colors duration-150 hover:text-app-accent"
         >
-          <Image src="/favicon_32.png" alt="" width={18} height={18} className="shrink-0" />
+          <span className="relative shrink-0" style={{ width: 28, height: 26 }}>
+            <Image
+              src="/icons/dorayaki-normal.webp"
+              alt=""
+              width={28}
+              height={26}
+              className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-0"
+            />
+            <Image
+              src="/icons/dorayaki-green.webp"
+              alt=""
+              width={28}
+              height={26}
+              className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            />
+          </span>
           dorayaki
         </Link>
         <Link href="/posts" className="link-nav text-app-purple">
