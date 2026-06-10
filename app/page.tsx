@@ -3,7 +3,6 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
-import Typewriter from "@/components/Typewriter";
 import PostList from "@/components/PostList";
 import { getAllPosts } from "@/lib/posts";
 import { absoluteUrl } from "@/lib/seo";
@@ -75,7 +74,7 @@ export default async function Home() {
                 <p className="text-sm text-app-muted">Software Development Engineer @ Amazon</p>
               </div>
               <p className="text-app-muted/80 text-sm italic">
-                <Typewriter text="Trying to build things faster than I can break them" />
+                <span className="inline-block animate-fade-in-up">Tweaking dotfiles...</span>
               </p>
             </div>
           </div>
