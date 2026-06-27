@@ -1,12 +1,12 @@
 {
-  "lastUpdated": "2026-05-09",
+  "lastUpdated": "2026-06-28",
   "books": [
     {
       "id": "frictionless",
       "title": "Frictionless: 7 Steps to Remove Barriers, Unlock Value, and Outpace Your Competition in the AI Era",
       "author": "Nicole Forsgren, Abi Noda",
       "isbn": "9781662966378",
-      "status": "reading",
+      "status": "finished",
       "recommended": true,
       "coverUrl": null
     },
