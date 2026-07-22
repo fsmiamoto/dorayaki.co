@@ -5,14 +5,19 @@ interface TerminalWindowProps {
   title?: string;
   children: ReactNode;
   className?: string;
+  windowNumber?: number;
+  literalTitle?: boolean;
 }
 
 export default function TerminalWindow({
   title = "fish ~",
   children,
   className = "",
+  windowNumber = 1,
+  literalTitle = false,
 }: TerminalWindowProps) {
-  const displayTitle = title.includes("/") || title.includes("~") ? title : `~/${title}`;
+  const displayTitle =
+    literalTitle || title.includes("/") || title.includes("~") ? title : `~/${title}`;
 
   return (
     <div className={clsx("terminal-window isolate", className)}>
@@ -23,7 +28,7 @@ export default function TerminalWindow({
           <span className="terminal-button terminal-button-green" />
         </div>
         <div className="pointer-events-none absolute inset-x-0 flex items-center justify-center">
-          <span className="font-mono text-xs text-app-faint">[1]</span>
+          <span className="font-mono text-xs text-app-faint">[{windowNumber}]</span>
           <span className="ml-2 font-mono text-xs text-app-muted opacity-60">{displayTitle}</span>
         </div>
       </div>

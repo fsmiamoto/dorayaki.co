@@ -44,7 +44,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           >
             Skip to main content
           </a>
-          <div className="container mx-auto max-w-full px-2 pt-4 sm:max-w-4xl sm:px-4 sm:pt-8">
+          <div className="site-navigation-shell container mx-auto max-w-full px-2 pt-4 sm:max-w-4xl sm:px-4 sm:pt-8">
             <TerminalNav />
           </div>
           <main

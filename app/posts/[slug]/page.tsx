@@ -10,6 +10,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { absoluteUrl, toPlainTextExcerpt, withTrailingSlash } from "@/lib/seo";
+import { extractPostHeadings } from "@/lib/post-headings";
+import PostOutline from "@/components/PostOutline";
 
 interface PageProps {
   params: Promise<{
@@ -73,6 +75,8 @@ export default async function PostPage({ params }: PageProps) {
   const canonicalUrl = absoluteUrl(canonicalPath);
   const description = toPlainTextExcerpt(post.frontMatter.excerpt ?? post.content);
   const publishedTime = new Date(post.frontMatter.date).toISOString();
+  const headings = extractPostHeadings(post.content);
+  const showOutline = headings.length >= 2;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -91,69 +95,85 @@ export default async function PostPage({ params }: PageProps) {
   } as const;
 
   return (
-    <div className="space-y-6">
-      <TerminalWindow title={`posts/${post.slug}.md`}>
-        <div className="space-y-8">
-          <JsonLd data={jsonLd} />
-          <CommandPrompt
-            command={`cat posts/${post.slug}.md`}
-            showCursor={false}
-            contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
-          >
-            <header className="space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
-                  {post.frontMatter.title}
-                </h1>
-                {post.frontMatter.excerpt && (
-                  <p className="text-app-soft">{post.frontMatter.excerpt}</p>
-                )}
-              </div>
-              <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.3em] text-app-muted sm:text-sm">
-                <span className="text-app-accent">{post.formattedDate}</span>
-                <span className="font-semibold text-app-amber">{post.readingTime}</span>
-                {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-                  <div className="flex flex-wrap gap-2">
-                    {post.frontMatter.tags.map((tag, index) => {
-                      const palette = ["text-app-info", "text-app-accent", "text-app-amber"];
-                      return (
-                        <span
-                          key={tag}
-                          className={clsx(
-                            "inline-flex items-center rounded-full px-3 py-1 text-[0.65rem] uppercase tracking-[0.3em]",
-                            palette[index % palette.length],
-                          )}
-                        >
-                          #{tag.toLowerCase().replace(/\s+/g, "-")}
-                        </span>
-                      );
-                    })}
-                  </div>
-                )}
-              </div>
-            </header>
+    <div
+      className={clsx(
+        "space-y-6",
+        showOutline &&
+          "post-layout-wide xl:relative xl:left-1/2 xl:w-[73.5rem] xl:max-w-[calc(100vw-2rem)] xl:-translate-x-1/2",
+      )}
+    >
+      <div
+        className={clsx(
+          showOutline && "xl:grid xl:grid-cols-[minmax(0,54rem)_18rem] xl:items-start xl:gap-6",
+        )}
+      >
+        <TerminalWindow title={`posts/${post.slug}.md`}>
+          <div className="space-y-8">
+            <JsonLd data={jsonLd} />
+            <CommandPrompt
+              command={`cat posts/${post.slug}.md`}
+              showCursor={false}
+              contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
+            >
+              <header className="space-y-4">
+                <div className="space-y-2">
+                  <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
+                    {post.frontMatter.title}
+                  </h1>
+                  {post.frontMatter.excerpt && (
+                    <p className="text-app-soft">{post.frontMatter.excerpt}</p>
+                  )}
+                </div>
+                <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.3em] text-app-muted sm:text-sm">
+                  <span className="text-app-accent">{post.formattedDate}</span>
+                  <span className="font-semibold text-app-amber">{post.readingTime}</span>
+                  {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {post.frontMatter.tags.map((tag, index) => {
+                        const palette = ["text-app-info", "text-app-accent", "text-app-amber"];
+                        return (
+                          <span
+                            key={tag}
+                            className={clsx(
+                              "inline-flex items-center rounded-full px-3 py-1 text-[0.65rem] uppercase tracking-[0.3em]",
+                              palette[index % palette.length],
+                            )}
+                          >
+                            #{tag.toLowerCase().replace(/\s+/g, "-")}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              </header>
 
-            <OpinionDisclaimer className="text-app-muted" />
+              <OpinionDisclaimer className="text-app-muted" />
 
-            <article className="prose-terminal">
-              <MDXContent source={post.content} />
-            </article>
-          </CommandPrompt>
+              {showOutline && <PostOutline headings={headings} variant="mobile" />}
 
-          <div className="pt-6">
-            <Comments slug={post.slug} />
-          </div>
+              <article className="prose-terminal">
+                <MDXContent source={post.content} headings={headings} />
+              </article>
+            </CommandPrompt>
 
-          <CommandPrompt command="ls ../" showCursor={false}>
-            <div className="flex flex-wrap items-center gap-4 text-sm">
-              <Link href="/posts" className="link-nav-underline">
-                ../
-              </Link>
-              <span className="text-app-soft">Back to posts</span>
+            <div className="pt-6">
+              <Comments slug={post.slug} />
             </div>
-          </CommandPrompt>
-        </div>
-      </TerminalWindow>
+
+            <CommandPrompt command="ls ../" showCursor={false}>
+              <div className="flex flex-wrap items-center gap-4 text-sm">
+                <Link href="/posts" className="link-nav-underline">
+                  ../
+                </Link>
+                <span className="text-app-soft">Back to posts</span>
+              </div>
+            </CommandPrompt>
+          </div>
+        </TerminalWindow>
+
+        {showOutline && <PostOutline headings={headings} variant="desktop" />}
+      </div>
     </div>
   );
 }

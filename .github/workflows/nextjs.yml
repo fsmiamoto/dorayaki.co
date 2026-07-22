@@ -46,6 +46,10 @@ jobs:
         run: npm ci
       - name: Build with Next.js
         run: npm run build
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Test post outline
+        run: npm run test:e2e
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

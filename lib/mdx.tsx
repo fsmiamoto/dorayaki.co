@@ -2,6 +2,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
 import CopyButton from "@/components/CopyButton";
+import { remarkPostHeadingIds, type PostHeading } from "@/lib/post-headings";
 
 interface CodeBlockProps {
   children: string;
@@ -30,10 +31,10 @@ const components = {
     <h1 className="mb-4 mt-8 text-3xl font-semibold text-app-foreground" {...props} />
   ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="mb-3 mt-6 text-2xl font-semibold text-app-foreground" {...props} />
+    <h2 className="mb-3 mt-6 scroll-mt-24 text-2xl font-semibold text-app-foreground" {...props} />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="mb-2 mt-4 text-xl font-semibold text-app-foreground" {...props} />
+    <h3 className="mb-2 mt-4 scroll-mt-24 text-xl font-semibold text-app-foreground" {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="mb-4 leading-relaxed text-app-soft" {...props} />
@@ -98,8 +99,19 @@ const components = {
 
 interface MDXContentProps {
   source: string;
+  headings?: PostHeading[];
 }
 
-export function MDXContent({ source }: MDXContentProps) {
-  return <MDXRemote source={source} components={components} />;
+export function MDXContent({ source, headings = [] }: MDXContentProps) {
+  return (
+    <MDXRemote
+      source={source}
+      components={components}
+      options={{
+        mdxOptions: {
+          remarkPlugins: [[remarkPostHeadingIds, headings]],
+        },
+      }}
+    />
+  );
 }
