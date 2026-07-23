@@ -360,17 +360,6 @@ body::before {
   opacity: 0.04;
 }
 
-/* Keep the site navigation aligned with the article when a post adds an outline rail. */
-@media (min-width: 1280px) {
-  body:has(.post-layout-wide) .site-navigation-shell {
-    max-width: min(75.5rem, 100%);
-  }
-
-  body:has(.post-layout-wide) .site-navigation-shell > nav {
-    width: min(54rem, 100%);
-  }
-}
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,

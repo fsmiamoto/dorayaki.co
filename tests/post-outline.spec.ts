@@ -12,7 +12,7 @@ const expectedHeadings = [
 
 test.describe("post outline", () => {
   test("renders linked headings and tracks the active section on desktop", async ({ page }) => {
-    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.setViewportSize({ width: 1536, height: 900 });
     await page.goto(structuredPost);
 
     const outline = page.getByRole("navigation", { name: "On this page" });
@@ -87,6 +87,40 @@ test.describe("post outline", () => {
         .getByRole("navigation", { name: "On this page" })
         .getByRole("link", { name: "Composability" }),
     ).toHaveAttribute("aria-current", "location");
+  });
+
+  test("keeps the site shell stable and embeds the outline until the right gutter fits", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1536, height: 900 });
+    await page.goto("/");
+
+    const homeWindowLeft = await page
+      .locator(".terminal-window")
+      .first()
+      .evaluate((terminal) => terminal.getBoundingClientRect().left);
+    const homeNavigationLeft = await page
+      .getByRole("link", { name: "dorayaki" })
+      .evaluate((link) => link.closest("nav")?.getBoundingClientRect().left ?? -1);
+
+    await page.goto(structuredPost);
+
+    const postWindowLeft = await page
+      .locator(".terminal-window")
+      .first()
+      .evaluate((terminal) => terminal.getBoundingClientRect().left);
+    const postNavigationLeft = await page
+      .getByRole("link", { name: "dorayaki" })
+      .evaluate((link) => link.closest("nav")?.getBoundingClientRect().left ?? -1);
+
+    expect(postWindowLeft).toBeCloseTo(homeWindowLeft, 0);
+    expect(postNavigationLeft).toBeCloseTo(homeNavigationLeft, 0);
+    await expect(page.getByRole("complementary")).toBeVisible();
+
+    await page.setViewportSize({ width: 1440, height: 900 });
+
+    await expect(page.getByRole("complementary")).toBeHidden();
+    await expect(page.getByText("On this page", { exact: true })).toBeVisible();
   });
 
   test("uses an initially collapsed disclosure at a narrow viewport", async ({ page }) => {

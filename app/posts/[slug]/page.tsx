@@ -95,16 +95,11 @@ export default async function PostPage({ params }: PageProps) {
   } as const;
 
   return (
-    <div
-      className={clsx(
-        "space-y-6",
-        showOutline &&
-          "post-layout-wide xl:relative xl:left-1/2 xl:w-[73.5rem] xl:max-w-[calc(100vw-2rem)] xl:-translate-x-1/2",
-      )}
-    >
+    <div className="space-y-6">
       <div
         className={clsx(
-          showOutline && "xl:grid xl:grid-cols-[minmax(0,54rem)_18rem] xl:items-start xl:gap-6",
+          showOutline &&
+            "2xl:grid 2xl:w-[73.5rem] 2xl:grid-cols-[minmax(0,54rem)_18rem] 2xl:items-start 2xl:gap-6",
         )}
       >
         <TerminalWindow title={`posts/${post.slug}.md`}>

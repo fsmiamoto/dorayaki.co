@@ -136,7 +136,7 @@ function OutlineCommand() {
 export default function PostOutline({ headings, variant }: PostOutlineProps) {
   if (variant === "mobile") {
     return (
-      <details className="bg-app-surface-soft/40 group rounded-lg border border-app-border-subtle xl:hidden">
+      <details className="bg-app-surface-soft/40 group rounded-lg border border-app-border-subtle 2xl:hidden">
         <summary className="cursor-pointer select-none px-4 py-3 text-sm font-semibold text-app-foreground marker:text-app-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent">
           On this page
         </summary>
@@ -149,7 +149,7 @@ export default function PostOutline({ headings, variant }: PostOutlineProps) {
   }
 
   return (
-    <aside className="sticky top-6 hidden self-start xl:block">
+    <aside className="sticky top-6 hidden self-start 2xl:block">
       <div className="max-h-[calc(100vh-7rem)] overflow-y-auto rounded-lg">
         <TerminalWindow title="outline" windowNumber={2} literalTitle>
           <nav aria-label="On this page">
