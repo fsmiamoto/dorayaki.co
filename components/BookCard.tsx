@@ -10,7 +10,7 @@ import {
   getOpenLibraryCoverUrl,
 } from "@/lib/books-client";
 
-type CoverSource = "google" | "openLibrary" | "avatar";
+type CoverSource = "custom" | "google" | "openLibrary" | "avatar";
 
 interface BookCardProps {
   book: Book;
@@ -18,13 +18,15 @@ interface BookCardProps {
 }
 
 export default function BookCard({ book, showCover = true }: BookCardProps) {
-  const [coverSource, setCoverSource] = useState<CoverSource>("google");
+  const [coverSource, setCoverSource] = useState<CoverSource>(book.coverUrl ? "custom" : "google");
   const firstLetter = book.title.charAt(0).toUpperCase();
 
   // Get cover URL based on current source
   const getCoverImageUrl = (): string | null => {
     if (!book.isbn) return null;
     switch (coverSource) {
+      case "custom":
+        return book.coverUrl;
       case "google":
         return getGoogleBooksCoverUrl(book.isbn);
       case "openLibrary":
@@ -35,8 +37,10 @@ export default function BookCard({ book, showCover = true }: BookCardProps) {
   };
 
   const handleImageError = () => {
-    // Cascade through sources: google -> openLibrary -> avatar
-    if (coverSource === "google") {
+    // Cascade through sources: custom -> google -> openLibrary -> avatar
+    if (coverSource === "custom") {
+      setCoverSource("google");
+    } else if (coverSource === "google") {
       setCoverSource("openLibrary");
     } else if (coverSource === "openLibrary") {
       setCoverSource("avatar");

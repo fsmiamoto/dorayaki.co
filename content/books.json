@@ -17,7 +17,7 @@
       "isbn": "9798341621480",
       "status": "reading",
       "recommended": false,
-      "coverUrl": null
+      "coverUrl": "https://covers.oreillystatic.com/images/9798341621480/lrg.jpg"
     },
     {
       "id": "learning-systems-thinking",
@@ -26,7 +26,7 @@
       "isbn": "9781098151324",
       "status": "reading",
       "recommended": false,
-      "coverUrl": null
+      "coverUrl": "https://covers.oreillystatic.com/images/9781098151324/lrg.jpg"
     },
     {
       "id": "suisen-system-jissen-nyumon",
