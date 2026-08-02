@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-28",
+  "lastUpdated": "2026-08-02",
   "books": [
     {
       "id": "frictionless",
@@ -8,6 +8,24 @@
       "isbn": "9781662966378",
       "status": "finished",
       "recommended": true,
+      "coverUrl": null
+    },
+    {
+      "id": "hands-on-llm-serving-and-optimization",
+      "title": "Hands-On LLM Serving and Optimization",
+      "author": "Chi Wang, Peiheng Hu",
+      "isbn": "9798341621480",
+      "status": "reading",
+      "recommended": false,
+      "coverUrl": null
+    },
+    {
+      "id": "learning-systems-thinking",
+      "title": "Learning Systems Thinking",
+      "author": "Diana Montalion",
+      "isbn": "9781098151324",
+      "status": "reading",
+      "recommended": false,
       "coverUrl": null
     },
     {
@@ -69,7 +87,7 @@
       "title": "Designing Multi-Agent Systems: Principles, Patterns, and Implementation for AI Agents",
       "author": "Victor Dibia",
       "isbn": "9798993101200",
-      "status": "reading",
+      "status": "finished",
       "recommended": false,
       "coverUrl": null
     },
@@ -96,7 +114,7 @@
       "title": "Generative AI Design Patterns",
       "author": "Valliappa Lakshmanan",
       "isbn": "9798341622630",
-      "status": "reading",
+      "status": "finished",
       "recommended": true,
       "coverUrl": null
     },
