@@ -51,6 +51,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
+      url: absoluteUrl(withTrailingSlash("/projects")),
+      lastModified: staticLastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    },
+    {
       url: absoluteUrl(withTrailingSlash("/posts")),
       lastModified: staticLastModified,
       changeFrequency: "weekly" as const,

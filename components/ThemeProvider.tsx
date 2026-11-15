@@ -63,8 +63,8 @@ export function ThemeProvider({
   );
 
   const toggleTheme = useCallback(() => {
-    setThemeInternal(theme === "dark" ? "light" : "dark");
-  }, [theme, setThemeInternal]);
+    setThemeInternal(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+  }, [setThemeInternal]);
 
   useEffect(() => {
     const storedPreference =

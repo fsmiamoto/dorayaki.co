@@ -32,14 +32,16 @@ excerpt: "Optional excerpt"
 - `lib/posts.ts` - Post loading utilities (getAllPosts, getPostBySlug, getPostsByTag)
 - `lib/mdx.tsx` - MDX rendering with custom component overrides and syntax highlighting (sugar-high)
 - `content/books.json` - Book data for /reading page
+- `content/projects.json` - Projects listed on /projects
 
 ### Routing (App Router)
 
-- `/` - Home page
+- `/` - Profile and latest posts
 - `/posts` - Posts listing
 - `/posts/[slug]` - Individual post (statically generated via generateStaticParams)
 - `/about` - About page
 - `/reading` - Book reading list
+- `/projects` - Projects listing
 
 ### Theming
 
@@ -47,8 +49,10 @@ CSS variables define the color system (see `tailwind.config.js` for `app.*` and 
 
 ### Key Components
 
-- `TerminalWindow` - macOS terminal-style container
-- `CommandPrompt` - Terminal command display (e.g., `cat posts/[slug].md`)
+- `TerminalNav` - tmux-style top bar (windows, Tokyo clock, theme toggle)
+- `StatusBar` - vim-style footer with keyboard hints
+- `CommandPrompt` - Prompt line that heads each section (e.g., `~ ❯ cat about.md`)
+- `PostList` - Post rows with `j`/`k`/`Enter` keyboard selection
 - `ThemeProvider` - Context-based dark/light mode
 
 ### Static Export

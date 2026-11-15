@@ -4,6 +4,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -22,8 +23,10 @@ module.exports = {
           faint: "var(--color-text-faint)",
           accent: "var(--color-accent)",
           "accent-strong": "var(--color-accent-strong)",
+          "accent-ink": "var(--color-accent-ink)",
           amber: "var(--color-amber)",
           purple: "var(--color-purple)",
+          pink: "var(--color-pink)",
           success: "var(--color-success)",
           info: "var(--color-info)",
           danger: "var(--color-danger)",
@@ -49,7 +52,14 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
-        mono: ["var(--font-mono)", "JetBrains Mono", "Fira Code", "Consolas", "monospace"],
+        mono: [
+          "var(--font-mono)",
+          "ui-monospace",
+          "SFMono-Regular",
+          "Menlo",
+          "Consolas",
+          "monospace",
+        ],
       },
       animation: {
         blink: "blink 1s infinite",

@@ -1,58 +1,59 @@
 "use client";
 
-import type { SVGProps } from "react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { isTypingEvent } from "@/lib/keyboard";
 import { useTheme } from "./ThemeProvider";
-
-const iconCommon = "h-4 w-4";
-
-const SunIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" className={iconCommon} {...props}>
-    <circle cx="12" cy="12" r="4" fill="currentColor" />
-    <g stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M12 3v2" />
-      <path d="M12 19v2" />
-      <path d="M5.22 5.22l1.42 1.42" />
-      <path d="M17.36 17.36l1.42 1.42" />
-      <path d="M3 12h2" />
-      <path d="M19 12h2" />
-      <path d="M5.22 18.78l1.42-1.42" />
-      <path d="M17.36 6.64l1.42-1.42" />
-    </g>
-  </svg>
-);
-
-const MoonIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" className={iconCommon} {...props}>
-    <path d="M21 12.79A9 9 0 0111.21 3 6.5 6.5 0 0012 21a9 9 0 009-8.21z" fill="currentColor" />
-  </svg>
-);
 
 export default function ThemeToggle() {
   const { theme, toggleTheme, ready } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "t" && !isTypingEvent(event)) {
+        toggleTheme();
+      }
+    };
 
-  const nextTheme = theme === "light" ? "dark" : "light";
-  const label = `Switch to ${nextTheme} theme`;
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [toggleTheme]);
 
-  if (!mounted) {
-    return <div className="h-11 w-11 rounded-full border border-app-border bg-app-surface-muted" />;
-  }
+  const label = ready ? `Switch to ${theme === "light" ? "dark" : "light"} theme` : "Toggle theme";
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
       aria-label={label}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-app-border bg-app-surface text-app-muted shadow-pane-soft transition-colors hover:bg-app-surface-muted hover:text-app-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent disabled:opacity-70"
-      disabled={!ready}
+      title={`${label} (t)`}
+      className="flex h-11 w-11 items-center justify-center rounded-md text-app-muted transition-colors hover:bg-app-surface-muted focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-app-accent"
     >
-      <span className="sr-only">{label}</span>
-      {theme === "light" ? <SunIcon /> : <MoonIcon />}
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        aria-hidden="true"
+        focusable="false"
+        className="theme-icon-sun h-[18px] w-[18px] text-app-amber"
+      >
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+      </svg>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+        focusable="false"
+        className="theme-icon-moon h-[18px] w-[18px] text-app-info"
+      >
+        <path d="M20.9 13.4A9 9 0 0 1 10.6 3.1a9 9 0 1 0 10.3 10.3Z" />
+      </svg>
     </button>
   );
 }

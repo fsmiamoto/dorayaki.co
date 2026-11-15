@@ -16,12 +16,11 @@ test.describe("post outline", () => {
     await page.goto(structuredPost);
 
     const outline = page.getByRole("navigation", { name: "On this page" });
-    const outlineTerminal = page.getByRole("complementary");
+    const outlineAside = page.getByRole("complementary");
     const links = outline.getByRole("link");
 
     await expect(outline).toBeVisible();
-    await expect(outlineTerminal).toContainText("[2]outline");
-    await expect(outline).toContainText("$headings post.md");
+    await expect(outlineAside).toContainText("# on this page");
     await expect(links).toHaveCount(expectedHeadings.length);
     for (const label of expectedHeadings) {
       await expect(outline.getByRole("link", { name: label, exact: true })).toBeVisible();
@@ -33,13 +32,13 @@ test.describe("post outline", () => {
     await expect(outline).not.toContainText(/section \d|\d+%/i);
     await expect(outline.locator('[aria-current="location"]')).toHaveCount(1);
 
-    const wrapUpLeft = await outline
+    const wrapUpIndent = await outline
       .getByRole("link", { name: "Wrap up" })
-      .evaluate((link) => link.getBoundingClientRect().left);
-    const referencesLeft = await outline
+      .evaluate((link) => parseFloat(getComputedStyle(link).paddingLeft));
+    const referencesIndent = await outline
       .getByRole("link", { name: "References" })
-      .evaluate((link) => link.getBoundingClientRect().left);
-    expect(referencesLeft).toBeGreaterThan(wrapUpLeft);
+      .evaluate((link) => parseFloat(getComputedStyle(link).paddingLeft));
+    expect(referencesIndent).toBeGreaterThan(wrapUpIndent);
 
     const headingIds = await links.evaluateAll((outlineLinks) =>
       outlineLinks.map((link) => link.getAttribute("href")?.slice(1) ?? ""),
@@ -55,10 +54,10 @@ test.describe("post outline", () => {
     await composabilityHeading.evaluate((heading) => heading.scrollIntoView());
     await expect(composabilityLink).toHaveAttribute("aria-current", "location");
     await expect(outline.locator('[aria-current="location"]')).toHaveCount(1);
-    await expect(outlineTerminal).toBeInViewport();
+    await expect(outlineAside).toBeInViewport();
     await expect
-      .poll(() => outlineTerminal.evaluate((terminal) => terminal.getBoundingClientRect().top))
-      .toBeLessThanOrEqual(32);
+      .poll(() => outlineAside.evaluate((aside) => aside.getBoundingClientRect().top))
+      .toBeLessThanOrEqual(64);
 
     for (const [label, targetTop] of [
       ["So can I just drop MCP completely?", 200],
@@ -74,6 +73,12 @@ test.describe("post outline", () => {
       await expect(outline.locator('[aria-current="location"]')).toHaveCount(1);
     }
 
+    const wrapUpLink = outline.getByRole("link", { name: "Wrap up" });
+    await wrapUpLink.click();
+    await expect(page).toHaveURL(/#wrap-up$/);
+    await expect(wrapUpLink).toHaveAttribute("aria-current", "location");
+    await expect(outline.locator('[aria-current="location"]')).toHaveCount(1);
+
     const referencesLink = outline.getByRole("link", { name: "References" });
     await referencesLink.click();
     await expect(page).toHaveURL(/#references$/);
@@ -82,6 +87,16 @@ test.describe("post outline", () => {
 
     await page.goto(`${structuredPost}#composability`);
     await expect(page.getByRole("heading", { name: "Composability" })).toBeInViewport();
+    const navBottom = await page
+      .getByRole("navigation", { name: "Main" })
+      .evaluate((nav) => nav.getBoundingClientRect().bottom);
+    await expect
+      .poll(() =>
+        page
+          .getByRole("heading", { name: "Composability" })
+          .evaluate((heading) => heading.getBoundingClientRect().top),
+      )
+      .toBeGreaterThanOrEqual(navBottom);
     await expect(
       page
         .getByRole("navigation", { name: "On this page" })
@@ -89,35 +104,33 @@ test.describe("post outline", () => {
     ).toHaveAttribute("aria-current", "location");
   });
 
-  test("keeps the site shell stable and embeds the outline until the right gutter fits", async ({
+  test("keeps the site shell stable and embeds the outline until its column fits", async ({
     page,
   }) => {
     await page.setViewportSize({ width: 1536, height: 900 });
     await page.goto("/");
 
-    const homeWindowLeft = await page
-      .locator(".terminal-window")
-      .first()
-      .evaluate((terminal) => terminal.getBoundingClientRect().left);
+    const homeContentLeft = await page
+      .locator("#main-content")
+      .evaluate((content) => content.getBoundingClientRect().left);
     const homeNavigationLeft = await page
       .getByRole("link", { name: "dorayaki" })
       .evaluate((link) => link.closest("nav")?.getBoundingClientRect().left ?? -1);
 
     await page.goto(structuredPost);
 
-    const postWindowLeft = await page
-      .locator(".terminal-window")
-      .first()
-      .evaluate((terminal) => terminal.getBoundingClientRect().left);
+    const postContentLeft = await page
+      .locator("#main-content")
+      .evaluate((content) => content.getBoundingClientRect().left);
     const postNavigationLeft = await page
       .getByRole("link", { name: "dorayaki" })
       .evaluate((link) => link.closest("nav")?.getBoundingClientRect().left ?? -1);
 
-    expect(postWindowLeft).toBeCloseTo(homeWindowLeft, 0);
+    expect(postContentLeft).toBeCloseTo(homeContentLeft, 0);
     expect(postNavigationLeft).toBeCloseTo(homeNavigationLeft, 0);
     await expect(page.getByRole("complementary")).toBeVisible();
 
-    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.setViewportSize({ width: 900, height: 900 });
 
     await expect(page.getByRole("complementary")).toBeHidden();
     await expect(page.getByText("On this page", { exact: true })).toBeVisible();
