@@ -25,10 +25,35 @@ export default function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label={label}
-      className="rounded border border-app-border-subtle px-2 py-px text-app-muted transition-colors hover:border-app-muted hover:text-app-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent"
+      title={`${label} (t)`}
+      className="flex h-11 w-11 items-center justify-center rounded-md text-app-muted transition-colors hover:bg-app-surface-muted focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-app-accent"
     >
-      <span className="theme-label-dark">dark</span>
-      <span className="theme-label-light">light</span>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        aria-hidden="true"
+        focusable="false"
+        className="theme-icon-sun h-[18px] w-[18px] text-app-amber"
+      >
+        <circle cx="12" cy="12" r="4" />
+        <path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+      </svg>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        aria-hidden="true"
+        focusable="false"
+        className="theme-icon-moon h-[18px] w-[18px] text-app-info"
+      >
+        <path d="M20.9 13.4A9 9 0 0 1 10.6 3.1a9 9 0 1 0 10.3 10.3Z" />
+      </svg>
     </button>
   );
 }

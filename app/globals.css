@@ -159,8 +159,8 @@
     @apply inline-block h-[15px] w-2 translate-y-0.5 animate-blink bg-app-accent;
   }
 
-  [data-theme="dark"] .theme-label-light,
-  [data-theme="light"] .theme-label-dark {
+  [data-theme="dark"] .theme-icon-moon,
+  [data-theme="light"] .theme-icon-sun {
     display: none;
   }
 

@@ -22,7 +22,7 @@ export default function TerminalNav() {
   return (
     <nav
       aria-label="Main"
-      className="sticky top-0 z-40 flex h-9 items-center whitespace-nowrap border-b border-app-border-subtle bg-app-surface px-2 text-xs sm:gap-1 sm:px-3 sm:text-[13px]"
+      className="sticky top-0 z-40 flex h-12 items-center whitespace-nowrap border-b border-app-border-subtle bg-app-surface px-2 text-xs sm:gap-1 sm:px-3 sm:text-[13px]"
     >
       <Link
         href="/"
