@@ -32,6 +32,7 @@ export default function PostList({
           Math.max(0, selected + (event.key === "j" ? 1 : -1)),
         );
         setSelected(next);
+        rows.current[next]?.focus({ preventScroll: true });
         rows.current[next]?.scrollIntoView({ block: "nearest" });
       } else if (event.key === "Enter" && document.activeElement === document.body) {
         rows.current[selected]?.click();
@@ -66,7 +67,12 @@ export default function PostList({
                 rows.current[index] = row;
               }}
               href={`/posts/${post.slug}`}
-              onMouseEnter={() => setSelected(index)}
+              onMouseEnter={() => {
+                if (!rows.current.some((row) => row === document.activeElement)) {
+                  setSelected(index);
+                }
+              }}
+              onFocus={() => setSelected(index)}
               data-selected={isSelected || undefined}
               className={clsx(
                 "grid scroll-mb-10 scroll-mt-12 grid-cols-[1fr_auto] gap-x-[18px] gap-y-1 rounded-r-md border-l-2 px-3.5 py-3 sm:grid-cols-[104px_1fr_auto]",

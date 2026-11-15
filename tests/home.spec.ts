@@ -22,6 +22,48 @@ test("selects post rows with j/k and opens the selection with Enter", async ({ p
   await expect(page).toHaveURL(new RegExp(`${href}/?$`));
 });
 
+for (const pathname of ["/", "/posts/"]) {
+  test(`keeps Tab and j/k selection aligned with focus on ${pathname}`, async ({ page }) => {
+    await page.goto(pathname);
+    await expect(
+      page.getByRole("button", { name: /^Switch to (dark|light) theme$/ }),
+    ).toBeVisible();
+    const rows = page.locator("#main-content a[href^='/posts/']:has(h3)");
+    const firstRow = rows.first();
+
+    await rows.nth(2).hover();
+    await expect(rows.nth(2)).toHaveAttribute("data-selected", "true");
+    await page.mouse.move(0, 0);
+
+    for (let tabs = 0; tabs < 15; tabs++) {
+      await page.keyboard.press("Tab");
+      if (await firstRow.evaluate((row) => row === document.activeElement)) break;
+    }
+    await expect(firstRow).toBeFocused();
+    await expect(firstRow).toHaveAttribute("data-selected", "true");
+
+    await page.keyboard.press("j");
+    await expect(rows.nth(1)).toHaveAttribute("data-selected", "true");
+    await expect(rows.nth(1)).toBeFocused();
+
+    await page.keyboard.press("Tab");
+    await expect(rows.nth(2)).toBeFocused();
+    await expect(rows.nth(2)).toHaveAttribute("data-selected", "true");
+    await page.keyboard.press("k");
+    await expect(rows.nth(1)).toBeFocused();
+    await expect(rows.nth(1)).toHaveAttribute("data-selected", "true");
+    await expect(page.locator("[data-selected]")).toHaveCount(1);
+
+    await firstRow.hover();
+    await expect(rows.nth(1)).toBeFocused();
+    await expect(rows.nth(1)).toHaveAttribute("data-selected", "true");
+
+    const href = await rows.nth(1).getAttribute("href");
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(new RegExp(`${href}/?$`));
+  });
+}
+
 test("toggles the theme with t", async ({ page }) => {
   await gotoHydratedHome(page);
 
