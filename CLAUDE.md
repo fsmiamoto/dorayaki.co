@@ -31,16 +31,17 @@ excerpt: "Optional excerpt"
 
 - `lib/posts.ts` - Post loading utilities (getAllPosts, getPostBySlug, getPostsByTag)
 - `lib/mdx.tsx` - MDX rendering with custom component overrides and syntax highlighting (sugar-high)
-- `content/books.json` - Book data for /reading page and the home shelf
-- `content/projects.json` - Projects listed on the home page
+- `content/books.json` - Book data for /reading page
+- `content/projects.json` - Projects listed on /projects
 
 ### Routing (App Router)
 
-- `/` - Home page
+- `/` - Profile and latest posts
 - `/posts` - Posts listing
 - `/posts/[slug]` - Individual post (statically generated via generateStaticParams)
 - `/about` - About page
 - `/reading` - Book reading list
+- `/projects` - Projects listing
 
 ### Theming
 

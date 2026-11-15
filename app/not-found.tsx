@@ -28,6 +28,12 @@ export default function NotFound() {
             </Link>
           </div>
           <div className="flex gap-4">
+            <span className="text-app-info">drwxr-xr-x</span>
+            <Link href="/projects" className="link-nav-underline text-app-info">
+              projects/
+            </Link>
+          </div>
+          <div className="flex gap-4">
             <span className="text-app-info">-rw-r--r--</span>
             <Link href="/about" className="link-nav-underline">
               about.md
