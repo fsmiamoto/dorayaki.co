@@ -31,6 +31,28 @@ test("toggles the theme with t", async ({ page }) => {
   await expect(html).toHaveAttribute("data-theme", initialTheme === "dark" ? "light" : "dark");
 });
 
+test("uses a white light theme with neutral surfaces across pages", async ({ page }) => {
+  await page.emulateMedia({ colorScheme: "light" });
+  await gotoHydratedHome(page);
+
+  await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 255, 255)");
+  await expect(page.locator("[data-selected]")).toHaveCSS("background-color", "rgb(247, 247, 247)");
+
+  const navigation = page.getByRole("navigation", { name: "Main" });
+  await expect(navigation).toHaveCSS("background-color", "rgb(247, 247, 247)");
+  await expect(navigation).toHaveCSS("border-bottom-color", "rgb(229, 229, 229)");
+  await expect(page.getByRole("contentinfo")).toHaveCSS("background-color", "rgb(247, 247, 247)");
+
+  for (const label of ["posts", "about", "reading", "projects"]) {
+    await navigation.getByRole("link", { name: new RegExp(label) }).click();
+    await expect(page).toHaveURL(new RegExp(`/${label}/$`));
+    await expect(page.locator("body")).toHaveCSS("background-color", "rgb(255, 255, 255)");
+  }
+
+  await page.getByRole("button", { name: "Switch to dark theme" }).click();
+  await expect(page.locator("body")).toHaveCSS("background-color", "rgb(11, 13, 12)");
+});
+
 test("uses accessible sun/moon icons and preserves the theme choice", async ({ page }) => {
   await page.emulateMedia({ colorScheme: "dark" });
   await gotoHydratedHome(page);
