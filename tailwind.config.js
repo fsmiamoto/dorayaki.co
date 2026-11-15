@@ -26,6 +26,7 @@ module.exports = {
           "accent-ink": "var(--color-accent-ink)",
           amber: "var(--color-amber)",
           purple: "var(--color-purple)",
+          pink: "var(--color-pink)",
           success: "var(--color-success)",
           info: "var(--color-info)",
           danger: "var(--color-danger)",

@@ -1,3 +1,5 @@
+import { Fragment } from "react";
+import clsx from "clsx";
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -41,6 +43,28 @@ const links = [
   },
 ];
 
+const facts = [
+  { key: "role", value: "Software Engineer @ Sakana AI", color: "text-app-purple" },
+  { key: "where", value: "Tokyo, Japan", color: "text-app-amber" },
+  { key: "writes", value: "systems, AI agents, engineering culture", color: "text-app-info" },
+  {
+    key: "into",
+    value: "operating systems, networking, embedded systems, compilers, human languages",
+    color: "text-app-pink",
+  },
+];
+
+const swatches = [
+  "bg-app-accent",
+  "bg-app-info",
+  "bg-app-purple",
+  "bg-app-pink",
+  "bg-app-amber",
+  "bg-app-danger",
+  "bg-app-muted",
+  "bg-app-foreground",
+];
+
 const languageColors: Record<string, string> = {
   Rust: "#dea584",
   TypeScript: "#3178c6",
@@ -61,54 +85,65 @@ export default function Home() {
 
   return (
     <div className="space-y-[52px]">
-      <CommandPrompt command="whoami" showCursor={false}>
-        <div className="grid grid-cols-[72px_1fr] items-center gap-4 sm:grid-cols-[104px_1fr] sm:gap-6">
+      <CommandPrompt command="neofetch" showCursor={false}>
+        <div className="grid gap-[18px] sm:grid-cols-[176px_1fr] sm:items-start sm:gap-8">
           <Image
             src="/avatar.png"
             alt="Flavio Miyamoto"
-            width={104}
-            height={104}
-            className="rounded-lg border border-app-border-subtle"
+            width={176}
+            height={176}
+            className="h-24 w-24 rounded-lg border border-app-border-subtle sm:h-44 sm:w-44"
             priority
           />
           <div>
-            <h1 className="mb-1.5 text-[22px] font-bold leading-tight tracking-tight sm:text-[28px]">
-              Flavio Miyamoto
-            </h1>
-            <p className="text-app-muted">
-              Software Engineer @ Sakana AI
-              <span className="mx-1.5 text-app-faint">·</span>
-              Tokyo, Japan
+            <p className="text-xl font-bold tracking-tight">
+              <span className="text-app-accent">flavio</span>
+              <span className="text-app-faint">@</span>
+              <span className="text-app-info">dorayaki</span>
             </p>
+            <div aria-hidden="true" className="mb-2 mt-0.5 text-app-faint">
+              ----------------
+            </div>
+            <dl className="grid grid-cols-[8ch_1fr] gap-x-3.5 gap-y-[3px] text-[13px] sm:text-sm">
+              <dt className="font-bold text-app-accent">name</dt>
+              <dd>
+                <h1 className="font-normal tracking-normal text-app-soft">Flavio Miyamoto</h1>
+              </dd>
+              {facts.map(({ key, value, color }) => (
+                <Fragment key={key}>
+                  <dt className={clsx("font-bold", color)}>{key}</dt>
+                  <dd>{value}</dd>
+                </Fragment>
+              ))}
+            </dl>
+            <div aria-hidden="true" className="mt-4 flex">
+              {swatches.map((swatch) => (
+                <span key={swatch} className={clsx("h-[18px] w-[30px]", swatch)} />
+              ))}
+            </div>
+            <div className="mt-4 flex gap-2">
+              {links.map(({ label, href, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  title={label}
+                  className="flex h-9 w-9 items-center justify-center rounded border border-app-border-subtle text-app-soft hover:border-app-accent hover:text-app-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                    className="h-[18px] w-[18px]"
+                  >
+                    <path fill="currentColor" d={icon} />
+                  </svg>
+                </a>
+              ))}
+            </div>
           </div>
-        </div>
-        <p className="mt-[22px] max-w-[62ch] text-[15px]">
-          Software engineer writing about <span className="highlight">systems</span>,{" "}
-          <span className="highlight">AI agents</span>, and{" "}
-          <span className="highlight">engineering culture</span>. Also interested in operating
-          systems, networking, embedded systems, compilers, and human language learning.
-        </p>
-        <div className="mt-5 flex gap-2">
-          {links.map(({ label, href, icon }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              title={label}
-              className="flex h-9 w-9 items-center justify-center rounded border border-app-border-subtle text-app-soft hover:border-app-accent hover:text-app-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                focusable="false"
-                className="h-[18px] w-[18px]"
-              >
-                <path fill="currentColor" d={icon} />
-              </svg>
-            </a>
-          ))}
         </div>
       </CommandPrompt>
 

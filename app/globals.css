@@ -17,7 +17,8 @@
   --color-amber: #e6b866;
   --color-danger: #f07178;
   --color-info: #7cc4f0;
-  --color-purple: #e08fa0;
+  --color-purple: #b9a0f5;
+  --color-pink: #e08fa0;
   --color-success: #74e39a;
   --color-shadow: rgba(0, 0, 0, 0.5);
   --color-surface-elevated: #121514;
@@ -44,7 +45,8 @@
   --color-amber: #9a5f08;
   --color-danger: #b3261e;
   --color-info: #0b6aa8;
-  --color-purple: #8a2f3f;
+  --color-purple: #6a48c9;
+  --color-pink: #8a2f3f;
   --color-success: #157a3a;
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-surface-elevated: #ffffff;
@@ -155,14 +157,6 @@
 
   .cursor {
     @apply inline-block h-[15px] w-2 translate-y-0.5 animate-blink bg-app-accent;
-  }
-
-  .highlight {
-    @apply text-app-foreground;
-    background: linear-gradient(
-      transparent 62%,
-      color-mix(in srgb, var(--color-accent) 28%, transparent) 0
-    );
   }
 
   [data-theme="dark"] .theme-label-light,
