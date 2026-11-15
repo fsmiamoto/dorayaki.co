@@ -81,6 +81,16 @@ test.describe("post outline", () => {
 
     await page.goto(`${structuredPost}#composability`);
     await expect(page.getByRole("heading", { name: "Composability" })).toBeInViewport();
+    const navBottom = await page
+      .getByRole("navigation", { name: "Main" })
+      .evaluate((nav) => nav.getBoundingClientRect().bottom);
+    await expect
+      .poll(() =>
+        page
+          .getByRole("heading", { name: "Composability" })
+          .evaluate((heading) => heading.getBoundingClientRect().top),
+      )
+      .toBeGreaterThanOrEqual(navBottom);
     await expect(
       page
         .getByRole("navigation", { name: "On this page" })

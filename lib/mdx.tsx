@@ -20,7 +20,7 @@ function CodeBlock({ children, className }: CodeBlockProps) {
         <span className="text-xs text-app-muted">{language}</span>
         <CopyButton text={children} />
       </div>
-      <pre className="rounded-b-md rounded-t-none border border-app-border-subtle bg-app-surface px-4 py-4 text-[13px] leading-relaxed text-app-soft">
+      <pre className="my-0 rounded-b-md rounded-t-none border border-app-border-subtle bg-app-surface px-4 py-4 text-[13px] leading-relaxed text-app-soft">
         <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
       </pre>
     </div>
@@ -32,10 +32,10 @@ const components = {
     <h1 className="mb-4 mt-9 text-2xl font-bold text-app-foreground" {...props} />
   ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <MarkdownHeading level={2} className="mb-3 mt-9 scroll-mt-24" {...props} />
+    <MarkdownHeading level={2} className="mb-3 mt-9 scroll-mt-16" {...props} />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <MarkdownHeading level={3} className="mb-2 mt-7 scroll-mt-24" {...props} />
+    <MarkdownHeading level={3} className="mb-2 mt-7 scroll-mt-16" {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="mb-5 text-[15px] leading-[1.85] text-app-soft" {...props} />
@@ -46,7 +46,7 @@ const components = {
     }
     return (
       <code
-        className="rounded bg-app-surface-muted px-1.5 py-0.5 font-normal text-app-amber"
+        className="rounded bg-app-surface-muted px-1.5 py-0.5 font-normal text-app-amber before:content-none after:content-none"
         {...props}
       />
     );
@@ -97,7 +97,7 @@ const components = {
   ),
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className="my-6 border-l-2 border-app-amber py-0.5 pl-[18px] font-normal not-italic [&_p]:mb-0 [&_p]:text-app-foreground [&_p]:before:content-none [&_p]:after:content-none"
+      className="my-6 border-l-2 border-app-amber py-0.5 pl-[18px] font-normal not-italic [&_p]:my-0 [&_p]:text-app-foreground [&_p]:before:content-none [&_p]:after:content-none"
       {...props}
     />
   ),
