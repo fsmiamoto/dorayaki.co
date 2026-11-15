@@ -73,6 +73,12 @@ test.describe("post outline", () => {
       await expect(outline.locator('[aria-current="location"]')).toHaveCount(1);
     }
 
+    const wrapUpLink = outline.getByRole("link", { name: "Wrap up" });
+    await wrapUpLink.click();
+    await expect(page).toHaveURL(/#wrap-up$/);
+    await expect(wrapUpLink).toHaveAttribute("aria-current", "location");
+    await expect(outline.locator('[aria-current="location"]')).toHaveCount(1);
+
     const referencesLink = outline.getByRole("link", { name: "References" });
     await referencesLink.click();
     await expect(page).toHaveURL(/#references$/);

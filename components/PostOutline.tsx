@@ -47,6 +47,22 @@ function useActiveHeading(headings: PostHeading[]) {
         nextActiveId = headingElements.at(-1)?.id ?? nextActiveId;
       }
 
+      // A heading the reader just jumped to stays active while it rests at its
+      // scroll offset, even when the end-of-document sweep reaches a later one.
+      const { hash } = window.location;
+      const hashTarget = headingElements.find(
+        ({ id }) => hash === `#${id}` || hash === `#${encodeURIComponent(id)}`,
+      );
+      if (
+        hashTarget &&
+        Math.abs(
+          hashTarget.getBoundingClientRect().top -
+            parseFloat(getComputedStyle(hashTarget).scrollMarginTop),
+        ) < 2
+      ) {
+        nextActiveId = hashTarget.id;
+      }
+
       setActiveId(nextActiveId);
     };
 
@@ -69,12 +85,14 @@ function useActiveHeading(headings: PostHeading[]) {
     headingElements.forEach((heading) => observer.observe(heading));
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", scheduleUpdate);
+    window.addEventListener("hashchange", scheduleUpdate);
     updateActiveHeading();
 
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("resize", scheduleUpdate);
+      window.removeEventListener("hashchange", scheduleUpdate);
       window.cancelAnimationFrame(animationFrame);
     };
   }, [headings]);
