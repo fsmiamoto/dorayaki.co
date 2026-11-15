@@ -30,3 +30,16 @@ test("toggles the theme with t", async ({ page }) => {
   await page.keyboard.press("t");
   await expect(html).toHaveAttribute("data-theme", initialTheme === "dark" ? "light" : "dark");
 });
+
+test("switches pages without a full reload", async ({ page }) => {
+  await gotoHydratedHome(page);
+  await page.evaluate(() => {
+    document.documentElement.dataset.keptAcrossNavigation = "true";
+  });
+
+  await page.getByRole("navigation", { name: "Main" }).getByRole("link", { name: "about" }).click();
+
+  await expect(page).toHaveURL(/\/about\/$/);
+  await expect(page.getByRole("heading", { name: "About me" })).toBeVisible();
+  await expect(page.locator("html")).toHaveAttribute("data-kept-across-navigation", "true");
+});

@@ -6,20 +6,20 @@ import { absoluteUrl, withTrailingSlash } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About - dorayaki",
-  description: "About Flavio Miyamoto - Software Development Engineer II at Amazon",
+  description: "About Flavio Miyamoto - Software Engineer at Sakana AI",
   alternates: {
     canonical: withTrailingSlash("/about"),
   },
   openGraph: {
     title: "About - dorayaki",
-    description: "About Flavio Miyamoto - Software Development Engineer II at Amazon",
+    description: "About Flavio Miyamoto - Software Engineer at Sakana AI",
     url: absoluteUrl(withTrailingSlash("/about")),
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "About - dorayaki",
-    description: "About Flavio Miyamoto - Software Development Engineer II at Amazon",
+    description: "About Flavio Miyamoto - Software Engineer at Sakana AI",
   },
 };
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
           />
         </div>
         <p>Howdy!</p>
-        <p>I'm a Software Engineer currently working at Amazon in Tokyo, Japan.</p>
+        <p>I'm a Software Engineer currently working at Sakana AI in Tokyo, Japan.</p>
         <p>
           My passion is building software to deliver value while learning and exploring new domains
           and technologies.
@@ -79,7 +79,14 @@ export default function AboutPage() {
         <MarkdownHeading>Positions</MarkdownHeading>
         <div className="space-y-2">
           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
-            <span className="shrink-0 text-app-muted sm:w-36">2024 – Present</span>
+            <span className="shrink-0 text-app-muted sm:w-36">2026 – Present</span>
+            <div>
+              <span className="font-semibold text-app-foreground">Sakana AI</span>
+              <span className="ml-2 text-app-soft">Software Engineer</span>
+            </div>
+          </div>
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
+            <span className="shrink-0 text-app-muted sm:w-36">2024 – 2026</span>
             <div>
               <span className="font-semibold text-app-foreground">Amazon.co.jp</span>
               <span className="ml-2 text-app-soft">Software Development Engineer</span>

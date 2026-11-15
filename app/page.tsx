@@ -29,9 +29,16 @@ export const metadata: Metadata = {
 };
 
 const links = [
-  { label: "github", href: "https://github.com/fsmiamoto" },
-  { label: "linkedin", href: "https://www.linkedin.com/in/fsmiamoto/" },
-  { label: "rss", href: "/feed.xml" },
+  {
+    label: "GitHub",
+    href: "https://github.com/fsmiamoto",
+    icon: "M12 .5C5.648.5.5 5.648.5 12a11.5 11.5 0 008.012 10.928c.585.11.8-.254.8-.566 0-.28-.01-1.022-.016-2.007-3.258.708-3.945-1.571-3.945-1.571-.531-1.35-1.296-1.71-1.296-1.71-1.06-.725.08-.711.08-.711 1.172.083 1.788 1.205 1.788 1.205 1.04 1.781 2.732 1.267 3.4.969.105-.753.407-1.267.74-1.558-2.6-.296-5.334-1.3-5.334-5.783 0-1.277.456-2.32 1.205-3.136-.121-.297-.523-1.494.114-3.115 0 0 .985-.315 3.23 1.197a11.26 11.26 0 015.88 0c2.244-1.512 3.228-1.197 3.228-1.197.639 1.621.237 2.818.116 3.115.75.816 1.203 1.859 1.203 3.136 0 4.495-2.738 5.484-5.346 5.775.418.36.79 1.07.79 2.156 0 1.557-.014 2.812-.014 3.193 0 .315.212.68.806.565A11.5 11.5 0 0023.5 12C23.5 5.648 18.352.5 12 .5z",
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/fsmiamoto/",
+    icon: "M20.447 20.452h-3.554v-5.569c0-1.328-.024-3.037-1.85-3.037-1.851 0-2.135 1.445-2.135 2.939v5.667H9.354V9h3.413v1.561h.047c.476-.9 1.637-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.455v6.286zM5.337 7.433a2.062 2.062 0 11.002-4.124 2.062 2.062 0 01-.002 4.124zM7.114 20.452H3.56V9h3.555v11.452z",
+  },
 ];
 
 const languageColors: Record<string, string> = {
@@ -69,7 +76,7 @@ export default function Home() {
               Flavio Miyamoto
             </h1>
             <p className="text-app-muted">
-              Software Development Engineer @ Amazon
+              Software Engineer @ Sakana AI
               <span className="mx-1.5 text-app-faint">·</span>
               Tokyo, Japan
             </p>
@@ -81,24 +88,27 @@ export default function Home() {
           <span className="highlight">engineering culture</span>. Also interested in operating
           systems, networking, embedded systems, compilers, and human language learning.
         </p>
-        <div className="mt-5 flex flex-wrap items-center gap-2">
-          {links.map(({ label, href }) => (
+        <div className="mt-5 flex gap-2">
+          {links.map(({ label, href, icon }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded border border-app-border-subtle px-3 py-[3px] text-app-soft hover:border-app-accent hover:text-app-accent"
+              aria-label={label}
+              title={label}
+              className="flex h-9 w-9 items-center justify-center rounded border border-app-border-subtle text-app-soft hover:border-app-accent hover:text-app-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent"
             >
-              {label}
-              <span aria-hidden="true" className="ml-1.5 text-app-faint">
-                ↗
-              </span>
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+                className="h-[18px] w-[18px]"
+              >
+                <path fill="currentColor" d={icon} />
+              </svg>
             </a>
           ))}
-          <span className="ml-auto hidden text-[13px] italic text-app-muted sm:inline">
-            Tweaking dotfiles...
-          </span>
         </div>
       </CommandPrompt>
 
