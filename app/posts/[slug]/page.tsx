@@ -1,6 +1,5 @@
-import { getAllPostSlugs, getPostBySlug } from "@/lib/posts";
+import { getAllPostSlugs, getAllPostSummaries, getPostBySlug } from "@/lib/posts";
 import { MDXContent } from "@/lib/mdx";
-import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
 import OpinionDisclaimer from "@/components/OpinionDisclaimer";
 import Comments from "@/components/Comments";
@@ -77,6 +76,8 @@ export default async function PostPage({ params }: PageProps) {
   const publishedTime = new Date(post.frontMatter.date).toISOString();
   const headings = extractPostHeadings(post.content);
   const showOutline = headings.length >= 2;
+  const summaries = getAllPostSummaries();
+  const olderPost = summaries[summaries.findIndex(({ slug }) => slug === post.slug) + 1];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -95,77 +96,69 @@ export default async function PostPage({ params }: PageProps) {
   } as const;
 
   return (
-    <div className="space-y-6">
+    <div>
+      <JsonLd data={jsonLd} />
+      <CommandPrompt directory="~/posts" command={`cat ${post.slug}.md`} showCursor={false} />
       <div
         className={clsx(
           showOutline &&
-            "2xl:grid 2xl:w-[73.5rem] 2xl:grid-cols-[minmax(0,54rem)_18rem] 2xl:items-start 2xl:gap-6",
+            "lg:grid lg:grid-cols-[minmax(0,68ch)_200px] lg:items-start lg:justify-between lg:gap-12",
         )}
       >
-        <TerminalWindow title={`posts/${post.slug}.md`}>
-          <div className="space-y-8">
-            <JsonLd data={jsonLd} />
-            <CommandPrompt
-              command={`cat posts/${post.slug}.md`}
-              showCursor={false}
-              contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
-            >
-              <header className="space-y-4">
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
-                    {post.frontMatter.title}
-                  </h1>
-                  {post.frontMatter.excerpt && (
-                    <p className="text-app-soft">{post.frontMatter.excerpt}</p>
-                  )}
-                </div>
-                <div className="flex flex-wrap items-center gap-4 text-xs uppercase tracking-[0.3em] text-app-muted sm:text-sm">
-                  <span className="text-app-accent">{post.formattedDate}</span>
-                  <span className="font-semibold text-app-amber">{post.readingTime}</span>
-                  {post.frontMatter.tags && post.frontMatter.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2">
-                      {post.frontMatter.tags.map((tag, index) => {
-                        const palette = ["text-app-info", "text-app-accent", "text-app-amber"];
-                        return (
-                          <span
-                            key={tag}
-                            className={clsx(
-                              "inline-flex items-center rounded-full px-3 py-1 text-[0.65rem] uppercase tracking-[0.3em]",
-                              palette[index % palette.length],
-                            )}
-                          >
-                            #{tag.toLowerCase().replace(/\s+/g, "-")}
-                          </span>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              </header>
-
-              <OpinionDisclaimer className="text-app-muted" />
-
-              {showOutline && <PostOutline headings={headings} variant="mobile" />}
-
-              <article className="prose-terminal">
-                <MDXContent source={post.content} headings={headings} />
-              </article>
-            </CommandPrompt>
-
-            <div className="pt-6">
-              <Comments slug={post.slug} />
+        <div className="min-w-0 max-w-[68ch]">
+          <header className="mb-6 border-b border-app-border-subtle pb-5">
+            <h1 className="text-[23px] font-bold leading-tight tracking-tight text-app-foreground sm:text-[30px]">
+              {post.frontMatter.title}
+            </h1>
+            {post.frontMatter.excerpt && (
+              <p className="mt-3 text-[15px] text-app-soft">{post.frontMatter.excerpt}</p>
+            )}
+            <div className="mt-3.5 flex flex-wrap gap-x-3.5 gap-y-1.5 text-[13px] text-app-muted">
+              <time dateTime={post.date}>{post.date}</time>
+              <span className="text-app-amber">{post.readingTime}</span>
+              {post.frontMatter.tags?.map((tag) => (
+                <span key={tag} className="text-app-faint">
+                  #{tag.toLowerCase().replace(/\s+/g, "-")}
+                </span>
+              ))}
             </div>
+          </header>
 
-            <CommandPrompt command="ls ../" showCursor={false}>
-              <div className="flex flex-wrap items-center gap-4 text-sm">
-                <Link href="/posts" className="link-nav-underline">
-                  ../
-                </Link>
-                <span className="text-app-soft">Back to posts</span>
-              </div>
-            </CommandPrompt>
+          <OpinionDisclaimer className="mb-6" />
+
+          {showOutline && <PostOutline headings={headings} variant="mobile" />}
+
+          <article className="prose-terminal prose-img:rounded-md prose-img:border prose-img:border-app-border-subtle">
+            <MDXContent source={post.content} headings={headings} />
+          </article>
+
+          <nav
+            aria-label="Posts"
+            className="mt-11 flex justify-between gap-6 border-t border-app-border-subtle pt-5 text-[13px]"
+          >
+            <Link href="/posts" className="group text-app-muted hover:text-app-accent">
+              ← cd ..
+              <span className="block text-sm font-bold text-app-foreground group-hover:text-app-accent">
+                All posts
+              </span>
+            </Link>
+            {olderPost && (
+              <Link
+                href={`/posts/${olderPost.slug}`}
+                className="group text-right text-app-muted hover:text-app-accent"
+              >
+                next →
+                <span className="block text-sm font-bold text-app-foreground group-hover:text-app-accent">
+                  {olderPost.frontMatter.title}
+                </span>
+              </Link>
+            )}
+          </nav>
+
+          <div className="pt-10">
+            <Comments slug={post.slug} />
           </div>
-        </TerminalWindow>
+        </div>
 
         {showOutline && <PostOutline headings={headings} variant="desktop" />}
       </div>

@@ -3,66 +3,67 @@
 @tailwind utilities;
 
 :root {
-  --color-bg: #0c0c0e;
-  --color-surface: #171717;
-  --color-surface-muted: #262626;
-  --color-border: #404040;
-  --color-text: #e5e5e5;
-  --color-text-muted: #a3a3a3;
-  --color-text-soft: #d4d4d4;
-  --color-text-faint: #525252;
-  --color-accent: #4ade80;
-  --color-accent-strong: #22c55e;
-  --color-amber: #fbbf24;
-  --color-danger: #ef4444;
-  --color-info: #38bdf8;
-  --color-purple: #c084fc;
-  --color-success: #4ade80;
+  --color-bg: #0b0d0c;
+  --color-surface: #121514;
+  --color-surface-muted: #1a1e1c;
+  --color-border: #343a37;
+  --color-text: #dfe3de;
+  --color-text-muted: #868d87;
+  --color-text-soft: #b9bfb9;
+  --color-text-faint: #59605b;
+  --color-accent: #74e39a;
+  --color-accent-strong: #9aedb6;
+  --color-accent-ink: #07130b;
+  --color-amber: #e6b866;
+  --color-danger: #f07178;
+  --color-info: #7cc4f0;
+  --color-purple: #e08fa0;
+  --color-success: #74e39a;
   --color-shadow: rgba(0, 0, 0, 0.5);
-  --color-surface-elevated: #171717;
-  --color-surface-soft: #262626;
-  --color-border-subtle: #404040;
+  --color-surface-elevated: #121514;
+  --color-surface-soft: #161a18;
+  --color-border-subtle: #242927;
   --font-sans:
     "Inter", "SF Pro Text", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI",
     system-ui, sans-serif;
-  --font-mono:
-    "JetBrains Mono", "Fira Code", SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
   color-scheme: dark;
 }
 
 [data-theme="light"] {
-  --color-bg: #fafaf8;
-  --color-surface: #f5f5f3;
-  --color-surface-muted: #e4e4e7;
-  --color-border: #d4d4d8;
-  --color-text: #18181b;
-  --color-text-muted: #71717a;
-  --color-text-soft: #52525b;
-  --color-text-faint: #a1a1aa;
-  --color-accent: #16a34a;
-  --color-accent-strong: #15803d;
-  --color-amber: #d97706;
-  --color-danger: #dc2626;
-  --color-info: #0284c7;
-  --color-purple: #9333ea;
-  --color-success: #16a34a;
+  --color-bg: #f8f7f2;
+  --color-surface: #efede5;
+  --color-surface-muted: #e6e3d9;
+  --color-border: #c9c5b8;
+  --color-text: #191b19;
+  --color-text-muted: #666b65;
+  --color-text-soft: #33373a;
+  --color-text-faint: #a0a39b;
+  --color-accent: #157a3a;
+  --color-accent-strong: #0f5c2b;
+  --color-accent-ink: #ffffff;
+  --color-amber: #9a5f08;
+  --color-danger: #b3261e;
+  --color-info: #0b6aa8;
+  --color-purple: #8a2f3f;
+  --color-success: #157a3a;
   --color-shadow: rgba(0, 0, 0, 0.1);
   --color-surface-elevated: #ffffff;
-  --color-surface-soft: #f4f4f5;
-  --color-border-subtle: #e4e4e7;
+  --color-surface-soft: #f1efe8;
+  --color-border-subtle: #dad7cc;
   color-scheme: light;
 }
 
 @layer base {
   html {
-    font-family: var(--font-mono), "JetBrains Mono", "Fira Code", Consolas, monospace;
     text-rendering: optimizeLegibility;
+    font-feature-settings:
+      "calt" 1,
+      "zero" 1;
   }
 
   body {
     @apply bg-app-bg font-mono text-app-foreground antialiased;
-    line-height: 1.75;
+    line-height: 1.65;
     transition:
       background-color 0.3s ease,
       color 0.3s ease;
@@ -94,7 +95,7 @@
   }
 
   code {
-    font-family: var(--font-mono), "JetBrains Mono", "Fira Code", Consolas, monospace;
+    @apply font-mono;
   }
 
   /* Terminal scrollbar styling */
@@ -152,128 +153,21 @@
     --tw-prose-td-borders: var(--color-border);
   }
 
-  .terminal-window {
-    @apply relative overflow-hidden rounded-lg border border-app-border-subtle bg-app-surface-elevated text-app-soft shadow-2xl transition-colors duration-300;
-    box-shadow:
-      0 25px 50px -12px rgba(0, 0, 0, 0.25),
-      inset 0 1px 0 rgba(255, 255, 255, 0.04),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  [data-theme="light"] .terminal-window {
-    box-shadow:
-      0 25px 50px -12px rgba(0, 0, 0, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.6),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.04);
-  }
-
-  .terminal-window::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    background-size: 128px 128px;
-    opacity: 0.025;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  [data-theme="light"] .terminal-window::before {
-    opacity: 0.03;
-  }
-
-  .terminal-window::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.03) 0px,
-      rgba(0, 0, 0, 0.03) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  [data-theme="light"] .terminal-window::after {
-    background: repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.025) 0px,
-      rgba(0, 0, 0, 0.025) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  }
-
-  .terminal-title-bar {
-    @apply flex items-center gap-4 border-b border-app-border-subtle bg-app-surface-muted px-4 py-3 text-xs text-app-muted;
-  }
-
-  .terminal-button {
-    @apply h-3 w-3 rounded-full transition-opacity hover:opacity-80;
-  }
-
-  .terminal-button-red {
-    @apply bg-red-500;
-  }
-
-  .terminal-button-amber {
-    @apply bg-yellow-500;
-  }
-
-  .terminal-button-green {
-    @apply bg-green-500;
-  }
-
-  .terminal-content {
-    /* Padding handled inline for responsiveness */
-    position: relative;
-  }
-
-  .terminal-content::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.04) 100%);
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  [data-theme="light"] .terminal-content::before {
-    background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.025) 100%);
-  }
-
   .cursor {
-    @apply inline-block h-[1.1em] w-2 animate-blink self-center rounded-sm bg-app-accent align-middle opacity-80;
+    @apply inline-block h-[15px] w-2 translate-y-0.5 animate-blink bg-app-accent;
   }
 
-  .prompt {
-    @apply font-semibold text-app-accent;
-    text-shadow:
-      0 0 6px rgba(74, 222, 128, 0.3),
-      0 0 2px rgba(74, 222, 128, 0.15);
-  }
-
-  [data-theme="light"] .prompt {
-    text-shadow: none;
-  }
-
-  .command {
+  .highlight {
     @apply text-app-foreground;
+    background: linear-gradient(
+      transparent 62%,
+      color-mix(in srgb, var(--color-accent) 28%, transparent) 0
+    );
   }
 
-  .ascii-art {
-    @apply font-bold text-app-accent drop-shadow-sm;
-    font-family: "Courier New", monospace;
-    text-shadow:
-      0 0 8px rgba(74, 222, 128, 0.35),
-      0 0 3px rgba(74, 222, 128, 0.2);
-  }
-
-  [data-theme="light"] .ascii-art {
-    text-shadow: none;
+  [data-theme="dark"] .theme-label-light,
+  [data-theme="light"] .theme-label-dark {
+    display: none;
   }
 
   /* Link Utilities - Standardized terminal-style links */
@@ -313,17 +207,6 @@
     @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
   }
 
-  .link-pill {
-    @apply inline-flex items-center gap-2 rounded-full border border-transparent px-4 py-2;
-    @apply transition-all duration-150;
-    @apply hover:border-current;
-    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent;
-  }
-
-  .prompt-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
   .animate-fade-in-up {
     animation-name: fadeInUp;
     animation-duration: 0.5s;
@@ -341,23 +224,6 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Background dot-grid texture */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background-image: radial-gradient(circle, currentColor 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
-  opacity: 0.07;
-  color: var(--color-text);
-}
-
-[data-theme="light"] body::before {
-  opacity: 0.04;
 }
 
 /* Reduced motion */

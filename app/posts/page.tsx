@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { getAllPosts } from "@/lib/posts";
-import TerminalWindow from "@/components/TerminalWindow";
+import { getAllPostSummaries } from "@/lib/posts";
 import CommandPrompt from "@/components/CommandPrompt";
-import PostsResults from "@/components/PostsResults";
+import PostList from "@/components/PostList";
 import OpinionDisclaimer from "@/components/OpinionDisclaimer";
 import { absoluteUrl, withTrailingSlash } from "@/lib/seo";
 
@@ -26,28 +25,15 @@ export const metadata: Metadata = {
 };
 
 export default function PostsPage() {
-  const posts = getAllPosts();
+  const posts = getAllPostSummaries();
 
   return (
-    <div className="space-y-6">
-      <TerminalWindow title="posts/">
-        <div className="space-y-8">
-          <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
-            Posts
-          </h1>
-          <CommandPrompt command="cat DISCLAIMER.txt" showCursor={false}>
-            <OpinionDisclaimer />
-          </CommandPrompt>
-
-          <CommandPrompt
-            command="ls -la posts/"
-            showCursor={false}
-            contentClassName="space-y-4 text-xs sm:text-sm"
-          >
-            <PostsResults posts={posts} />
-          </CommandPrompt>
-        </div>
-      </TerminalWindow>
-    </div>
+    <CommandPrompt command="ls -lt posts/" showCursor={false}>
+      <header className="mb-7 space-y-2">
+        <h1 className="text-[22px] font-bold leading-tight tracking-tight sm:text-[28px]">Posts</h1>
+        <OpinionDisclaimer />
+      </header>
+      <PostList posts={posts} groupByYear />
+    </CommandPrompt>
   );
 }

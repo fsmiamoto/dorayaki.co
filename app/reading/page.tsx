@@ -1,4 +1,3 @@
-import TerminalWindow from "@/components/TerminalWindow";
 import CommandPrompt from "@/components/CommandPrompt";
 import ReadingTabs from "@/components/ReadingTabs";
 import Image from "next/image";
@@ -32,43 +31,39 @@ export default function ReadingPage() {
   const lastUpdated = getBooksLastUpdated();
 
   return (
-    <TerminalWindow title="reading.md">
-      <div className="space-y-8">
-        <CommandPrompt
-          command="cat reading.md"
-          showCursor={false}
-          contentClassName="space-y-6 text-sm leading-relaxed sm:text-base"
-        >
-          <header className="space-y-3">
-            <div className="flex items-start justify-between gap-4">
-              <h1 className="text-3xl font-semibold tracking-tight text-app-foreground sm:text-4xl">
-                Reading List
-              </h1>
-              <Image
-                src="/icons/dorayaki-green.webp"
-                alt=""
-                width={64}
-                height={58}
-                className="hidden h-auto w-14 shrink-0 rotate-3 opacity-60 transition-opacity duration-300 hover:opacity-100 sm:block sm:w-16"
-                aria-hidden="true"
-              />
-            </div>
-            <p className="text-app-soft">
-              My attempt to document the books that shape how I think about software, systems, and
-              people. Suggestions are always welcome.
-            </p>
-            <p className="text-xs uppercase tracking-[0.3em] text-app-muted">
-              Last update: {lastUpdated}
-            </p>
-          </header>
-        </CommandPrompt>
+    <div className="space-y-9">
+      <CommandPrompt
+        command="cat reading.md"
+        showCursor={false}
+        contentClassName="max-w-[68ch] text-[15px] leading-[1.85]"
+      >
+        <header className="space-y-3">
+          <div className="flex items-start justify-between gap-4">
+            <h1 className="text-[22px] font-bold leading-tight tracking-tight text-app-foreground sm:text-[28px]">
+              Reading List
+            </h1>
+            <Image
+              src="/icons/dorayaki-green.webp"
+              alt=""
+              width={64}
+              height={58}
+              className="hidden h-auto w-14 shrink-0 rotate-3 opacity-60 transition-opacity duration-300 hover:opacity-100 sm:block sm:w-16"
+              aria-hidden="true"
+            />
+          </div>
+          <p className="text-app-soft">
+            My attempt to document the books that shape how I think about software, systems, and
+            people. Suggestions are always welcome.
+          </p>
+          <p className="text-[13px] text-app-muted">Last update: {lastUpdated}</p>
+        </header>
+      </CommandPrompt>
 
-        <ReadingTabs
-          readingBooks={readingBooks}
-          finishedBooks={finishedBooks}
-          queueBooks={queueBooks}
-        />
-      </div>
-    </TerminalWindow>
+      <ReadingTabs
+        readingBooks={readingBooks}
+        finishedBooks={finishedBooks}
+        queueBooks={queueBooks}
+      />
+    </div>
   );
 }

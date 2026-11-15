@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import clsx from "clsx";
-import TerminalWindow from "@/components/TerminalWindow";
 import type { PostHeading } from "@/lib/post-headings";
 
 interface PostOutlineProps {
@@ -87,33 +86,25 @@ function OutlineLinks({ headings }: { headings: PostHeading[] }) {
   const activeId = useActiveHeading(headings);
 
   return (
-    <ul className="space-y-1.5">
+    <ul className="border-l border-app-border-subtle">
       {headings.map((heading) => {
         const isActive = heading.id === activeId;
 
         return (
-          <li key={heading.id} className={clsx(heading.outlineDepth === 3 && "pl-4")}>
+          <li key={heading.id}>
             <a
               href={`#${heading.id}`}
               aria-current={isActive ? "location" : undefined}
               className={clsx(
-                "group flex items-start gap-2 rounded px-2 py-1.5 text-xs leading-relaxed transition-colors sm:text-sm",
+                "-ml-px block border-l py-1 text-xs leading-relaxed transition-colors",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent",
+                heading.outlineDepth === 3 ? "pl-6" : "pl-3",
                 isActive
-                  ? "bg-app-surface-soft text-app-accent"
-                  : "hover:bg-app-surface-soft/60 text-app-muted hover:text-app-foreground",
+                  ? "border-app-accent text-app-foreground"
+                  : "border-transparent text-app-muted hover:text-app-accent",
               )}
             >
-              <span
-                aria-hidden="true"
-                className={clsx(
-                  "mt-px shrink-0 transition-opacity",
-                  isActive ? "text-app-accent opacity-100" : "opacity-0 group-hover:opacity-50",
-                )}
-              >
-                ▸
-              </span>
-              <span>{heading.label}</span>
+              {heading.label}
             </a>
           </li>
         );
@@ -122,26 +113,14 @@ function OutlineLinks({ headings }: { headings: PostHeading[] }) {
   );
 }
 
-function OutlineCommand() {
-  return (
-    <p className="mb-4 flex items-baseline gap-2 text-xs text-app-foreground sm:text-sm">
-      <span className="prompt-glow text-app-accent" aria-hidden="true">
-        $
-      </span>
-      <span>headings post.md</span>
-    </p>
-  );
-}
-
 export default function PostOutline({ headings, variant }: PostOutlineProps) {
   if (variant === "mobile") {
     return (
-      <details className="bg-app-surface-soft/40 group rounded-lg border border-app-border-subtle 2xl:hidden">
-        <summary className="cursor-pointer select-none px-4 py-3 text-sm font-semibold text-app-foreground marker:text-app-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent">
+      <details className="mb-6 rounded border border-app-border-subtle lg:hidden">
+        <summary className="cursor-pointer select-none px-3.5 py-2.5 text-[13px] text-app-foreground marker:text-app-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent">
           On this page
         </summary>
-        <nav aria-label="On this page" className="border-t border-app-border-subtle px-3 py-4">
-          <OutlineCommand />
+        <nav aria-label="On this page" className="border-t border-app-border-subtle px-3.5 py-3">
           <OutlineLinks headings={headings} />
         </nav>
       </details>
@@ -149,15 +128,11 @@ export default function PostOutline({ headings, variant }: PostOutlineProps) {
   }
 
   return (
-    <aside className="sticky top-6 hidden self-start 2xl:block">
-      <div className="max-h-[calc(100vh-7rem)] overflow-y-auto rounded-lg">
-        <TerminalWindow title="outline" windowNumber={2} literalTitle>
-          <nav aria-label="On this page">
-            <OutlineCommand />
-            <OutlineLinks headings={headings} />
-          </nav>
-        </TerminalWindow>
-      </div>
+    <aside className="sticky top-16 hidden max-h-[calc(100vh-7rem)] self-start overflow-y-auto lg:block">
+      <nav aria-label="On this page">
+        <p className="mb-2.5 text-xs text-app-faint"># on this page</p>
+        <OutlineLinks headings={headings} />
+      </nav>
     </aside>
   );
 }

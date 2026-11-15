@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import clsx from "clsx";
 import BookCard from "@/components/BookCard";
 import CommandPrompt from "@/components/CommandPrompt";
 import type { Book } from "@/lib/books";
@@ -19,12 +20,6 @@ const tabCommands: Record<ReadingTab, string> = {
   reading: 'ls books | grep "status=reading"',
   finished: 'ls books | grep "status=finished"',
   queue: 'ls books | grep "status=queue"',
-};
-
-const tabAccent: Record<ReadingTab, string> = {
-  reading: "text-app-accent hover:border-app-accent",
-  finished: "text-app-amber hover:border-app-amber",
-  queue: "text-app-info hover:border-app-info",
 };
 
 function BookList({
@@ -62,7 +57,7 @@ export default function ReadingTabs({ readingBooks, finishedBooks, queueBooks }:
   return (
     <div className="space-y-6">
       <div
-        className="flex flex-wrap gap-3 text-xs tracking-[0.3em] sm:text-sm"
+        className="flex flex-wrap gap-2 text-[13px]"
         role="tablist"
         aria-label="Reading list filter"
       >
@@ -78,11 +73,14 @@ export default function ReadingTabs({ readingBooks, finishedBooks, queueBooks }:
               aria-controls="books-tabpanel"
               aria-selected={isActive}
               onClick={() => setActiveTab(tab)}
-              className={`link-pill ${tabAccent[tab]} ${
-                isActive ? "bg-app-surface-muted/60 border-current text-app-foreground" : ""
-              }`}
+              className={clsx(
+                "rounded border px-3 py-[3px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-app-accent",
+                isActive
+                  ? "border-app-accent bg-app-surface text-app-accent"
+                  : "border-app-border-subtle text-app-muted hover:border-app-muted hover:text-app-foreground",
+              )}
             >
-              [{tab}:{counts[tab]}]
+              {tab}: {counts[tab]}
             </button>
           );
         })}

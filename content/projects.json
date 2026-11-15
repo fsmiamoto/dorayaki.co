@@ -1,0 +1,38 @@
+[
+  {
+    "name": "mansk",
+    "description": "Reproducible agent-skills manager.",
+    "language": "Rust",
+    "url": "https://github.com/fsmiamoto/mansk"
+  },
+  {
+    "name": "reagent",
+    "description": "Local tool for reviewing your agent's code",
+    "language": "TypeScript",
+    "url": "https://github.com/fsmiamoto/reagent"
+  },
+  {
+    "name": "ralfinho",
+    "description": "My take on the Ralph Wiggum loops",
+    "language": "Go",
+    "url": "https://github.com/fsmiamoto/ralfinho"
+  },
+  {
+    "name": "sb",
+    "description": "My sandboxing tool",
+    "language": "Go",
+    "url": "https://github.com/fsmiamoto/sb"
+  },
+  {
+    "name": "servant",
+    "description": "Always-on static file server for remote hosts.",
+    "language": "Rust",
+    "url": "https://github.com/fsmiamoto/servant"
+  },
+  {
+    "name": "dicionario.app",
+    "description": "Your language learning companion",
+    "language": "TypeScript",
+    "url": "https://dicionario.app/"
+  }
+]

@@ -1,16 +1,6 @@
-"use client";
-
-import { useState } from "react";
-import Image from "next/image";
+import BookCover from "@/components/BookCover";
 import type { Book } from "@/lib/books";
-import {
-  getGoodreadsIsbnUrl,
-  getGoogleBooksIsbnUrl,
-  getGoogleBooksCoverUrl,
-  getOpenLibraryCoverUrl,
-} from "@/lib/books-client";
-
-type CoverSource = "custom" | "google" | "openLibrary" | "avatar";
+import { getGoodreadsIsbnUrl, getGoogleBooksIsbnUrl } from "@/lib/books-client";
 
 interface BookCardProps {
   book: Book;
@@ -18,56 +8,12 @@ interface BookCardProps {
 }
 
 export default function BookCard({ book, showCover = true }: BookCardProps) {
-  const [coverSource, setCoverSource] = useState<CoverSource>(book.coverUrl ? "custom" : "google");
-  const firstLetter = book.title.charAt(0).toUpperCase();
-
-  // Get cover URL based on current source
-  const getCoverImageUrl = (): string | null => {
-    if (!book.isbn) return null;
-    switch (coverSource) {
-      case "custom":
-        return book.coverUrl;
-      case "google":
-        return getGoogleBooksCoverUrl(book.isbn);
-      case "openLibrary":
-        return getOpenLibraryCoverUrl(book.isbn, "S");
-      case "avatar":
-        return null;
-    }
-  };
-
-  const handleImageError = () => {
-    // Cascade through sources: custom -> google -> openLibrary -> avatar
-    if (coverSource === "custom") {
-      setCoverSource("google");
-    } else if (coverSource === "google") {
-      setCoverSource("openLibrary");
-    } else if (coverSource === "openLibrary") {
-      setCoverSource("avatar");
-    }
-  };
-
-  const coverImageUrl = getCoverImageUrl();
-
   return (
     <div className="-m-2 flex items-start gap-3 rounded-md p-2 transition-colors hover:bg-app-surface-muted">
       {/* Cover or First-Letter Avatar */}
       {showCover && (
         <div className="relative h-20 w-16 flex-shrink-0 overflow-hidden rounded border border-app-border-subtle bg-app-surface-muted">
-          {coverImageUrl ? (
-            <Image
-              src={coverImageUrl}
-              alt={`Cover of ${book.title}`}
-              className="object-cover"
-              fill
-              sizes="64px"
-              onError={handleImageError}
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-lg font-bold text-app-accent">
-              {firstLetter}
-            </div>
-          )}
+          <BookCover book={book} sizes="64px" />
         </div>
       )}
 
