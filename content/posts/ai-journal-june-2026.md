@@ -1,9 +1,10 @@
 ---
-
 title: "AI Journal: The New Bottleneck Is Judgement - June 2026"
 date: "2026-06-14"
 tags: []
---------
+---
+
+---
 
 When I stop to think about it, 2026 has really been transformative.
 
