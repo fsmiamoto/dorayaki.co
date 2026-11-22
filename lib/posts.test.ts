@@ -35,7 +35,8 @@ describe("post loading", { concurrency: 1 }, () => {
       const current = posts[index];
       assert.ok(previous && current);
       assert.ok(
-        new Date(previous.frontMatter.date).getTime() >= new Date(current.frontMatter.date).getTime(),
+        new Date(previous.frontMatter.date).getTime() >=
+          new Date(current.frontMatter.date).getTime(),
       );
     }
 
@@ -58,7 +59,6 @@ describe("post loading", { concurrency: 1 }, () => {
       summaries.some((post) => "content" in post),
       false,
     );
-
   });
 
   it("parses front matter, the slug, and the excerpt", async (t) => {
