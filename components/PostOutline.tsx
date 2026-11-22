@@ -16,7 +16,8 @@ function useActiveHeading(headings: PostHeading[]) {
     const headingElements = headings
       .map(({ id }) => document.getElementById(id))
       .filter((element): element is HTMLElement => element !== null);
-    if (headingElements.length === 0) {
+    const firstHeading = headingElements[0];
+    if (!firstHeading) {
       return;
     }
 
@@ -33,7 +34,7 @@ function useActiveHeading(headings: PostHeading[]) {
       // can each become active even when they cannot reach the usual top offset.
       const endProgress = 1 - Math.min(distanceToEnd / viewHeight, 1);
       const readingThreshold = upperReadingThreshold + (viewHeight * 0.6 - 48) * endProgress;
-      let nextActiveId = headingElements[0].id;
+      let nextActiveId = firstHeading.id;
 
       for (const heading of headingElements) {
         if (heading.getBoundingClientRect().top > readingThreshold) {

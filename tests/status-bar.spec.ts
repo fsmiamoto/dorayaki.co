@@ -54,7 +54,9 @@ test("compacts the status bar on a narrow screen", async ({ page }) => {
 
   const bar = page.getByRole("contentinfo");
   await expect(bar).toBeInViewport();
-  const visibleBar = await bar.evaluate((element) => element.innerText.replace(/\s+/g, " ").trim());
+  const visibleBar = await bar.evaluate((element) =>
+    element instanceof HTMLElement ? element.innerText.replace(/\s+/g, " ").trim() : "",
+  );
   expect(visibleBar).toMatch(/© \d{4}/);
   expect(visibleBar).not.toContain("Flavio");
   expect(visibleBar).not.toContain("utf-8");

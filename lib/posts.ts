@@ -5,7 +5,7 @@ import readingTime from "reading-time";
 import { format } from "date-fns";
 import { toPlainTextExcerpt } from "@/lib/seo";
 
-export interface PostFrontMatter {
+interface PostFrontMatter {
   title: string;
   date: string;
   tags?: string[];
@@ -58,21 +58,21 @@ function firstParagraphExcerpt(content: string): string {
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
-export function getAllPostSlugs(): string[] {
-  if (!fs.existsSync(postsDirectory)) {
+export function getAllPostSlugs(directory = postsDirectory): string[] {
+  if (!fs.existsSync(directory)) {
     return [];
   }
 
-  const fileNames = fs.readdirSync(postsDirectory);
+  const fileNames = fs.readdirSync(directory);
   const slugs = fileNames
     .filter((name) => name.endsWith(".md") || name.endsWith(".mdx"))
     .map((name) => name.replace(/\.mdx?$/, ""));
   return slugs;
 }
 
-export function getPostBySlug(slug: string): Post | null {
+export function getPostBySlug(slug: string, directory = postsDirectory): Post | null {
   try {
-    const fullPath = path.join(postsDirectory, `${slug}.md`);
+    const fullPath = path.join(directory, `${slug}.md`);
 
     if (!fs.existsSync(fullPath)) {
       return null;
@@ -99,12 +99,12 @@ export function getPostBySlug(slug: string): Post | null {
   }
 }
 
-export function getAllPosts(): Post[] {
-  const slugs = getAllPostSlugs();
+export function getAllPosts(directory = postsDirectory): Post[] {
+  const slugs = getAllPostSlugs(directory);
 
   const posts = slugs
     .map((slug) => {
-      const post = getPostBySlug(slug);
+      const post = getPostBySlug(slug, directory);
       return post;
     })
     .filter((post): post is Post => post !== null)
@@ -115,26 +115,10 @@ export function getAllPosts(): Post[] {
   return posts;
 }
 
-export function getAllPostSummaries(): PostSummary[] {
-  return getAllPosts().map((post) => {
+export function getAllPostSummaries(directory = postsDirectory): PostSummary[] {
+  return getAllPosts(directory).map((post) => {
     const summary: PostSummary & { content?: string } = { ...post };
     delete summary.content;
     return summary;
   });
-}
-
-export function getPostsByTag(tag: string): Post[] {
-  const allPosts = getAllPosts();
-  return allPosts.filter((post) => post.frontMatter.tags?.includes(tag));
-}
-
-export function getAllTags(): string[] {
-  const allPosts = getAllPosts();
-  const tags = new Set<string>();
-
-  allPosts.forEach((post) => {
-    post.frontMatter.tags?.forEach((tag) => tags.add(tag));
-  });
-
-  return Array.from(tags).sort();
 }
