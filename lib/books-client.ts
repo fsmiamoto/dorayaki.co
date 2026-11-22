@@ -22,16 +22,6 @@ export function getOpenLibraryCoverUrl(
 }
 
 /**
- * Generate cover URL from ISBN using Google Books as primary source
- * @param isbn - The book's ISBN
- * @returns Cover URL or null if no ISBN provided
- */
-export function getCoverUrl(isbn: string | null): string | null {
-  if (!isbn) return null;
-  return getGoogleBooksCoverUrl(isbn);
-}
-
-/**
  * Generate Goodreads URL from ISBN
  */
 export function getGoodreadsIsbnUrl(isbn: string): string {

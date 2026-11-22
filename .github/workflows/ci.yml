@@ -27,3 +27,5 @@ jobs:
         run: npm run lint
       - name: Type check
         run: npm run typecheck
+      - name: Knip
+        run: npm run knip

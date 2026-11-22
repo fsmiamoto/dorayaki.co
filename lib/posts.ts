@@ -5,7 +5,7 @@ import readingTime from "reading-time";
 import { format } from "date-fns";
 import { toPlainTextExcerpt } from "@/lib/seo";
 
-export interface PostFrontMatter {
+interface PostFrontMatter {
   title: string;
   date: string;
   tags?: string[];
@@ -121,20 +121,4 @@ export function getAllPostSummaries(): PostSummary[] {
     delete summary.content;
     return summary;
   });
-}
-
-export function getPostsByTag(tag: string): Post[] {
-  const allPosts = getAllPosts();
-  return allPosts.filter((post) => post.frontMatter.tags?.includes(tag));
-}
-
-export function getAllTags(): string[] {
-  const allPosts = getAllPosts();
-  const tags = new Set<string>();
-
-  allPosts.forEach((post) => {
-    post.frontMatter.tags?.forEach((tag) => tags.add(tag));
-  });
-
-  return Array.from(tags).sort();
 }
