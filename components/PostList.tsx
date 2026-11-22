@@ -75,7 +75,7 @@ export default function PostList({
               onFocus={() => setSelected(index)}
               data-selected={isSelected || undefined}
               className={clsx(
-                "grid scroll-mb-10 scroll-mt-12 grid-cols-[1fr_auto] gap-x-[18px] gap-y-1 rounded-r-md border-l-2 px-3.5 py-3 sm:grid-cols-[104px_1fr_auto]",
+                "grid scroll-mb-4 scroll-mt-4 grid-cols-[1fr_auto] gap-x-[18px] gap-y-1 rounded-r-md border-l-2 px-3.5 py-3 sm:grid-cols-[104px_1fr_auto]",
                 "focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-app-accent",
                 isSelected ? "border-app-accent bg-app-surface" : "border-transparent",
               )}

@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import TerminalNav from "@/components/TerminalNav";
+import ScrollContainer from "@/components/ScrollContainer";
 import StatusBar from "@/components/StatusBar";
 import localFont from "next/font/local";
 import { SITE_ORIGIN } from "@/lib/seo";
@@ -14,6 +15,12 @@ const jetbrainsMono = localFont({
   variable: "--font-mono",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: "dorayaki",
@@ -46,21 +53,23 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" data-theme="dark" className={jetbrainsMono.variable}>
-      <body className="flex min-h-screen flex-col">
+      <body className="flex flex-col">
         <ThemeProvider>
           <a
             href="#main-content"
-            className="sr-only z-50 rounded border border-app-border bg-app-surface px-4 py-2 text-app-foreground focus:not-sr-only focus:absolute focus:left-4 focus:top-4"
+            className="sr-only z-50 rounded border border-app-border bg-app-surface px-4 py-2 text-app-foreground focus:not-sr-only focus:absolute focus:left-4 focus:top-[max(1rem,env(safe-area-inset-top))]"
           >
             Skip to main content
           </a>
           <TerminalNav />
-          <main
-            id="main-content"
-            className="mx-auto w-full max-w-[900px] flex-1 px-4 pb-12 pt-7 sm:px-6 sm:pb-16 sm:pt-11"
-          >
-            {children}
-          </main>
+          <ScrollContainer>
+            <main
+              id="main-content"
+              className="mx-auto w-full max-w-[900px] px-4 pb-12 pt-7 sm:px-6 sm:pb-16 sm:pt-11"
+            >
+              {children}
+            </main>
+          </ScrollContainer>
           <StatusBar year={new Date().getFullYear()} />
         </ThemeProvider>
       </body>

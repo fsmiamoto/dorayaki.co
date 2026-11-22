@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-export default function TokyoClock({ className }: { className?: string }) {
+export default function TokyoClock({
+  className,
+  compact = false,
+}: {
+  className?: string;
+  compact?: boolean;
+}) {
   const [time, setTime] = useState("--:--");
 
   useEffect(() => {
@@ -17,6 +23,14 @@ export default function TokyoClock({ className }: { className?: string }) {
     const interval = window.setInterval(tick, 20_000);
     return () => window.clearInterval(interval);
   }, []);
+
+  if (compact) {
+    return (
+      <time className={className} aria-label={`Tokyo ${time} JST`}>
+        {time}
+      </time>
+    );
+  }
 
   return (
     <span className={className}>

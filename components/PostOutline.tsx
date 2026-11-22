@@ -20,17 +20,19 @@ function useActiveHeading(headings: PostHeading[]) {
       return;
     }
 
+    const scroller = document.getElementById("scroll-root");
+
     const updateActiveHeading = () => {
-      const upperReadingThreshold = 96;
-      const distanceToDocumentEnd = Math.max(
-        0,
-        document.documentElement.scrollHeight - (window.scrollY + window.innerHeight),
-      );
+      const origin = scroller?.getBoundingClientRect().top ?? 0;
+      const scrollTop = scroller?.scrollTop ?? window.scrollY;
+      const viewHeight = scroller?.clientHeight ?? window.innerHeight;
+      const scrollHeight = scroller?.scrollHeight ?? document.documentElement.scrollHeight;
+      const upperReadingThreshold = origin + 48;
+      const distanceToEnd = Math.max(0, scrollHeight - (scrollTop + viewHeight));
       // Sweep the threshold down near the document end so short final sections
       // can each become active even when they cannot reach the usual top offset.
-      const endProgress = 1 - Math.min(distanceToDocumentEnd / window.innerHeight, 1);
-      const readingThreshold =
-        upperReadingThreshold + (window.innerHeight * 0.6 - upperReadingThreshold) * endProgress;
+      const endProgress = 1 - Math.min(distanceToEnd / viewHeight, 1);
+      const readingThreshold = upperReadingThreshold + (viewHeight * 0.6 - 48) * endProgress;
       let nextActiveId = headingElements[0].id;
 
       for (const heading of headingElements) {
@@ -40,8 +42,7 @@ function useActiveHeading(headings: PostHeading[]) {
         nextActiveId = heading.id;
       }
 
-      const isAtDocumentEnd =
-        Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 2;
+      const isAtDocumentEnd = Math.ceil(scrollTop + viewHeight) >= scrollHeight - 2;
 
       if (isAtDocumentEnd) {
         nextActiveId = headingElements.at(-1)?.id ?? nextActiveId;
@@ -53,12 +54,12 @@ function useActiveHeading(headings: PostHeading[]) {
       const hashTarget = headingElements.find(
         ({ id }) => hash === `#${id}` || hash === `#${encodeURIComponent(id)}`,
       );
+      const scrollMarginTop = hashTarget
+        ? parseFloat(getComputedStyle(hashTarget).scrollMarginTop) || 0
+        : 0;
       if (
         hashTarget &&
-        Math.abs(
-          hashTarget.getBoundingClientRect().top -
-            parseFloat(getComputedStyle(hashTarget).scrollMarginTop),
-        ) < 2
+        Math.abs(hashTarget.getBoundingClientRect().top - origin - scrollMarginTop) < 2
       ) {
         nextActiveId = hashTarget.id;
       }
@@ -83,6 +84,7 @@ function useActiveHeading(headings: PostHeading[]) {
     });
 
     headingElements.forEach((heading) => observer.observe(heading));
+    scroller?.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", scheduleUpdate);
     window.addEventListener("hashchange", scheduleUpdate);
@@ -90,6 +92,7 @@ function useActiveHeading(headings: PostHeading[]) {
 
     return () => {
       observer.disconnect();
+      scroller?.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("scroll", scheduleUpdate);
       window.removeEventListener("resize", scheduleUpdate);
       window.removeEventListener("hashchange", scheduleUpdate);
@@ -146,7 +149,7 @@ export default function PostOutline({ headings, variant }: PostOutlineProps) {
   }
 
   return (
-    <aside className="sticky top-16 hidden max-h-[calc(100vh-7rem)] self-start overflow-y-auto lg:block">
+    <aside className="sticky top-3 hidden max-h-[calc(100dvh-6.25rem-env(safe-area-inset-top)-env(safe-area-inset-bottom))] self-start overflow-y-auto lg:block">
       <nav aria-label="On this page">
         <p className="mb-2.5 text-xs text-app-faint"># on this page</p>
         <OutlineLinks headings={headings} />
