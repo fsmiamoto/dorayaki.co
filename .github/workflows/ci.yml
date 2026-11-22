@@ -29,3 +29,5 @@ jobs:
         run: npm run typecheck
       - name: Knip
         run: npm run knip
+      - name: Unit tests
+        run: npm test

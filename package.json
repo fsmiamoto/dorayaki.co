@@ -10,6 +10,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "serve:out": "node scripts/serve-static.mjs",
+    "test": "node --import ./scripts/register-test-loader.mjs --test lib/posts.test.ts",
     "test:e2e": "playwright test",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
