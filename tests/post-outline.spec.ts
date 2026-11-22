@@ -64,7 +64,9 @@ test.describe("post outline", () => {
       ["Wrap up", 300],
     ] as const) {
       await page.getByRole("heading", { name: label }).evaluate((heading, top) => {
-        window.scrollTo(0, window.scrollY + heading.getBoundingClientRect().top - top);
+        const scroller = document.getElementById("scroll-root");
+        if (!scroller) return;
+        scroller.scrollTop += heading.getBoundingClientRect().top - top;
       }, targetTop);
       await expect(outline.getByRole("link", { name: label })).toHaveAttribute(
         "aria-current",

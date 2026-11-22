@@ -20,7 +20,7 @@ function CodeBlock({ children, className }: CodeBlockProps) {
         <span className="text-xs text-app-muted">{language}</span>
         <CopyButton text={children} />
       </div>
-      <pre className="my-0 rounded-b-md rounded-t-none border border-app-border-subtle bg-app-surface px-4 py-4 text-[13px] leading-relaxed text-app-soft">
+      <pre className="my-0 overflow-x-auto rounded-b-md rounded-t-none border border-app-border-subtle bg-app-surface px-4 py-4 text-[13px] leading-relaxed text-app-soft">
         <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
       </pre>
     </div>
@@ -32,10 +32,10 @@ const components = {
     <h1 className="mb-4 mt-9 text-2xl font-bold text-app-foreground" {...props} />
   ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <MarkdownHeading level={2} className="mb-3 mt-9 scroll-mt-16" {...props} />
+    <MarkdownHeading level={2} className="mb-3 mt-9 scroll-mt-4" {...props} />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <MarkdownHeading level={3} className="mb-2 mt-7 scroll-mt-16" {...props} />
+    <MarkdownHeading level={3} className="mb-2 mt-7 scroll-mt-4" {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="mb-5 text-[15px] leading-[1.85] text-app-soft" {...props} />
